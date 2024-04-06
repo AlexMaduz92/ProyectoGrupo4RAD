@@ -33,6 +33,7 @@
             this.opcionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregaCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descuentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,14 +46,15 @@
             this.opcionesToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // opcionesToolStripMenuItem
             // 
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregaCategoriaToolStripMenuItem});
+            this.agregaCategoriaToolStripMenuItem,
+            this.descuentoToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 29);
             this.opcionesToolStripMenuItem.Text = "Categorias";
@@ -78,6 +80,13 @@
             this.agregaCategoriaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.agregaCategoriaToolStripMenuItem.Text = "Agrega categoria";
             this.agregaCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregaCategoriaToolStripMenuItem_Click);
+            // 
+            // descuentoToolStripMenuItem
+            // 
+            this.descuentoToolStripMenuItem.Name = "descuentoToolStripMenuItem";
+            this.descuentoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.descuentoToolStripMenuItem.Text = "Descuento";
+            this.descuentoToolStripMenuItem.Click += new System.EventHandler(this.descuentoToolStripMenuItem_Click);
             // 
             // PMENU
             // 
@@ -107,5 +116,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregaCategoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descuentoToolStripMenuItem;
     }
 }
