@@ -42,20 +42,20 @@
             this.CBEstado = new System.Windows.Forms.CheckBox();
             this.DTFCreacion = new System.Windows.Forms.DateTimePicker();
             this.DGVCategoria = new System.Windows.Forms.DataGridView();
-            this.proyectoRadDataSet = new Presentacion.ProyectoRadDataSet();
-            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriasTableAdapter = new Presentacion.ProyectoRadDataSetTableAdapters.CategoriasTableAdapter();
             this.categoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet = new Presentacion.ProyectoRadDataSet();
+            this.categoriasTableAdapter = new Presentacion.ProyectoRadDataSetTableAdapters.CategoriasTableAdapter();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.Button();
+            this.BtnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtID
@@ -115,7 +115,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(456, 63);
+            this.label6.Location = new System.Drawing.Point(604, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 20);
             this.label6.TabIndex = 6;
@@ -153,7 +153,7 @@
             // 
             // DTFCreacion
             // 
-            this.DTFCreacion.Location = new System.Drawing.Point(653, 63);
+            this.DTFCreacion.Location = new System.Drawing.Point(801, 63);
             this.DTFCreacion.Name = "DTFCreacion";
             this.DTFCreacion.Size = new System.Drawing.Size(302, 26);
             this.DTFCreacion.TabIndex = 11;
@@ -170,27 +170,13 @@
             this.estadoDataGridViewCheckBoxColumn,
             this.fechaCreacionDataGridViewTextBoxColumn});
             this.DGVCategoria.DataSource = this.categoriasBindingSource;
-            this.DGVCategoria.Location = new System.Drawing.Point(12, 406);
+            this.DGVCategoria.Location = new System.Drawing.Point(5, 267);
             this.DGVCategoria.Name = "DGVCategoria";
             this.DGVCategoria.ReadOnly = true;
             this.DGVCategoria.RowHeadersWidth = 62;
             this.DGVCategoria.RowTemplate.Height = 28;
             this.DGVCategoria.Size = new System.Drawing.Size(1222, 260);
             this.DGVCategoria.TabIndex = 12;
-            // 
-            // proyectoRadDataSet
-            // 
-            this.proyectoRadDataSet.DataSetName = "ProyectoRadDataSet";
-            this.proyectoRadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriasBindingSource
-            // 
-            this.categoriasBindingSource.DataMember = "Categorias";
-            this.categoriasBindingSource.DataSource = this.proyectoRadDataSet;
-            // 
-            // categoriasTableAdapter
-            // 
-            this.categoriasTableAdapter.ClearBeforeFill = true;
             // 
             // categoriaIdDataGridViewTextBoxColumn
             // 
@@ -237,9 +223,23 @@
             this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaCreacionDataGridViewTextBoxColumn.Width = 150;
             // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.proyectoRadDataSet;
+            // 
+            // proyectoRadDataSet
+            // 
+            this.proyectoRadDataSet.DataSetName = "ProyectoRadDataSet";
+            this.proyectoRadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriasTableAdapter
+            // 
+            this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(460, 127);
+            this.BtnGuardar.Location = new System.Drawing.Point(608, 127);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(117, 50);
             this.BtnGuardar.TabIndex = 13;
@@ -248,28 +248,28 @@
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(600, 127);
+            this.BtnModificar.Location = new System.Drawing.Point(748, 127);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(117, 50);
             this.BtnModificar.TabIndex = 14;
-            this.BtnModificar.Text = "Guardar";
+            this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = true;
             // 
-            // Eliminar
+            // BtnEliminar
             // 
-            this.Eliminar.Location = new System.Drawing.Point(736, 127);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(117, 50);
-            this.Eliminar.TabIndex = 15;
-            this.Eliminar.Text = "Guardar";
-            this.Eliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Location = new System.Drawing.Point(884, 127);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(117, 50);
+            this.BtnEliminar.TabIndex = 15;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = true;
             // 
             // PCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1246, 710);
-            this.Controls.Add(this.Eliminar);
+            this.ClientSize = new System.Drawing.Size(1246, 537);
+            this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.DGVCategoria);
@@ -289,8 +289,8 @@
             this.Text = "PCategoria";
             this.Load += new System.EventHandler(this.PCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,6 +321,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnModificar;
-        private System.Windows.Forms.Button Eliminar;
+        private System.Windows.Forms.Button BtnEliminar;
     }
 }

@@ -27,5 +27,11 @@ namespace Presentacion
             PCategoria categoriaForm = new PCategoria();
             categoriaForm.ShowDialog();
         }
+
+        private void descuentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDescuento descuentoForm = new PDescuento();
+            descuentoForm.ShowDialog();
+        }
     }
 }
