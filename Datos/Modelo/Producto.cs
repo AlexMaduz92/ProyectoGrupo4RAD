@@ -11,15 +11,13 @@ namespace Datos.Modelo
     public class Producto
     {
             public int ProductoId { get; set; }
-            public string Codigo { get; set; }
-            public string Descripcion { get; set; }
             public int CategoriaId { get; set; }
             public int UnidadMedidaId { get; set; }
-            public decimal PrecioCompra { get; set; }
-            public decimal PrecioVenta { get; set; }
-            public int Stock { get; set; }
-            public bool Estado { get; set; }
+
             public DateTime FechaCreacion { get; set; }
+            public decimal PrecioCompra { get; set; }
+            public bool Estado { get; set; }
+            
 
           
             public Categoria Categoria { get; set; }

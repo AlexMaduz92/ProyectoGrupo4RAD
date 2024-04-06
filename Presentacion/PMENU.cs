@@ -16,5 +16,16 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Application.Exit();
+        }
+
+        private void agregaCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PCategoria categoriaForm = new PCategoria();
+            categoriaForm.ShowDialog();
+        }
     }
 }

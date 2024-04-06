@@ -16,5 +16,12 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void PCategoria_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.proyectoRadDataSet.Categorias);
+
+        }
     }
 }

@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202403200501285_AdicionesTablas.designer.cs">
       <DependentUpon>202403200501285_AdicionesTablas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404062001425_correciones.cs" />
+    <Compile Include="Migrations\202404062001425_correciones.designer.cs">
+      <DependentUpon>202404062001425_correciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Cliente.cs" />
@@ -80,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\202403200501285_AdicionesTablas.resx">
       <DependentUpon>202403200501285_AdicionesTablas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404062001425_correciones.resx">
+      <DependentUpon>202404062001425_correciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
