@@ -39,6 +39,9 @@
             this.condicionesDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detalleDeFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detalleDePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +67,8 @@
             this.unidadesDeMedidasToolStripMenuItem,
             this.condicionesDePagoToolStripMenuItem,
             this.pedidosToolStripMenuItem,
-            this.facturaToolStripMenuItem});
+            this.facturaToolStripMenuItem,
+            this.productosToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 29);
             this.opcionesToolStripMenuItem.Text = "Categorias";
@@ -121,6 +125,8 @@
             // 
             // pedidosToolStripMenuItem
             // 
+            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detalleDePedidoToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(286, 34);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
@@ -128,10 +134,33 @@
             // 
             // facturaToolStripMenuItem
             // 
+            this.facturaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detalleDeFacturaToolStripMenuItem});
             this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
             this.facturaToolStripMenuItem.Size = new System.Drawing.Size(286, 34);
             this.facturaToolStripMenuItem.Text = "Factura";
             this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(286, 34);
+            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
+            // detalleDeFacturaToolStripMenuItem
+            // 
+            this.detalleDeFacturaToolStripMenuItem.Name = "detalleDeFacturaToolStripMenuItem";
+            this.detalleDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.detalleDeFacturaToolStripMenuItem.Text = "Detalle de factura";
+            this.detalleDeFacturaToolStripMenuItem.Click += new System.EventHandler(this.detalleDeFacturaToolStripMenuItem_Click);
+            // 
+            // detalleDePedidoToolStripMenuItem
+            // 
+            this.detalleDePedidoToolStripMenuItem.Name = "detalleDePedidoToolStripMenuItem";
+            this.detalleDePedidoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.detalleDePedidoToolStripMenuItem.Text = "Detalle de pedido";
+            this.detalleDePedidoToolStripMenuItem.Click += new System.EventHandler(this.detalleDePedidoToolStripMenuItem_Click);
             // 
             // PMENU
             // 
@@ -167,5 +196,8 @@
         private System.Windows.Forms.ToolStripMenuItem condicionesDePagoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detalleDeFacturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detalleDePedidoToolStripMenuItem;
     }
 }

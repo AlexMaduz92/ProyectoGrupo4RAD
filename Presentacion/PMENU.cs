@@ -64,5 +64,23 @@ namespace Presentacion
             PFactura facturaForm = new PFactura();
             facturaForm.ShowDialog();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PProductos productosform = new PProductos();
+            productosform.ShowDialog();
+        }
+
+        private void detalleDeFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDestalleFactura detallefacturaform = new PDestalleFactura();
+            detallefacturaform.ShowDialog();
+        }
+
+        private void detalleDePedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDetallePedido detallepedidoorm = new PDetallePedido();
+            detallepedidoorm.ShowDialog();
+        }
     }
 }
