@@ -60,17 +60,41 @@
     <Compile Include="PCategoria.Designer.cs">
       <DependentUpon>PCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="PClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PClientes.Designer.cs">
+      <DependentUpon>PClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCondicionesPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCondicionesPago.Designer.cs">
+      <DependentUpon>PCondicionesPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="PDescuento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PDescuento.Designer.cs">
       <DependentUpon>PDescuento.cs</DependentUpon>
     </Compile>
+    <Compile Include="PFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PFactura.Designer.cs">
+      <DependentUpon>PFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="PMENU.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PMENU.Designer.cs">
       <DependentUpon>PMENU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPEdidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPEdidos.Designer.cs">
+      <DependentUpon>PPEdidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -87,6 +111,37 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PUnidadMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PUnidadMedida.Designer.cs">
+      <DependentUpon>PUnidadMedida.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -118,16 +173,86 @@
     <None Include="ProyectoRadDataSet1.xss">
       <DependentUpon>ProyectoRadDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="ProyectoRadDataSet2.xsc">
+      <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet2.xss">
+      <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet3.xsc">
+      <DependentUpon>ProyectoRadDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet3.xss">
+      <DependentUpon>ProyectoRadDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet4.xsc">
+      <DependentUpon>ProyectoRadDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet4.xss">
+      <DependentUpon>ProyectoRadDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet5.xsc">
+      <DependentUpon>ProyectoRadDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet5.xss">
+      <DependentUpon>ProyectoRadDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet6.xsc">
+      <DependentUpon>ProyectoRadDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet6.xss">
+      <DependentUpon>ProyectoRadDataSet6.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PCategoria.resx">
       <DependentUpon>PCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PClientes.resx">
+      <DependentUpon>PClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCondicionesPago.resx">
+      <DependentUpon>PCondicionesPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PDescuento.resx">
       <DependentUpon>PDescuento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PFactura.resx">
+      <DependentUpon>PFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PMENU.resx">
       <DependentUpon>PMENU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PPEdidos.resx">
+      <DependentUpon>PPEdidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PUnidadMedida.resx">
+      <DependentUpon>PUnidadMedida.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
