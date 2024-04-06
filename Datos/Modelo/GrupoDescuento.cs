@@ -13,6 +13,8 @@ namespace Datos.Modelo
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
+
+        public bool Porcentaje { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }

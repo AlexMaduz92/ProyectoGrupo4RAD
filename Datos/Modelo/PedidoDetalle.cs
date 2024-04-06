@@ -12,8 +12,9 @@ namespace Datos.Modelo
     {
         public int PedidoDetalleId { get; set; }
         public int PedidoId { get; set; }
+
+        public DateTime FechaCreacion { get; set; }
         public int ProductoId { get; set; }
-        public int Cantidad { get; set; }
         public decimal Precio { get; set; }
         public decimal Total { get; set; }
         public decimal Descuento { get; set; }
