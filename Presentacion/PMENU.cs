@@ -16,6 +16,9 @@ namespace Presentacion
         public PMENU()
         {
             InitializeComponent();
+            Bitmap img = new Bitmap(Application.StartupPath+ @"\images\LogoDebik.png");
+            this.BackgroundImage = img;
+            this.BackgroundImageLayout = ImageLayout.Center;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +66,35 @@ namespace Presentacion
         {
             PFactura facturaForm = new PFactura();
             facturaForm.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PProductos productosform = new PProductos();
+            productosform.ShowDialog();
+        }
+
+        private void detalleDeFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDestalleFactura detallefacturaform = new PDestalleFactura();
+            detallefacturaform.ShowDialog();
+        }
+
+        private void detalleDePedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDetallePedido detallepedidoorm = new PDetallePedido();
+            detallepedidoorm.ShowDialog();
+        }
+
+        private void PMENU_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is MdiClient)
+                {
+                    ctrl.BackColor = Color.PowderBlue;
+                }
+            }
         }
     }
 }

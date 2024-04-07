@@ -78,6 +78,18 @@
     <Compile Include="PDescuento.Designer.cs">
       <DependentUpon>PDescuento.cs</DependentUpon>
     </Compile>
+    <Compile Include="PDestalleFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDestalleFactura.Designer.cs">
+      <DependentUpon>PDestalleFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDetallePedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDetallePedido.Designer.cs">
+      <DependentUpon>PDetallePedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="PFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     <Compile Include="PPEdidos.Designer.cs">
       <DependentUpon>PPEdidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="PProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PProductos.Designer.cs">
+      <DependentUpon>PProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,6 +129,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet11.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProyectoRadDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +164,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="PUnidadMedida.cs">
       <SubType>Form</SubType>
@@ -172,6 +215,28 @@
     </None>
     <None Include="ProyectoRadDataSet1.xss">
       <DependentUpon>ProyectoRadDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet10.xsc">
+      <DependentUpon>ProyectoRadDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet10.xss">
+      <DependentUpon>ProyectoRadDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet11.xsc">
+      <DependentUpon>ProyectoRadDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet11.xss">
+      <DependentUpon>ProyectoRadDataSet11.xsd</DependentUpon>
     </None>
     <None Include="ProyectoRadDataSet2.xsc">
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
@@ -228,6 +293,39 @@
     <None Include="ProyectoRadDataSet6.xss">
       <DependentUpon>ProyectoRadDataSet6.xsd</DependentUpon>
     </None>
+    <None Include="ProyectoRadDataSet7.xsc">
+      <DependentUpon>ProyectoRadDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet7.xss">
+      <DependentUpon>ProyectoRadDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet8.xsc">
+      <DependentUpon>ProyectoRadDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet8.xss">
+      <DependentUpon>ProyectoRadDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet9.xsc">
+      <DependentUpon>ProyectoRadDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet9.xss">
+      <DependentUpon>ProyectoRadDataSet9.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PCategoria.resx">
@@ -242,6 +340,12 @@
     <EmbeddedResource Include="PDescuento.resx">
       <DependentUpon>PDescuento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PDestalleFactura.resx">
+      <DependentUpon>PDestalleFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDetallePedido.resx">
+      <DependentUpon>PDetallePedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PFactura.resx">
       <DependentUpon>PFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PPEdidos.resx">
       <DependentUpon>PPEdidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PProductos.resx">
+      <DependentUpon>PProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PUnidadMedida.resx">
       <DependentUpon>PUnidadMedida.cs</DependentUpon>

@@ -43,28 +43,28 @@
             this.TxtPorcentaje = new System.Windows.Forms.TextBox();
             this.DTFCreacion = new System.Windows.Forms.DateTimePicker();
             this.DGVDescuento = new System.Windows.Forms.DataGridView();
-            this.proyectoRadDataSet1 = new Presentacion.ProyectoRadDataSet1();
-            this.grupoDescuentoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.grupoDescuentoesTableAdapter = new Presentacion.ProyectoRadDataSet1TableAdapters.GrupoDescuentoesTableAdapter();
             this.grupoDescuentoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoDescuentoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet1 = new Presentacion.ProyectoRadDataSet1();
+            this.grupoDescuentoesTableAdapter = new Presentacion.ProyectoRadDataSet1TableAdapters.GrupoDescuentoesTableAdapter();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDescuento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoDescuentoesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(446, -1);
+            this.label1.Location = new System.Drawing.Point(566, -1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 37);
             this.label1.TabIndex = 0;
@@ -188,20 +188,6 @@
             this.DGVDescuento.Size = new System.Drawing.Size(1295, 150);
             this.DGVDescuento.TabIndex = 13;
             // 
-            // proyectoRadDataSet1
-            // 
-            this.proyectoRadDataSet1.DataSetName = "ProyectoRadDataSet1";
-            this.proyectoRadDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // grupoDescuentoesBindingSource
-            // 
-            this.grupoDescuentoesBindingSource.DataMember = "GrupoDescuentoes";
-            this.grupoDescuentoesBindingSource.DataSource = this.proyectoRadDataSet1;
-            // 
-            // grupoDescuentoesTableAdapter
-            // 
-            this.grupoDescuentoesTableAdapter.ClearBeforeFill = true;
-            // 
             // grupoDescuentoIdDataGridViewTextBoxColumn
             // 
             this.grupoDescuentoIdDataGridViewTextBoxColumn.DataPropertyName = "GrupoDescuentoId";
@@ -250,6 +236,20 @@
             this.porcentajeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.porcentajeDataGridViewTextBoxColumn.Name = "porcentajeDataGridViewTextBoxColumn";
             this.porcentajeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // grupoDescuentoesBindingSource
+            // 
+            this.grupoDescuentoesBindingSource.DataMember = "GrupoDescuentoes";
+            this.grupoDescuentoesBindingSource.DataSource = this.proyectoRadDataSet1;
+            // 
+            // proyectoRadDataSet1
+            // 
+            this.proyectoRadDataSet1.DataSetName = "ProyectoRadDataSet1";
+            this.proyectoRadDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // grupoDescuentoesTableAdapter
+            // 
+            this.grupoDescuentoesTableAdapter.ClearBeforeFill = true;
             // 
             // BtnEliminar
             // 
@@ -305,8 +305,8 @@
             this.Text = "PDescuento";
             this.Load += new System.EventHandler(this.PDescuento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVDescuento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoDescuentoesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
