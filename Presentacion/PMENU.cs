@@ -16,6 +16,9 @@ namespace Presentacion
         public PMENU()
         {
             InitializeComponent();
+            Bitmap img = new Bitmap(Application.StartupPath+ @"\images\LogoDebik.png");
+            this.BackgroundImage = img;
+            this.BackgroundImageLayout = ImageLayout.Center;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +84,17 @@ namespace Presentacion
         {
             PDetallePedido detallepedidoorm = new PDetallePedido();
             detallepedidoorm.ShowDialog();
+        }
+
+        private void PMENU_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is MdiClient)
+                {
+                    ctrl.BackColor = Color.PowderBlue;
+                }
+            }
         }
     }
 }
