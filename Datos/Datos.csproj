@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base de Dato\Exaconection.cs" />
+    <Compile Include="Core\Irepository.cs" />
+    <Compile Include="Core\IunitOfWork.cs" />
+    <Compile Include="Core\Repository.cs" />
+    <Compile Include="Core\UnitOfWork.cs" />
     <Compile Include="Migrations\202403200501285_AdicionesTablas.cs" />
     <Compile Include="Migrations\202403200501285_AdicionesTablas.designer.cs">
       <DependentUpon>202403200501285_AdicionesTablas.cs</DependentUpon>
