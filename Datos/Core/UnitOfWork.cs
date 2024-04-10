@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Datos.Core
 {
-   public  class UnitOfWork: IunitOfWork
+    public class UnitOfWork : IunitOfWork, IDisposable
     {
         private readonly Exaconection dbcontext;
         private DbContextTransaction _transaccion;
+        private bool disposed = false;
+
         public UnitOfWork()
         {
             dbcontext = new Exaconection();
         }
-
-     
 
         public void ComenzandoTransaccion()
         {
@@ -64,6 +64,24 @@ namespace Datos.Core
             _transaccion.Rollback();
             _transaccion.Dispose();
             _transaccion = null;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    dbcontext.Dispose();
+                }
+                disposed = true;
+            }
         }
 
     }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Datos.Base_de_Dato;
+using Datos.Core;
+
 
 namespace Datos.Core
 {
@@ -16,18 +19,26 @@ namespace Datos.Core
         {
             this.dbcontext = new Exaconection();
         }
+
         public void Agregar(T entidad)
         {
             dbcontext.Set<T>().Add(entidad);
-            //dbcontext.SaveChanges();
         }
 
         public void Agregar(IEnumerable<T> entidades)
         {
-            throw new NotImplementedException();
+            foreach (var entidad in entidades)
+            {
+                Agregar(entidad);
+            }
         }
 
-        public void Buscar(T entidad)
+        public T Buscar(int id)
+        {
+            return dbcontext.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> Buscar(Expression<Func<T, bool>> predicado)
         {
             throw new NotImplementedException();
         }
@@ -39,14 +50,22 @@ namespace Datos.Core
 
         public void Editar(T entidad)
         {
-            dbcontext.Set<T>();
-            //dbcontext.SaveChanges();
+            dbcontext.Entry(entidad).State = EntityState.Modified;
         }
 
         public void Eliminar(T entidad)
         {
             dbcontext.Set<T>().Remove(entidad);
-            //dbcontext.SaveChanges();
+        }
+
+        public T ObtenerPorId(int id)
+        {
+            return dbcontext.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> ObtenerTodos()
+        {
+            return dbcontext.Set<T>().ToList();
         }
     }
 }
