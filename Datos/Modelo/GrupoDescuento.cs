@@ -14,7 +14,7 @@ namespace Datos.Modelo
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
 
-        public bool Porcentaje { get; set; }
+        public decimal Porcentaje { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }

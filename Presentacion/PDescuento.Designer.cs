@@ -11,14 +11,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
 
         #region Windows Form Designer generated code
 
@@ -63,114 +56,142 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(566, -1);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(829, -2);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 37);
+            this.label1.Size = new System.Drawing.Size(309, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "DESCUENTOS";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 51);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(19, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 20);
+            this.label2.Size = new System.Drawing.Size(57, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "ID:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 91);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(19, 114);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 20);
+            this.label3.Size = new System.Drawing.Size(128, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Codigo:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 136);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(19, 170);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
+            this.label4.Size = new System.Drawing.Size(193, 37);
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 189);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(19, 236);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.Size = new System.Drawing.Size(126, 37);
             this.label5.TabIndex = 4;
             this.label5.Text = "Estado:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(569, 51);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(858, 66);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
+            this.label6.Size = new System.Drawing.Size(178, 37);
             this.label6.TabIndex = 5;
             this.label6.Text = "Porcentaje:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(569, 91);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(858, 116);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 20);
+            this.label7.Size = new System.Drawing.Size(289, 37);
             this.label7.TabIndex = 6;
             this.label7.Text = "Fecha de creación:";
             // 
             // TxtID
             // 
-            this.TxtID.Location = new System.Drawing.Point(132, 51);
+            this.TxtID.Enabled = false;
+            this.TxtID.Location = new System.Drawing.Point(281, 74);
+            this.TxtID.Margin = new System.Windows.Forms.Padding(4);
             this.TxtID.Name = "TxtID";
-            this.TxtID.Size = new System.Drawing.Size(263, 26);
+            this.TxtID.Size = new System.Drawing.Size(349, 31);
             this.TxtID.TabIndex = 7;
             // 
             // TxtCodigo
             // 
-            this.TxtCodigo.Location = new System.Drawing.Point(132, 88);
+            this.TxtCodigo.Location = new System.Drawing.Point(281, 120);
+            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.Size = new System.Drawing.Size(263, 26);
+            this.TxtCodigo.Size = new System.Drawing.Size(349, 31);
             this.TxtCodigo.TabIndex = 8;
             // 
             // TxtDescripcion
             // 
-            this.TxtDescripcion.Location = new System.Drawing.Point(132, 133);
+            this.TxtDescripcion.Location = new System.Drawing.Point(281, 176);
+            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(263, 26);
+            this.TxtDescripcion.Size = new System.Drawing.Size(349, 31);
             this.TxtDescripcion.TabIndex = 9;
             // 
             // CBEstado
             // 
             this.CBEstado.AutoSize = true;
-            this.CBEstado.Location = new System.Drawing.Point(132, 188);
+            this.CBEstado.Location = new System.Drawing.Point(281, 245);
+            this.CBEstado.Margin = new System.Windows.Forms.Padding(4);
             this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(78, 24);
+            this.CBEstado.Size = new System.Drawing.Size(97, 29);
             this.CBEstado.TabIndex = 10;
             this.CBEstado.Text = "Activo";
             this.CBEstado.UseVisualStyleBackColor = true;
             // 
             // TxtPorcentaje
             // 
-            this.TxtPorcentaje.Location = new System.Drawing.Point(736, 45);
+            this.TxtPorcentaje.Location = new System.Drawing.Point(1243, 70);
+            this.TxtPorcentaje.Margin = new System.Windows.Forms.Padding(4);
             this.TxtPorcentaje.Name = "TxtPorcentaje";
-            this.TxtPorcentaje.Size = new System.Drawing.Size(297, 26);
+            this.TxtPorcentaje.Size = new System.Drawing.Size(395, 31);
             this.TxtPorcentaje.TabIndex = 11;
             // 
             // DTFCreacion
             // 
-            this.DTFCreacion.Location = new System.Drawing.Point(736, 91);
+            this.DTFCreacion.Location = new System.Drawing.Point(1242, 122);
+            this.DTFCreacion.Margin = new System.Windows.Forms.Padding(4);
             this.DTFCreacion.Name = "DTFCreacion";
-            this.DTFCreacion.Size = new System.Drawing.Size(298, 26);
+            this.DTFCreacion.Size = new System.Drawing.Size(396, 31);
             this.DTFCreacion.TabIndex = 12;
             // 
             // DGVDescuento
             // 
+            this.DGVDescuento.AllowUserToDeleteRows = false;
             this.DGVDescuento.AutoGenerateColumns = false;
             this.DGVDescuento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVDescuento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -181,11 +202,13 @@
             this.fechaCreacionDataGridViewTextBoxColumn,
             this.porcentajeDataGridViewTextBoxColumn});
             this.DGVDescuento.DataSource = this.grupoDescuentoesBindingSource;
-            this.DGVDescuento.Location = new System.Drawing.Point(12, 256);
+            this.DGVDescuento.Location = new System.Drawing.Point(16, 320);
+            this.DGVDescuento.Margin = new System.Windows.Forms.Padding(4);
             this.DGVDescuento.Name = "DGVDescuento";
+            this.DGVDescuento.ReadOnly = true;
             this.DGVDescuento.RowHeadersWidth = 62;
             this.DGVDescuento.RowTemplate.Height = 28;
-            this.DGVDescuento.Size = new System.Drawing.Size(1295, 150);
+            this.DGVDescuento.Size = new System.Drawing.Size(1926, 394);
             this.DGVDescuento.TabIndex = 13;
             // 
             // grupoDescuentoIdDataGridViewTextBoxColumn
@@ -203,6 +226,7 @@
             this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
             this.codigoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             this.codigoDataGridViewTextBoxColumn.Width = 150;
             // 
             // descripcionDataGridViewTextBoxColumn
@@ -211,6 +235,7 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.descripcionDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             this.descripcionDataGridViewTextBoxColumn.Width = 150;
             // 
             // estadoDataGridViewCheckBoxColumn
@@ -219,6 +244,7 @@
             this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
             this.estadoDataGridViewCheckBoxColumn.Width = 150;
             // 
             // fechaCreacionDataGridViewTextBoxColumn
@@ -227,6 +253,7 @@
             this.fechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion";
             this.fechaCreacionDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.fechaCreacionDataGridViewTextBoxColumn.Name = "fechaCreacionDataGridViewTextBoxColumn";
+            this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaCreacionDataGridViewTextBoxColumn.Width = 150;
             // 
             // porcentajeDataGridViewTextBoxColumn
@@ -235,6 +262,7 @@
             this.porcentajeDataGridViewTextBoxColumn.HeaderText = "Porcentaje";
             this.porcentajeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.porcentajeDataGridViewTextBoxColumn.Name = "porcentajeDataGridViewTextBoxColumn";
+            this.porcentajeDataGridViewTextBoxColumn.ReadOnly = true;
             this.porcentajeDataGridViewTextBoxColumn.Width = 150;
             // 
             // grupoDescuentoesBindingSource
@@ -253,36 +281,41 @@
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.Location = new System.Drawing.Point(846, 159);
+            this.BtnEliminar.Location = new System.Drawing.Point(1222, 212);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(117, 50);
+            this.BtnEliminar.Size = new System.Drawing.Size(156, 62);
             this.BtnEliminar.TabIndex = 18;
-            this.BtnEliminar.Text = "Elimianar";
+            this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(710, 159);
+            this.BtnModificar.Location = new System.Drawing.Point(1041, 212);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(117, 50);
+            this.BtnModificar.Size = new System.Drawing.Size(156, 62);
             this.BtnModificar.TabIndex = 17;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = true;
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(570, 159);
+            this.BtnGuardar.Location = new System.Drawing.Point(854, 212);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(117, 50);
+            this.BtnGuardar.Size = new System.Drawing.Size(156, 62);
             this.BtnGuardar.TabIndex = 16;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
             // 
             // PDescuento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1328, 468);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(1955, 727);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnGuardar);
@@ -300,6 +333,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PDescuento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PDescuento";

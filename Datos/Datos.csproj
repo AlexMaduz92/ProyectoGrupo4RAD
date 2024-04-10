@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202404062001425_correciones.designer.cs">
       <DependentUpon>202404062001425_correciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404100131085_CorrecionTablaGDescuento.cs" />
+    <Compile Include="Migrations\202404100131085_CorrecionTablaGDescuento.designer.cs">
+      <DependentUpon>202404100131085_CorrecionTablaGDescuento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Cliente.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202404062001425_correciones.resx">
       <DependentUpon>202404062001425_correciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404100131085_CorrecionTablaGDescuento.resx">
+      <DependentUpon>202404100131085_CorrecionTablaGDescuento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
