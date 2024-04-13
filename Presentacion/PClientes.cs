@@ -11,42 +11,103 @@ using Datos;
 using Datos.Modelo;
 using Negocio;
 using Datos.Base_de_Dato;
+using Datos.Core;
 
 namespace Presentacion
 {
     public partial class PClientes : Form
     {
-        Dclientes dclientes;
-        Cliented cliented;
+        private readonly UnitOfWork unitOfWork;
+      
         public PClientes()
         {
             InitializeComponent();
-            cargardatos();
+            unitOfWork = new UnitOfWork();
+            BtnGuardar.Click += BtnGuardar_Click;
+            BtnModificar.Click += BtnModificar_Click;
+            BtnEliminar.Click += BtnEliminar_Click;
+            
         }
 
         private void PClientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet2.Clientes' Puede moverla o quitarla según sea necesario.
-            //this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
 
+            // Obtener el próximo ID que se generará al guardar
+            int proximoId = ObtenerProximoId();
+
+            // Mostrar el próximo ID en el TxtID
+            TxtID.Text = proximoId.ToString();
+
+            // Cargar datos en el DataGridView
+            this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
+
+            // Asignar el evento CellDoubleClick al DataGridView
+            DGVClientes.CellDoubleClick += DGVClientes_CellContentDoubleClick;
+
+            // Crear un DataView y aplicar un filtro para mostrar solo los registros con Estado en true
+            DataView dv = new DataView(this.proyectoRadDataSet2.Clientes);
+            dv.RowFilter = "Estado = true";
+
+            // Asignar el DataView filtrado al DataGridView
+            DGVClientes.DataSource = dv;
+
+        }
+        private int ObtenerProximoId()
+        {
+            int maxId = 0;
+            using (var context = new Exaconection())
+            {
+                maxId = context.Set<Cliente>().Max(g => g.ClienteId);
+            }
+            return maxId + 1;
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
+            // Obtener los datos del formulario
+            string codigo = TxtCodigo.Text;
+            string apellido= TxtApellido.Text;
+            string nombre = TxtNombre.Text;
+            bool estado = CBEstado.Checked;
+          
+            DateTime fechaCreacion = DTFCreacion.Value;
+
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Desea guardar el descuento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                cliente.ClienteId = int.Parse(TxtID.Text);
-                cliente.Codigo=TxtCodigo.Text;
-                cliente.Nombres=TxtNombre.Text;
-                cliente.Apellidos = TxtApellido.Text;
-                //cliente.GrupoDescuento = int.Parse(CBXGDescuento.SelectedValue.ToString());
-                cliente.Estado = CBEstado.Checked;
-                cliente.FechaCreacion = DateTime.Now;
+                if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(apellido))
+                {
+                    MessageBox.Show("Debe completar todos los campos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Cliente clientess = new Cliente
+                {
+                    Codigo = codigo,
+                    Nombres = nombre,
+                    Estado = estado,
+                    Apellidos = apellido,
 
+                    FechaCreacion = fechaCreacion
+                };
+
+                try
+                {
+                    // Guardar el objeto en la base de datos
+                    unitOfWork.Repository<Cliente>().Agregar(clientess);
+                    unitOfWork.Guardar();
+
+                    // Actualizar el DataGridView
+                    this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            cliented.Guardar(cliente);
-            cargardatos();
-
+            ActualizarDataGridView();
+            limpiar();
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -54,17 +115,33 @@ namespace Presentacion
 
             BtnModificar.Enabled = false;
             BtnGuardar.Enabled = false;
-            string clien = TxtID.Text;
+            // Obtener el ID del cliente a eliminar
+            int id = int.Parse(TxtID.Text);
 
-            if (string.IsNullOrEmpty(clien) || string.IsNullOrWhiteSpace(clien))
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Desea eliminar un cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                errorProvider1.SetError(TxtID, "Debe seleccionar un Cliente para eliminar");
-                return;
+                try
+                {
+                    // Actualizar el Estado del descuento a 0
+                    Cliente clientess = unitOfWork.Repository<Cliente>().ObtenerPorId(id);
+                    clientess.Estado = false; // 0 representa falso
+
+                    // Guardar los cambios en la base de datos
+                    unitOfWork.Repository<Cliente>().Editar(clientess);
+                    unitOfWork.Guardar();
+
+                    // Actualizar el DataGridView
+                    this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-
-            dclientes.Eliminar(int.Parse(clien));
-
+            ActualizarDataGridView();
             limpiar();
 
         }
@@ -77,33 +154,68 @@ namespace Presentacion
             CBEstado.Checked = false;
         }
 
-        private void BtnLimpiar_Click(object sender, EventArgs e)
+  
+        private void ActualizarDataGridView()
         {
-            limpiar();
-
+            // Actualizar el DataGridView
+            this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            BtnEliminar.Enabled = false;
-            BtnGuardar.Enabled = false;
-
-            TxtID.Text = DGVClientes.CurrentRow.Cells["ClienteId"].Value.ToString();
-            TxtCodigo.Text = DGVClientes.CurrentRow.Cells["Codigo"].Value.ToString();
-            TxtNombre.Text = DGVClientes.CurrentRow.Cells["Nombres"].Value.ToString();
-            TxtApellido.Text = DGVClientes.CurrentRow.Cells["Apellidos"].Value.ToString();
-            CBEstado.Checked = bool.Parse(DGVClientes.CurrentRow.Cells["Estado"].Value.ToString());
-        }
-
-        void cargardatos()
-        {
+            // Obtener los datos del formulario
+            int id = int.Parse(TxtID.Text);
+            string codigo = TxtCodigo.Text;
+            string nombre = TxtNombre.Text;
+            string apellido = TxtApellido.Text;
+            bool estado = CBEstado.Checked;
          
+            DateTime fechaCreacion = DTFCreacion.Value;
+            try
+            {
+                // Obtener el GrupoDescuento existente desde el contexto
+                Cliente clientess = unitOfWork.Repository<Cliente>().ObtenerPorId(id);
+
+                // Modificar las propiedades del objeto existente
+                clientess.Codigo = codigo;
+                clientess.Nombres = nombre;
+                clientess.Estado = estado;
+                clientess.Apellidos = apellido;
+                clientess.FechaCreacion = fechaCreacion;
+
+                // Mensaje de confirmación
+                DialogResult result = MessageBox.Show("¿Desea modificar al cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Guardar los cambios en la base de datos
+                    unitOfWork.Guardar();
+
+                    // Actualizar el DataGridView
+                    this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar al modificar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            limpiar();
         }
+
 
         private void DGVClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            BtnModificar.Enabled = true;
-            BtnEliminar.Enabled = true;
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DGVClientes.Rows[e.RowIndex];
+                TxtID.Text = row.Cells["ClienteIdDataGridViewTextBoxColumn"].Value.ToString();
+                TxtNombre.Text = row.Cells["NombresDataGridViewTextBoxColumn"].Value.ToString();
+                TxtApellido.Text = row.Cells["ApellidosDataGridViewTextBoxColumn"].Value.ToString();
+                TxtCodigo.Text = row.Cells["CodigoDataGridViewTextBoxColumn"].Value.ToString();
+                CBEstado.Checked = Convert.ToBoolean(row.Cells["EstadoDataGridViewCheckBoxColumn"].Value);
+                DTFCreacion.Value = Convert.ToDateTime(row.Cells["FechaCreacionDataGridViewTextBoxColumn"].Value);
+
+            }
         }
     }
 }
