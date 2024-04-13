@@ -54,7 +54,6 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BtnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet)).BeginInit();
@@ -65,7 +64,7 @@
             // 
             this.TxtID.Enabled = false;
             this.TxtID.Location = new System.Drawing.Point(88, 39);
-            this.TxtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtID.Margin = new System.Windows.Forms.Padding(2);
             this.TxtID.Name = "TxtID";
             this.TxtID.Size = new System.Drawing.Size(180, 20);
             this.TxtID.TabIndex = 0;
@@ -134,7 +133,7 @@
             // TxtCodigo
             // 
             this.TxtCodigo.Location = new System.Drawing.Point(88, 68);
-            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(180, 20);
             this.TxtCodigo.TabIndex = 7;
@@ -148,7 +147,7 @@
             // TxtDescripcion
             // 
             this.TxtDescripcion.Location = new System.Drawing.Point(88, 98);
-            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(180, 20);
             this.TxtDescripcion.TabIndex = 9;
@@ -157,7 +156,7 @@
             // 
             this.CBEstado.AutoSize = true;
             this.CBEstado.Location = new System.Drawing.Point(88, 139);
-            this.CBEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CBEstado.Margin = new System.Windows.Forms.Padding(2);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(56, 17);
             this.CBEstado.TabIndex = 10;
@@ -167,7 +166,7 @@
             // DTFCreacion
             // 
             this.DTFCreacion.Location = new System.Drawing.Point(534, 41);
-            this.DTFCreacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DTFCreacion.Margin = new System.Windows.Forms.Padding(2);
             this.DTFCreacion.Name = "DTFCreacion";
             this.DTFCreacion.Size = new System.Drawing.Size(203, 20);
             this.DTFCreacion.TabIndex = 11;
@@ -185,14 +184,15 @@
             this.fechaCreacionDataGridViewTextBoxColumn});
             this.DGVCategoria.DataSource = this.categoriasBindingSource;
             this.DGVCategoria.Location = new System.Drawing.Point(3, 174);
-            this.DGVCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGVCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.DGVCategoria.Name = "DGVCategoria";
             this.DGVCategoria.ReadOnly = true;
             this.DGVCategoria.RowHeadersWidth = 62;
             this.DGVCategoria.RowTemplate.Height = 28;
             this.DGVCategoria.Size = new System.Drawing.Size(815, 169);
             this.DGVCategoria.TabIndex = 12;
-            this.DGVCategoria.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCategoria_CellMouseDoubleClick);
+            this.DGVCategoria.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVCategoria_CellContentDoubleClick);
+           
             // 
             // categoriaIdDataGridViewTextBoxColumn
             // 
@@ -256,17 +256,18 @@
             // BtnGuardar
             // 
             this.BtnGuardar.Location = new System.Drawing.Point(405, 83);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(78, 32);
             this.BtnGuardar.TabIndex = 13;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // BtnModificar
             // 
             this.BtnModificar.Location = new System.Drawing.Point(499, 83);
-            this.BtnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(78, 32);
             this.BtnModificar.TabIndex = 14;
@@ -277,7 +278,7 @@
             // BtnEliminar
             // 
             this.BtnEliminar.Location = new System.Drawing.Point(589, 83);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(78, 32);
             this.BtnEliminar.TabIndex = 15;
@@ -289,23 +290,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.Location = new System.Drawing.Point(671, 83);
-            this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(78, 32);
-            this.BtnLimpiar.TabIndex = 16;
-            this.BtnLimpiar.Text = "Limpiar";
-            this.BtnLimpiar.UseVisualStyleBackColor = true;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
             // PCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 349);
-            this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnGuardar);
@@ -321,7 +310,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PCategoria";
@@ -362,6 +351,5 @@
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button BtnLimpiar;
     }
 }
