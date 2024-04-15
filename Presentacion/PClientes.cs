@@ -88,7 +88,8 @@ namespace Presentacion
                     Nombres = nombre,
                     Estado = estado,
                     Apellidos = apellido,
-
+                    CondicionPagoId = int.Parse(CBXCPago.SelectedValue.ToString()),
+                    GrupoDescuentoId = int.Parse(CBXGDescuento.SelectedValue.ToString()),
                     FechaCreacion = fechaCreacion
                 };
 
