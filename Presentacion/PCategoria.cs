@@ -56,7 +56,7 @@ namespace Presentacion
             int maxId = 0;
             using (var context = new Exaconection())
             {
-                maxId = context.Set<Cliente>().Max(g => g.ClienteId);
+                maxId = context.Set<Categoria>().Max(g => g.CategoriaId);
             }
             return maxId + 1;
         }
