@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
+    //Cambios
     public partial class PCategoria : Form
     {
         private readonly UnitOfWork unitOfWork;
