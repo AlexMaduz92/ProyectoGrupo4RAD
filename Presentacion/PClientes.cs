@@ -18,6 +18,7 @@ namespace Presentacion
     public partial class PClientes : Form
     {
         private readonly UnitOfWork unitOfWork;
+        private Cliented cliented;
       
         public PClientes()
         {
@@ -26,10 +27,14 @@ namespace Presentacion
             BtnGuardar.Click += BtnGuardar_Click;
             BtnModificar.Click += BtnModificar_Click;
             BtnEliminar.Click += BtnEliminar_Click;
-            
-        }
+            CBXCPago.SelectedIndexChanged += CBXCPago_SelectedIndexChanged;
+            CBXGDescuento.SelectedIndexChanged += CBXGDescuento_SelectedIndexChanged;
 
-        private void PClientes_Load(object sender, EventArgs e)
+        }
+        
+        
+
+    private void PClientes_Load(object sender, EventArgs e)
         {
 
             // Obtener el próximo ID que se generará al guardar
@@ -50,6 +55,15 @@ namespace Presentacion
 
             // Asignar el DataView filtrado al DataGridView
             DGVClientes.DataSource = dv;
+            
+            CBXCPago.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            CargarDatosEstadoActivo();
+            CBXFiltro.Items.Add("Activos");
+            CBXFiltro.Items.Add("No Activos");
+            CBXFiltro.SelectedIndex = 0;
+            CBXFiltro.SelectedIndexChanged += CBXFiltro_SelectedIndexChanged;
+            CargarDatosEstadoActivo();
 
         }
         private int ObtenerProximoId()
@@ -88,7 +102,7 @@ namespace Presentacion
                     Nombres = nombre,
                     Estado = estado,
                     Apellidos = apellido,
-                    CondicionPagoId = int.Parse(CBXCPago.SelectedValue.ToString()),
+                    CondicionPagoId = (int)CBXCPago.SelectedItem,
                     GrupoDescuentoId = int.Parse(CBXGDescuento.SelectedValue.ToString()),
                     FechaCreacion = fechaCreacion
                 };
@@ -216,6 +230,63 @@ namespace Presentacion
                 CBEstado.Checked = Convert.ToBoolean(row.Cells["EstadoDataGridViewCheckBoxColumn"].Value);
                 DTFCreacion.Value = Convert.ToDateTime(row.Cells["FechaCreacionDataGridViewTextBoxColumn"].Value);
 
+            }
+        }
+
+        private void CBXCPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (CBXCPago.SelectedItem != null)
+            {
+                int Condid = (int)CBXCPago.SelectedItem;
+                string codigo = cliented.ObtenerCondicionPorId(Condid);
+                TxtCodigo.Text = codigo;
+            }
+        }
+
+        private void CBXGDescuento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBXGDescuento.SelectedItem != null)
+            {
+                int Condid = (int)CBXGDescuento.SelectedItem;
+                string codigo = cliented.ObtenerDescuentoPorId(Condid);
+                TxtCodigo.Text = codigo;
+            }
+
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void CargarDatosEstadoActivo()
+        {
+            // Crear una nueva vista de datos filtrada por Estado = true
+            DataView view = new DataView(this.proyectoRadDataSet2.Clientes);
+            view.RowFilter = "Estado = true";
+            DGVClientes.DataSource = view;
+        }
+        private void CargarDatosEstadoNoActivo()
+        {
+            // Crear una nueva vista de datos filtrada por Estado = false
+            DataView view = new DataView(this.proyectoRadDataSet2.Clientes);
+            view.RowFilter = "Estado = false";
+            DGVClientes.DataSource = view;
+        }
+
+        private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el filtro seleccionado
+            string filtro = CBXFiltro.SelectedItem.ToString();
+
+            // Actualizar el DataGridView según el filtro seleccionado
+            if (filtro == "Activos")
+            {
+                CargarDatosEstadoActivo();
+            }
+            else if (filtro == "No Activos")
+            {
+                CargarDatosEstadoNoActivo();
             }
         }
     }
