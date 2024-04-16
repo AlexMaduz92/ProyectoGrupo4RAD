@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using System.Data;
 using Datos;
 using Datos.Modelo;
+using System.Data.Entity;
+using Datos.Base_de_Dato;
 
 namespace Negocio
 {
     public class Cliented
+    
     {
+        public readonly Exaconection _dbContext;
         Dclientes dclientes;
         public Cliented()
         {
@@ -33,7 +37,14 @@ namespace Negocio
         {
             return dclientes.Eliminar(clienteid);
         }
-
+        public string ObtenerCondicionPorId(int condid)
+        {
+            return _dbContext.CondicionPagos.FirstOrDefault(c => c.CondicionPagoId == condid)?.Codigo;
+        }
+        public string ObtenerDescuentoPorId(int desc)
+        {
+            return _dbContext.GrupoDescuentos.FirstOrDefault(c => c.GrupoDescuentoId == desc)?.Codigo;
+        }
 
 
 

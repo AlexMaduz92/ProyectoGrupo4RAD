@@ -62,6 +62,9 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.CBXFiltro = new System.Windows.Forms.ComboBox();
+            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
@@ -228,6 +231,7 @@
             this.CBXGDescuento.Name = "CBXGDescuento";
             this.CBXGDescuento.Size = new System.Drawing.Size(199, 21);
             this.CBXGDescuento.TabIndex = 17;
+            this.CBXGDescuento.SelectedIndexChanged += new System.EventHandler(this.CBXGDescuento_SelectedIndexChanged);
             // 
             // CBXCPago
             // 
@@ -237,6 +241,7 @@
             this.CBXCPago.Name = "CBXCPago";
             this.CBXCPago.Size = new System.Drawing.Size(199, 21);
             this.CBXCPago.TabIndex = 18;
+            this.CBXCPago.SelectedIndexChanged += new System.EventHandler(this.CBXCPago_SelectedIndexChanged);
             // 
             // DGVClientes
             // 
@@ -386,12 +391,50 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrar.Location = new System.Drawing.Point(839, 6);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
+            this.BtnCerrar.TabIndex = 69;
+            this.BtnCerrar.Text = "X";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // CBXFiltro
+            // 
+            this.CBXFiltro.FormattingEnabled = true;
+            this.CBXFiltro.Location = new System.Drawing.Point(177, 205);
+            this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXFiltro.Name = "CBXFiltro";
+            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
+            this.CBXFiltro.TabIndex = 70;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(6, 200);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(167, 26);
+            this.label.TabIndex = 71;
+            this.label.Text = "Filtro de estado:";
+            // 
             // PClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(871, 350);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.CBXFiltro);
+            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnGuardar);
@@ -413,6 +456,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -462,5 +506,8 @@
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.ComboBox CBXFiltro;
+        private System.Windows.Forms.Label label;
     }
 }

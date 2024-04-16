@@ -61,6 +61,7 @@
     <Compile Include="CondicionesPago.cs" />
     <Compile Include="Descuento.cs" />
     <Compile Include="Pedidos.cs" />
+    <Compile Include="Productod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

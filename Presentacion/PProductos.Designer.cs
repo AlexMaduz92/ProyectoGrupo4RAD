@@ -51,39 +51,45 @@
             this.proyectoRadDataSet9 = new Presentacion.ProyectoRadDataSet9();
             this.productoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productoesTableAdapter = new Presentacion.ProyectoRadDataSet9TableAdapters.ProductoesTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.proyectoRadDataSet10 = new Presentacion.ProyectoRadDataSet10();
-            this.productoesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.productoesTableAdapter1 = new Presentacion.ProyectoRadDataSet10TableAdapters.ProductoesTableAdapter();
+            this.DbProducto = new System.Windows.Forms.DataGridView();
             this.productoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadMedidaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productoesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet10 = new Presentacion.ProyectoRadDataSet10();
+            this.productoesTableAdapter1 = new Presentacion.ProyectoRadDataSet10TableAdapters.ProductoesTableAdapter();
+            this.label = new System.Windows.Forms.Label();
+            this.CBXFiltro = new System.Windows.Forms.ComboBox();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DbProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet10)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(422, 9);
+            this.label1.Location = new System.Drawing.Point(322, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 37);
+            this.label1.Size = new System.Drawing.Size(161, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "PRODUCTOS";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 20);
             this.label2.TabIndex = 1;
@@ -92,7 +98,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 103);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 67);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 20);
             this.label3.TabIndex = 2;
@@ -101,7 +109,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 155);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 101);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(193, 20);
             this.label4.TabIndex = 3;
@@ -109,42 +119,51 @@
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.Location = new System.Drawing.Point(738, 211);
+            this.BtnEliminar.Location = new System.Drawing.Point(604, 183);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(117, 50);
+            this.BtnEliminar.Size = new System.Drawing.Size(78, 32);
             this.BtnEliminar.TabIndex = 22;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(602, 211);
+            this.BtnModificar.Location = new System.Drawing.Point(513, 183);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(117, 50);
+            this.BtnModificar.Size = new System.Drawing.Size(78, 32);
             this.BtnModificar.TabIndex = 21;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnGuardar
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(462, 211);
+            this.BtnGuardar.Location = new System.Drawing.Point(420, 183);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(117, 50);
+            this.BtnGuardar.Size = new System.Drawing.Size(78, 32);
             this.BtnGuardar.TabIndex = 20;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // DTFCreacion
             // 
-            this.DTFCreacion.Location = new System.Drawing.Point(655, 64);
+            this.DTFCreacion.Location = new System.Drawing.Point(527, 55);
+            this.DTFCreacion.Margin = new System.Windows.Forms.Padding(2);
             this.DTFCreacion.Name = "DTFCreacion";
-            this.DTFCreacion.Size = new System.Drawing.Size(302, 26);
+            this.DTFCreacion.Size = new System.Drawing.Size(203, 20);
             this.DTFCreacion.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(458, 64);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(379, 55);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 20);
             this.label6.TabIndex = 17;
@@ -153,9 +172,10 @@
             // CBEstado
             // 
             this.CBEstado.AutoSize = true;
-            this.CBEstado.Location = new System.Drawing.Point(211, 202);
+            this.CBEstado.Location = new System.Drawing.Point(97, 139);
+            this.CBEstado.Margin = new System.Windows.Forms.Padding(2);
             this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(78, 24);
+            this.CBEstado.Size = new System.Drawing.Size(56, 17);
             this.CBEstado.TabIndex = 24;
             this.CBEstado.Text = "Activo";
             this.CBEstado.UseVisualStyleBackColor = true;
@@ -163,7 +183,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 202);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 131);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 20);
             this.label5.TabIndex = 23;
@@ -172,7 +194,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 241);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(378, 90);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(136, 20);
             this.label7.TabIndex = 25;
@@ -181,32 +205,38 @@
             // TxtID
             // 
             this.TxtID.Enabled = false;
-            this.TxtID.Location = new System.Drawing.Point(211, 61);
+            this.TxtID.Location = new System.Drawing.Point(164, 40);
+            this.TxtID.Margin = new System.Windows.Forms.Padding(2);
             this.TxtID.Name = "TxtID";
-            this.TxtID.Size = new System.Drawing.Size(204, 26);
+            this.TxtID.Size = new System.Drawing.Size(137, 20);
             this.TxtID.TabIndex = 26;
             // 
             // CBXCodCategoria
             // 
             this.CBXCodCategoria.FormattingEnabled = true;
-            this.CBXCodCategoria.Location = new System.Drawing.Point(211, 103);
+            this.CBXCodCategoria.Location = new System.Drawing.Point(164, 69);
+            this.CBXCodCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.CBXCodCategoria.Name = "CBXCodCategoria";
-            this.CBXCodCategoria.Size = new System.Drawing.Size(204, 28);
+            this.CBXCodCategoria.Size = new System.Drawing.Size(137, 21);
             this.CBXCodCategoria.TabIndex = 27;
+            this.CBXCodCategoria.SelectedIndexChanged += new System.EventHandler(this.CBXCodCategoria_SelectedIndexChanged);
             // 
             // CBXCodUMedida
             // 
             this.CBXCodUMedida.FormattingEnabled = true;
-            this.CBXCodUMedida.Location = new System.Drawing.Point(211, 147);
+            this.CBXCodUMedida.Location = new System.Drawing.Point(205, 103);
+            this.CBXCodUMedida.Margin = new System.Windows.Forms.Padding(2);
             this.CBXCodUMedida.Name = "CBXCodUMedida";
-            this.CBXCodUMedida.Size = new System.Drawing.Size(204, 28);
+            this.CBXCodUMedida.Size = new System.Drawing.Size(137, 21);
             this.CBXCodUMedida.TabIndex = 28;
+            this.CBXCodUMedida.SelectedIndexChanged += new System.EventHandler(this.CBXCodUMedida_SelectedIndexChanged);
             // 
             // TxtPrecio
             // 
-            this.TxtPrecio.Location = new System.Drawing.Point(211, 241);
+            this.TxtPrecio.Location = new System.Drawing.Point(527, 92);
+            this.TxtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(204, 26);
+            this.TxtPrecio.Size = new System.Drawing.Size(137, 20);
             this.TxtPrecio.TabIndex = 29;
             // 
             // proyectoRadDataSet8
@@ -237,38 +267,26 @@
             // 
             this.productoesTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // DbProducto
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DbProducto.AutoGenerateColumns = false;
+            this.DbProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DbProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productoIdDataGridViewTextBoxColumn,
             this.categoriaIdDataGridViewTextBoxColumn,
             this.unidadMedidaIdDataGridViewTextBoxColumn,
             this.fechaCreacionDataGridViewTextBoxColumn,
             this.estadoDataGridViewCheckBoxColumn,
             this.precioCompraDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.productoesBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 284);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1004, 150);
-            this.dataGridView1.TabIndex = 30;
-            // 
-            // proyectoRadDataSet10
-            // 
-            this.proyectoRadDataSet10.DataSetName = "ProyectoRadDataSet10";
-            this.proyectoRadDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productoesBindingSource1
-            // 
-            this.productoesBindingSource1.DataMember = "Productoes";
-            this.productoesBindingSource1.DataSource = this.proyectoRadDataSet10;
-            // 
-            // productoesTableAdapter1
-            // 
-            this.productoesTableAdapter1.ClearBeforeFill = true;
+            this.DbProducto.DataSource = this.productoesBindingSource1;
+            this.DbProducto.Location = new System.Drawing.Point(13, 230);
+            this.DbProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.DbProducto.Name = "DbProducto";
+            this.DbProducto.RowHeadersWidth = 62;
+            this.DbProducto.RowTemplate.Height = 28;
+            this.DbProducto.Size = new System.Drawing.Size(789, 98);
+            this.DbProducto.TabIndex = 30;
+            this.DbProducto.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DbProducto_CellContentDoubleClick);
             // 
             // productoIdDataGridViewTextBoxColumn
             // 
@@ -319,12 +337,65 @@
             this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
             this.precioCompraDataGridViewTextBoxColumn.Width = 150;
             // 
+            // productoesBindingSource1
+            // 
+            this.productoesBindingSource1.DataMember = "Productoes";
+            this.productoesBindingSource1.DataSource = this.proyectoRadDataSet10;
+            // 
+            // proyectoRadDataSet10
+            // 
+            this.proyectoRadDataSet10.DataSetName = "ProyectoRadDataSet10";
+            this.proyectoRadDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productoesTableAdapter1
+            // 
+            this.productoesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(10, 200);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(167, 25);
+            this.label.TabIndex = 73;
+            this.label.Text = "Filtro de estado:";
+            // 
+            // CBXFiltro
+            // 
+            this.CBXFiltro.FormattingEnabled = true;
+            this.CBXFiltro.Location = new System.Drawing.Point(181, 205);
+            this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXFiltro.Name = "CBXFiltro";
+            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
+            this.CBXFiltro.TabIndex = 72;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrar.Location = new System.Drawing.Point(775, 9);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
+            this.BtnCerrar.TabIndex = 74;
+            this.BtnCerrar.Text = "X";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
             // PProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 446);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(813, 339);
+            this.Controls.Add(this.BtnCerrar);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.CBXFiltro);
+            this.Controls.Add(this.DbProducto);
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.CBXCodUMedida);
             this.Controls.Add(this.CBXCodCategoria);
@@ -341,6 +412,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PProductos";
@@ -349,9 +422,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DbProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +454,7 @@
         private ProyectoRadDataSet9 proyectoRadDataSet9;
         private System.Windows.Forms.BindingSource productoesBindingSource;
         private ProyectoRadDataSet9TableAdapters.ProductoesTableAdapter productoesTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DbProducto;
         private ProyectoRadDataSet10 proyectoRadDataSet10;
         private System.Windows.Forms.BindingSource productoesBindingSource1;
         private ProyectoRadDataSet10TableAdapters.ProductoesTableAdapter productoesTableAdapter1;
@@ -391,5 +464,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.ComboBox CBXFiltro;
+        private System.Windows.Forms.Button BtnCerrar;
     }
 }

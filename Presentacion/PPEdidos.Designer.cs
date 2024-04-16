@@ -39,6 +39,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.DGVPedidos = new System.Windows.Forms.DataGridView();
+            this.pedidoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pedidoesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet13 = new Presentacion.ProyectoRadDataSet13();
             this.pedidoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet5 = new Presentacion.ProyectoRadDataSet5();
             this.pedidoesTableAdapter = new Presentacion.ProyectoRadDataSet5TableAdapters.PedidoesTableAdapter();
@@ -63,22 +73,12 @@
             this.CBXProducto = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.TxtPSeleccionado = new System.Windows.Forms.TextBox();
-            this.pedidoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyectoRadDataSet13 = new Presentacion.ProyectoRadDataSet13();
-            this.pedidoesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pedidoesTableAdapter1 = new Presentacion.ProyectoRadDataSet13TableAdapters.PedidoesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +88,7 @@
             this.label1.Location = new System.Drawing.Point(406, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 46);
+            this.label1.Size = new System.Drawing.Size(144, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "PEDIDOS";
             // 
@@ -99,7 +99,7 @@
             this.label2.Location = new System.Drawing.Point(8, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 37);
+            this.label2.Size = new System.Drawing.Size(40, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "ID:";
             // 
@@ -110,7 +110,7 @@
             this.label3.Location = new System.Drawing.Point(8, 62);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 37);
+            this.label3.Size = new System.Drawing.Size(156, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Codigo cliente:";
             // 
@@ -121,7 +121,7 @@
             this.label4.Location = new System.Drawing.Point(509, 38);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(289, 37);
+            this.label4.Size = new System.Drawing.Size(196, 26);
             this.label4.TabIndex = 3;
             this.label4.Text = "Fecha de creación:";
             // 
@@ -132,7 +132,7 @@
             this.label5.Location = new System.Drawing.Point(509, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(264, 37);
+            this.label5.Size = new System.Drawing.Size(179, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha de pedido:";
             // 
@@ -143,7 +143,7 @@
             this.label6.Location = new System.Drawing.Point(8, 123);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 37);
+            this.label6.Size = new System.Drawing.Size(86, 26);
             this.label6.TabIndex = 5;
             this.label6.Text = "Estado:";
             // 
@@ -154,7 +154,7 @@
             this.label7.Location = new System.Drawing.Point(507, 120);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 37);
+            this.label7.Size = new System.Drawing.Size(111, 26);
             this.label7.TabIndex = 6;
             this.label7.Text = "Sub-Total:";
             // 
@@ -165,7 +165,7 @@
             this.label8.Location = new System.Drawing.Point(507, 92);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(178, 37);
+            this.label8.Size = new System.Drawing.Size(122, 26);
             this.label8.TabIndex = 7;
             this.label8.Text = "Descuento:";
             // 
@@ -176,7 +176,7 @@
             this.label9.Location = new System.Drawing.Point(507, 149);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 37);
+            this.label9.Size = new System.Drawing.Size(65, 26);
             this.label9.TabIndex = 8;
             this.label9.Text = "Total:";
             // 
@@ -196,232 +196,13 @@
             this.descuentoDataGridViewTextBoxColumn});
             this.DGVPedidos.DataSource = this.pedidoesBindingSource1;
             this.DGVPedidos.Location = new System.Drawing.Point(8, 230);
-            this.DGVPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGVPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.DGVPedidos.Name = "DGVPedidos";
             this.DGVPedidos.ReadOnly = true;
             this.DGVPedidos.RowHeadersWidth = 62;
             this.DGVPedidos.RowTemplate.Height = 28;
             this.DGVPedidos.Size = new System.Drawing.Size(947, 218);
             this.DGVPedidos.TabIndex = 9;
-            // 
-            // pedidoesBindingSource
-            // 
-            this.pedidoesBindingSource.DataMember = "Pedidoes";
-            this.pedidoesBindingSource.DataSource = this.proyectoRadDataSet5;
-            // 
-            // proyectoRadDataSet5
-            // 
-            this.proyectoRadDataSet5.DataSetName = "ProyectoRadDataSet5";
-            this.proyectoRadDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pedidoesTableAdapter
-            // 
-            this.pedidoesTableAdapter.ClearBeforeFill = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // TxtID
-            // 
-            this.TxtID.Enabled = false;
-            this.TxtID.Location = new System.Drawing.Point(187, 39);
-            this.TxtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtID.Name = "TxtID";
-            this.TxtID.Size = new System.Drawing.Size(211, 20);
-            this.TxtID.TabIndex = 11;
-            // 
-            // TxtSubTotal
-            // 
-            this.TxtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSubTotal.ForeColor = System.Drawing.Color.Black;
-            this.TxtSubTotal.Location = new System.Drawing.Point(706, 123);
-            this.TxtSubTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtSubTotal.Name = "TxtSubTotal";
-            this.TxtSubTotal.Size = new System.Drawing.Size(127, 30);
-            this.TxtSubTotal.TabIndex = 12;
-            // 
-            // CBXCodCliente
-            // 
-            this.CBXCodCliente.FormattingEnabled = true;
-            this.CBXCodCliente.Location = new System.Drawing.Point(187, 68);
-            this.CBXCodCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CBXCodCliente.Name = "CBXCodCliente";
-            this.CBXCodCliente.Size = new System.Drawing.Size(211, 21);
-            this.CBXCodCliente.TabIndex = 13;
-            // 
-            // TxtDescuento
-            // 
-            this.TxtDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescuento.ForeColor = System.Drawing.Color.Orange;
-            this.TxtDescuento.Location = new System.Drawing.Point(706, 97);
-            this.TxtDescuento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtDescuento.Name = "TxtDescuento";
-            this.TxtDescuento.Size = new System.Drawing.Size(127, 30);
-            this.TxtDescuento.TabIndex = 14;
-            // 
-            // TxtTotal
-            // 
-            this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.ForeColor = System.Drawing.Color.Red;
-            this.TxtTotal.Location = new System.Drawing.Point(706, 153);
-            this.TxtTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(127, 30);
-            this.TxtTotal.TabIndex = 15;
-            // 
-            // DTFechaCreación
-            // 
-            this.DTFechaCreación.Location = new System.Drawing.Point(706, 39);
-            this.DTFechaCreación.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DTFechaCreación.Name = "DTFechaCreación";
-            this.DTFechaCreación.Size = new System.Drawing.Size(216, 20);
-            this.DTFechaCreación.TabIndex = 16;
-            // 
-            // DTFechaPedido
-            // 
-            this.DTFechaPedido.Location = new System.Drawing.Point(706, 70);
-            this.DTFechaPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DTFechaPedido.Name = "DTFechaPedido";
-            this.DTFechaPedido.Size = new System.Drawing.Size(216, 20);
-            this.DTFechaPedido.TabIndex = 17;
-            // 
-            // CBEstado
-            // 
-            this.CBEstado.AutoSize = true;
-            this.CBEstado.Location = new System.Drawing.Point(187, 129);
-            this.CBEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(63, 21);
-            this.CBEstado.TabIndex = 18;
-            this.CBEstado.Text = "Activo";
-            this.CBEstado.UseVisualStyleBackColor = true;
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.Location = new System.Drawing.Point(706, 194);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(78, 32);
-            this.BtnEliminar.TabIndex = 28;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Location = new System.Drawing.Point(615, 194);
-            this.BtnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(78, 32);
-            this.BtnModificar.TabIndex = 27;
-            this.BtnModificar.Text = "Modificar";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.Location = new System.Drawing.Point(522, 194);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(78, 32);
-            this.BtnGuardar.TabIndex = 26;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.BackColor = System.Drawing.Color.Transparent;
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(9, 202);
-            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(247, 37);
-            this.label.TabIndex = 70;
-            this.label.Text = "Filtro de estado:";
-            // 
-            // CBXFiltro
-            // 
-            this.CBXFiltro.FormattingEnabled = true;
-            this.CBXFiltro.Location = new System.Drawing.Point(187, 208);
-            this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CBXFiltro.Name = "CBXFiltro";
-            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
-            this.CBXFiltro.TabIndex = 69;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
-            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(939, -1);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
-            this.BtnCerrar.TabIndex = 68;
-            this.BtnCerrar.Text = "X";
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 92);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(241, 37);
-            this.label10.TabIndex = 71;
-            this.label10.Text = "Nombre cliente:";
-            // 
-            // TxtNCliente
-            // 
-            this.TxtNCliente.Enabled = false;
-            this.TxtNCliente.Location = new System.Drawing.Point(187, 99);
-            this.TxtNCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtNCliente.Name = "TxtNCliente";
-            this.TxtNCliente.Size = new System.Drawing.Size(211, 20);
-            this.TxtNCliente.TabIndex = 72;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1061, 140);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(263, 37);
-            this.label11.TabIndex = 73;
-            this.label11.Text = "Codigo producto:";
-            // 
-            // CBXProducto
-            // 
-            this.CBXProducto.FormattingEnabled = true;
-            this.CBXProducto.Location = new System.Drawing.Point(1291, 143);
-            this.CBXProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CBXProducto.Name = "CBXProducto";
-            this.CBXProducto.Size = new System.Drawing.Size(211, 21);
-            this.CBXProducto.TabIndex = 74;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1061, 171);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(350, 37);
-            this.label12.TabIndex = 75;
-            this.label12.Text = "Producto seleccionado:";
-            // 
-            // TxtPSeleccionado
-            // 
-            this.TxtPSeleccionado.Enabled = false;
-            this.TxtPSeleccionado.Location = new System.Drawing.Point(1291, 175);
-            this.TxtPSeleccionado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtPSeleccionado.Name = "TxtPSeleccionado";
-            this.TxtPSeleccionado.Size = new System.Drawing.Size(211, 20);
-            this.TxtPSeleccionado.TabIndex = 76;
             // 
             // pedidoIdDataGridViewTextBoxColumn
             // 
@@ -497,15 +278,235 @@
             this.descuentoDataGridViewTextBoxColumn.ReadOnly = true;
             this.descuentoDataGridViewTextBoxColumn.Width = 150;
             // 
+            // pedidoesBindingSource1
+            // 
+            this.pedidoesBindingSource1.DataMember = "Pedidoes";
+            this.pedidoesBindingSource1.DataSource = this.proyectoRadDataSet13;
+            // 
             // proyectoRadDataSet13
             // 
             this.proyectoRadDataSet13.DataSetName = "ProyectoRadDataSet13";
             this.proyectoRadDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pedidoesBindingSource1
+            // pedidoesBindingSource
             // 
-            this.pedidoesBindingSource1.DataMember = "Pedidoes";
-            this.pedidoesBindingSource1.DataSource = this.proyectoRadDataSet13;
+            this.pedidoesBindingSource.DataMember = "Pedidoes";
+            this.pedidoesBindingSource.DataSource = this.proyectoRadDataSet5;
+            // 
+            // proyectoRadDataSet5
+            // 
+            this.proyectoRadDataSet5.DataSetName = "ProyectoRadDataSet5";
+            this.proyectoRadDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pedidoesTableAdapter
+            // 
+            this.pedidoesTableAdapter.ClearBeforeFill = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // TxtID
+            // 
+            this.TxtID.Enabled = false;
+            this.TxtID.Location = new System.Drawing.Point(187, 39);
+            this.TxtID.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtID.Name = "TxtID";
+            this.TxtID.Size = new System.Drawing.Size(211, 20);
+            this.TxtID.TabIndex = 11;
+            // 
+            // TxtSubTotal
+            // 
+            this.TxtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSubTotal.ForeColor = System.Drawing.Color.Black;
+            this.TxtSubTotal.Location = new System.Drawing.Point(706, 123);
+            this.TxtSubTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSubTotal.Name = "TxtSubTotal";
+            this.TxtSubTotal.Size = new System.Drawing.Size(127, 23);
+            this.TxtSubTotal.TabIndex = 12;
+            // 
+            // CBXCodCliente
+            // 
+            this.CBXCodCliente.FormattingEnabled = true;
+            this.CBXCodCliente.Location = new System.Drawing.Point(187, 68);
+            this.CBXCodCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXCodCliente.Name = "CBXCodCliente";
+            this.CBXCodCliente.Size = new System.Drawing.Size(211, 21);
+            this.CBXCodCliente.TabIndex = 13;
+            // 
+            // TxtDescuento
+            // 
+            this.TxtDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescuento.ForeColor = System.Drawing.Color.Orange;
+            this.TxtDescuento.Location = new System.Drawing.Point(706, 97);
+            this.TxtDescuento.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtDescuento.Name = "TxtDescuento";
+            this.TxtDescuento.Size = new System.Drawing.Size(127, 23);
+            this.TxtDescuento.TabIndex = 14;
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTotal.ForeColor = System.Drawing.Color.Red;
+            this.TxtTotal.Location = new System.Drawing.Point(706, 153);
+            this.TxtTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(127, 23);
+            this.TxtTotal.TabIndex = 15;
+            // 
+            // DTFechaCreación
+            // 
+            this.DTFechaCreación.Location = new System.Drawing.Point(706, 39);
+            this.DTFechaCreación.Margin = new System.Windows.Forms.Padding(2);
+            this.DTFechaCreación.Name = "DTFechaCreación";
+            this.DTFechaCreación.Size = new System.Drawing.Size(216, 20);
+            this.DTFechaCreación.TabIndex = 16;
+            // 
+            // DTFechaPedido
+            // 
+            this.DTFechaPedido.Location = new System.Drawing.Point(706, 70);
+            this.DTFechaPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.DTFechaPedido.Name = "DTFechaPedido";
+            this.DTFechaPedido.Size = new System.Drawing.Size(216, 20);
+            this.DTFechaPedido.TabIndex = 17;
+            // 
+            // CBEstado
+            // 
+            this.CBEstado.AutoSize = true;
+            this.CBEstado.Location = new System.Drawing.Point(187, 129);
+            this.CBEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(56, 17);
+            this.CBEstado.TabIndex = 18;
+            this.CBEstado.Text = "Activo";
+            this.CBEstado.UseVisualStyleBackColor = true;
+            // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.Location = new System.Drawing.Point(706, 194);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(78, 32);
+            this.BtnEliminar.TabIndex = 28;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // BtnModificar
+            // 
+            this.BtnModificar.Location = new System.Drawing.Point(615, 194);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(78, 32);
+            this.BtnModificar.TabIndex = 27;
+            this.BtnModificar.Text = "Modificar";
+            this.BtnModificar.UseVisualStyleBackColor = true;
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Location = new System.Drawing.Point(522, 194);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(78, 32);
+            this.BtnGuardar.TabIndex = 26;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(9, 202);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(167, 26);
+            this.label.TabIndex = 70;
+            this.label.Text = "Filtro de estado:";
+            // 
+            // CBXFiltro
+            // 
+            this.CBXFiltro.FormattingEnabled = true;
+            this.CBXFiltro.Location = new System.Drawing.Point(187, 208);
+            this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXFiltro.Name = "CBXFiltro";
+            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
+            this.CBXFiltro.TabIndex = 69;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrar.Location = new System.Drawing.Point(940, 6);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
+            this.BtnCerrar.TabIndex = 68;
+            this.BtnCerrar.Text = "X";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 92);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(165, 26);
+            this.label10.TabIndex = 71;
+            this.label10.Text = "Nombre cliente:";
+            // 
+            // TxtNCliente
+            // 
+            this.TxtNCliente.Enabled = false;
+            this.TxtNCliente.Location = new System.Drawing.Point(187, 99);
+            this.TxtNCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtNCliente.Name = "TxtNCliente";
+            this.TxtNCliente.Size = new System.Drawing.Size(211, 20);
+            this.TxtNCliente.TabIndex = 72;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1061, 140);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(177, 26);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Codigo producto:";
+            // 
+            // CBXProducto
+            // 
+            this.CBXProducto.FormattingEnabled = true;
+            this.CBXProducto.Location = new System.Drawing.Point(1291, 143);
+            this.CBXProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXProducto.Name = "CBXProducto";
+            this.CBXProducto.Size = new System.Drawing.Size(211, 21);
+            this.CBXProducto.TabIndex = 74;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(1061, 171);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(238, 26);
+            this.label12.TabIndex = 75;
+            this.label12.Text = "Producto seleccionado:";
+            // 
+            // TxtPSeleccionado
+            // 
+            this.TxtPSeleccionado.Enabled = false;
+            this.TxtPSeleccionado.Location = new System.Drawing.Point(1291, 175);
+            this.TxtPSeleccionado.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPSeleccionado.Name = "TxtPSeleccionado";
+            this.TxtPSeleccionado.Size = new System.Drawing.Size(211, 20);
+            this.TxtPSeleccionado.TabIndex = 76;
             // 
             // pedidoesTableAdapter1
             // 
@@ -549,7 +550,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PPEdidos";
@@ -557,10 +558,10 @@
             this.Text = "PPEdidos";
             this.Load += new System.EventHandler(this.PPEdidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVPedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
