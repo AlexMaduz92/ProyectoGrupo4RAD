@@ -1,6 +1,7 @@
 ﻿using Datos.Base_de_Dato;
 using Datos.Core;
 using Datos.Modelo;
+using Negocio;
 using System;
 using System.Data;
 using System.Linq;
@@ -75,8 +76,6 @@ namespace Presentacion
             }
         }
 
-
-
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string codigo = TXTCodigo.Text;
@@ -95,19 +94,17 @@ namespace Presentacion
                     return;
                 }
 
-                CondiccionPago condicionPago = new CondiccionPago
-                {
-                    Codigo = codigo,
-                    Descripcion = descripcion,
-                    Dias = dias,
-                    Estado = estado,
-                    FechaCreacion = fechaCreacion
-                };
-
                 try
                 {
-                    unitOfWork.Repository<CondiccionPago>().Agregar(condicionPago);
-                    unitOfWork.Guardar();
+                    var condicionPago = new Negocio.CondicionesPago();
+                    condicionPago.GuardarCondicionPago(new Datos.Modelo.CondiccionPago
+                    {
+                        Codigo = codigo,
+                        Descripcion = descripcion,
+                        Dias = dias,
+                        Estado = estado,
+                        FechaCreacion = fechaCreacion
+                    });
 
                     this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
                     LimpiarCampos();
@@ -118,7 +115,6 @@ namespace Presentacion
                 }
             }
         }
-
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
@@ -139,30 +135,29 @@ namespace Presentacion
                     return;
                 }
 
-                CondiccionPago condicionPago = unitOfWork.Repository<CondiccionPago>().ObtenerPorId(id);
-                if (condicionPago != null)
+                try
                 {
-                    condicionPago.Codigo = codigo;
-                    condicionPago.Descripcion = descripcion;
-                    condicionPago.Dias = dias;
-                    condicionPago.Estado = estado;
-                    condicionPago.FechaCreacion = fechaCreacion;
-
-                    try
+                    var condicionesPago = new Negocio.CondicionesPago();
+                    condicionesPago.ModificarCondicionPago(new Datos.Modelo.CondiccionPago
                     {
-                        unitOfWork.Repository<CondiccionPago>().Editar(condicionPago);
-                        unitOfWork.Guardar();
+                        CondicionPagoId = id,
+                        Codigo = codigo,
+                        Descripcion = descripcion,
+                        Dias = dias,
+                        Estado = estado,
+                        FechaCreacion = fechaCreacion
+                    });
 
-                        this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
-                        LimpiarCampos();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al modificar la condición de pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al modificar la condición de pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
@@ -172,24 +167,17 @@ namespace Presentacion
 
             if (result == DialogResult.Yes)
             {
-                CondiccionPago condicionPago = unitOfWork.Repository<CondiccionPago>().ObtenerPorId(id);
-                if (condicionPago != null)
+                try
                 {
-                    condicionPago.Estado = false; // Desactivar en lugar de eliminar
+                    var condicionesPago = new Negocio.CondicionesPago();
+                    condicionesPago.EliminarCondicionPago(id);
 
-                    try
-                    {
-                        unitOfWork.Repository<CondiccionPago>().Editar(condicionPago);
-                        unitOfWork.Guardar();
-
-                        this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
-
-                        LimpiarCampos();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al eliminar la condición de pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar la condición de pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
