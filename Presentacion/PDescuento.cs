@@ -1,6 +1,7 @@
 ﻿using Datos.Base_de_Dato;
 using Datos.Core;
 using Datos.Modelo;
+using Negocio;
 using System;
 using System.Data;
 using System.Linq;
@@ -88,6 +89,9 @@ namespace Presentacion
                     return;
                 }
 
+                // Crear una instancia de la capa de negocio Descuento
+                Descuento descuentoNegocio = new Descuento();
+
                 // Crear un nuevo objeto GrupoDescuento
                 GrupoDescuento grupoDescuento = new GrupoDescuento
                 {
@@ -101,8 +105,7 @@ namespace Presentacion
                 try
                 {
                     // Guardar el objeto en la base de datos
-                    unitOfWork.Repository<GrupoDescuento>().Agregar(grupoDescuento);
-                    unitOfWork.Guardar();
+                    descuentoNegocio.GuardarDescuento(grupoDescuento);
 
                     // Actualizar el DataGridView
                     this.grupoDescuentoesTableAdapter.Fill(this.proyectoRadDataSet1.GrupoDescuentoes);
@@ -115,6 +118,7 @@ namespace Presentacion
             ActualizarDataGridView();
             LimpiarCampos();
         }
+
 
         private void DGVDescuento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -146,10 +150,13 @@ namespace Presentacion
                 return;
             }
 
+            // Crear una instancia de la capa de negocio Descuento
+            Descuento descuentoNegocio = new Descuento();
+
             try
             {
-                // Obtener el GrupoDescuento existente desde el contexto
-                GrupoDescuento grupoDescuento = unitOfWork.Repository<GrupoDescuento>().ObtenerPorId(id);
+                // Obtener el GrupoDescuento existente desde la capa de negocio
+                Datos.Modelo.GrupoDescuento grupoDescuento = descuentoNegocio.ObtenerDescuentoPorId(id);
 
                 // Modificar las propiedades del objeto existente
                 grupoDescuento.Codigo = codigo;
@@ -164,7 +171,7 @@ namespace Presentacion
                 if (result == DialogResult.Yes)
                 {
                     // Guardar los cambios en la base de datos
-                    unitOfWork.Guardar();
+                    descuentoNegocio.ModificarDescuento(grupoDescuento);
 
                     // Actualizar el DataGridView
                     this.grupoDescuentoesTableAdapter.Fill(this.proyectoRadDataSet1.GrupoDescuentoes);
@@ -179,6 +186,7 @@ namespace Presentacion
 
 
 
+
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             // Obtener el ID del descuento a eliminar
@@ -189,27 +197,30 @@ namespace Presentacion
 
             if (result == DialogResult.Yes)
             {
+                // Crear una instancia de la capa de negocio Descuento
+                Descuento descuentoNegocio = new Descuento();
+
                 try
                 {
-                    // Actualizar el Estado del descuento a 0
-                    GrupoDescuento grupoDescuento = unitOfWork.Repository<GrupoDescuento>().ObtenerPorId(id);
-                    grupoDescuento.Estado = false; // 0 representa falso
+                    // Actualizar el Estado del descuento a false
+                    Datos.Modelo.GrupoDescuento grupoDescuento = descuentoNegocio.ObtenerDescuentoPorId(id);
+                    grupoDescuento.Estado = false;
 
                     // Guardar los cambios en la base de datos
-                    unitOfWork.Repository<GrupoDescuento>().Editar(grupoDescuento);
-                    unitOfWork.Guardar();
+                    descuentoNegocio.ModificarDescuento(grupoDescuento);
 
                     // Actualizar el DataGridView
                     this.grupoDescuentoesTableAdapter.Fill(this.proyectoRadDataSet1.GrupoDescuentoes);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error al desactivar el descuento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             ActualizarDataGridView();
             LimpiarCampos();
         }
+
 
         private void ActualizarDataGridView()
         {

@@ -1,48 +1,52 @@
-﻿using Datos.Core;
+﻿using Datos.Base_de_Dato;
 using Datos.Modelo;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
     public class Descuento
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly Exaconection _dbContext;
 
-        public Descuento(UnitOfWork unitOfWork)
+        public Descuento()
         {
-            _unitOfWork = unitOfWork;
+            _dbContext = new Exaconection();
         }
 
-        public Datos.Modelo.GrupoDescuento ObtenerGrupoDescuentoPorId(int id)
+        public void GuardarDescuento(GrupoDescuento descuento)
         {
-            return _unitOfWork.Repository<Datos.Modelo.GrupoDescuento>().ObtenerPorId(id);
+            _dbContext.GrupoDescuentos.Add(descuento);
+            _dbContext.SaveChanges();
         }
 
-        public void GuardarGrupoDescuento(Datos.Modelo.GrupoDescuento grupoDescuento)
+        public void ModificarDescuento(GrupoDescuento descuento)
         {
-            _unitOfWork.Repository<Datos.Modelo.GrupoDescuento>().Agregar(grupoDescuento);
-            _unitOfWork.Guardar();
-        }
-
-        public void ModificarGrupoDescuento(Datos.Modelo.GrupoDescuento grupoDescuento)
-        {
-            _unitOfWork.Repository<Datos.Modelo.GrupoDescuento>().Editar(grupoDescuento);
-            _unitOfWork.Guardar();
-        }
-
-        public void EliminarGrupoDescuento(int id)
-        {
-            var grupoDescuento = _unitOfWork.Repository<Datos.Modelo.GrupoDescuento>().ObtenerPorId(id);
-            if (grupoDescuento != null)
+            var descuentoExistente = _dbContext.GrupoDescuentos.Find(descuento.GrupoDescuentoId);
+            if (descuentoExistente != null)
             {
-                grupoDescuento.Estado = false;
-                _unitOfWork.Repository<Datos.Modelo.GrupoDescuento>().Editar(grupoDescuento);
-                _unitOfWork.Guardar();
+                descuentoExistente.Codigo = descuento.Codigo;
+                descuentoExistente.Descripcion = descuento.Descripcion;
+                descuentoExistente.Porcentaje = descuento.Porcentaje;
+                descuentoExistente.Estado = descuento.Estado;
+                descuentoExistente.FechaCreacion = descuento.FechaCreacion;
+                _dbContext.SaveChanges();
             }
+        }
+
+        public void EliminarDescuento(int descuentoId)
+        {
+            var descuento = _dbContext.GrupoDescuentos.Find(descuentoId);
+            if (descuento != null)
+            {
+                descuento.Estado = false;
+                _dbContext.SaveChanges();
+            }
+        }
+
+        public GrupoDescuento ObtenerDescuentoPorId(int descuentoId)
+        {
+            return _dbContext.GrupoDescuentos.FirstOrDefault(d => d.GrupoDescuentoId == descuentoId);
         }
     }
 }
