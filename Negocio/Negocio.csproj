@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Categoriad.cs" />
     <Compile Include="Cliented.cs" />
+    <Compile Include="CondicionesPago.cs" />
+    <Compile Include="Descuento.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
