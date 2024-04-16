@@ -80,6 +80,10 @@
     <Compile Include="Migrations\202404100520360_CorrecionTipoDeEntradaDeDatos.designer.cs">
       <DependentUpon>202404100520360_CorrecionTipoDeEntradaDeDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404160059091_CambioTipoEstadoPedidos.cs" />
+    <Compile Include="Migrations\202404160059091_CambioTipoEstadoPedidos.designer.cs">
+      <DependentUpon>202404160059091_CambioTipoEstadoPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Cliente.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202404100520360_CorrecionTipoDeEntradaDeDatos.resx">
       <DependentUpon>202404100520360_CorrecionTipoDeEntradaDeDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404160059091_CambioTipoEstadoPedidos.resx">
+      <DependentUpon>202404160059091_CambioTipoEstadoPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

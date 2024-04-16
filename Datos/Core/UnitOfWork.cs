@@ -33,15 +33,14 @@ namespace Datos.Core
 
         public int Guardar()
         {
-            int guardar = 0;
             if (_transaccion == null)
             {
                 try
                 {
                     ComenzandoTransaccion();
-                    guardar = dbcontext.SaveChanges();
+                    int cambiosGuardados = dbcontext.SaveChanges();
                     ConfirmarTransaccion();
-                    return guardar;
+                    return cambiosGuardados;
                 }
                 catch (Exception ex)
                 {
@@ -51,6 +50,7 @@ namespace Datos.Core
             }
             return dbcontext.SaveChanges();
         }
+
 
         public Irepository<T> Repository<T>() where T : class
         {

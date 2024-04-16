@@ -108,7 +108,7 @@ namespace Presentacion
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             // Obtener los datos del formulario
-            int id = int.Parse(TxtID.Text);
+           int id = int.Parse(TxtID.Text);
             string codigo = TxtCodigo.Text;
             string descripcion = TxtDescripcion.Text;
             bool estado = CBEstado.Checked;

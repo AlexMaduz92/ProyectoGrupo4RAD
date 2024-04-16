@@ -15,7 +15,7 @@ namespace Datos.Modelo
             public int ClienteId { get; set; }
             public DateTime FechaCreacion { get; set; }
             public DateTime FechaPedido { get; set; }
-            public byte Estado { get; set; }
+            public bool Estado { get; set; }
             public decimal Total { get; set; }
             public decimal Subtotal { get; set; }
             public decimal Descuento { get; set; }

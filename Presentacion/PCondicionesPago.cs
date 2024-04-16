@@ -20,10 +20,14 @@ namespace Presentacion
             BtnGuardar.Click += BtnGuardar_Click;
             BtnModificar.Click += BtnModificar_Click;
             BtnEliminar.Click += BtnEliminar_Click;
+            CBXFiltro.SelectedIndexChanged += CBXFiltro_SelectedIndexChanged;
+            BtnCerrar.Click += BtnCerrar_Click;
         }
 
         private void PCondicionesPago_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet12.Pedidoes' Puede moverla o quitarla según sea necesario.
+            this.condiccionPagoesTableAdapter.Fill(this.proyectoRadDataSet4.CondiccionPagoes);
             // Obtener el próximo ID que se generará al guardar
             int proximoId = ObtenerProximoId();
 
@@ -38,6 +42,13 @@ namespace Presentacion
 
             // Asignar el DataView filtrado al DataGridView
             DGVCPago.DataSource = dv;
+
+            CargarDatosEstadoActivo();
+            CBXFiltro.Items.Add("Activos");
+            CBXFiltro.Items.Add("No Activos");
+            CBXFiltro.SelectedIndex = 0;
+            CBXFiltro.SelectedIndexChanged += CBXFiltro_SelectedIndexChanged;
+            CargarDatosEstadoActivo();
         }
 
         private int ObtenerProximoId()
@@ -107,6 +118,7 @@ namespace Presentacion
                 }
             }
         }
+
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
@@ -182,6 +194,38 @@ namespace Presentacion
             }
         }
 
+        private void CargarDatosEstadoActivo()
+        {
+            // Crear una nueva vista de datos filtrada por Estado = true
+            DataView view = new DataView(this.proyectoRadDataSet4.CondiccionPagoes);
+            view.RowFilter = "Estado = true";
+            DGVCPago.DataSource = view;
+        }
+
+        private void CargarDatosEstadoNoActivo()
+        {
+            // Crear una nueva vista de datos filtrada por Estado = false
+            DataView view = new DataView(this.proyectoRadDataSet4.CondiccionPagoes);
+            view.RowFilter = "Estado = false";
+            DGVCPago.DataSource = view;
+        }
+
+        private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el filtro seleccionado
+            string filtro = CBXFiltro.SelectedItem.ToString();
+
+            // Actualizar el DataGridView según el filtro seleccionado
+            if (filtro == "Activos")
+            {
+                CargarDatosEstadoActivo();
+            }
+            else if (filtro == "No Activos")
+            {
+                CargarDatosEstadoNoActivo();
+            }
+        }
+
         private void LimpiarCampos()
         {
             TXTID.Text = string.Empty;
@@ -192,5 +236,10 @@ namespace Presentacion
             DTFCreacion.Value = DateTime.Now; // Puedes establecer otra fecha inicial si lo prefieres
         }
 
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

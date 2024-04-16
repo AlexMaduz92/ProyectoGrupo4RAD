@@ -140,6 +140,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet11.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoRadDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet13.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoRadDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +247,28 @@
     </None>
     <None Include="ProyectoRadDataSet11.xss">
       <DependentUpon>ProyectoRadDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet12.xsc">
+      <DependentUpon>ProyectoRadDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet12.xss">
+      <DependentUpon>ProyectoRadDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet13.xsc">
+      <DependentUpon>ProyectoRadDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet13.xss">
+      <DependentUpon>ProyectoRadDataSet13.xsd</DependentUpon>
     </None>
     <None Include="ProyectoRadDataSet2.xsc">
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
