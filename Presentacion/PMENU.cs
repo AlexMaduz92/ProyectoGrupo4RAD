@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,6 @@ namespace Presentacion
             this.BackgroundImageLayout = ImageLayout.Center;
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           Application.Exit();
-        }
 
         private void agregaCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -96,5 +93,25 @@ namespace Presentacion
                 }
             }
         }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void manualDeUsuarioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                 string userManualPath = Path.Combine(Application.StartupPath, @"Manual\Manual.pdf");
+
+                System.Diagnostics.Process.Start(userManualPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening user manual: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
