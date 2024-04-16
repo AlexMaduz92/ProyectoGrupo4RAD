@@ -20,13 +20,13 @@ namespace Negocio
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-            BtnGuardar.Click += BtnGuarda_Click;
-            BtnModificar.Click += BtnModifica_Click;
-            BtnEliminar.Click += BtnElimina_Click;
+            BtnGuarda.Click += BtnGuarda_Click;
+            BtnModifica.Click += BtnModifica_Click;
+            BtnElimina.Click += BtnElimina_Click;
         }
 
 
-        private void PUnidadMedida_Load_1(object sender, EventArgs e)
+        private void PUnidadMedida_Load(object sender, EventArgs e)
         {
             // Obtener el próximo ID que se generará al guardar
             int proximoId = ObtenerProximoId();
