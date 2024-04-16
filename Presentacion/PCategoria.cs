@@ -27,6 +27,7 @@ namespace Presentacion
             BtnGuardar.Click += BtnGuardar_Click;
             BtnModificar.Click += BtnModificar_Click;
             BtnEliminar.Click += BtnEliminar_Click;
+            BtnCerrar.Click += BtnCerrar_Click;
         }
 
         private void PCategoria_Load(object sender, EventArgs e)
@@ -184,6 +185,7 @@ namespace Presentacion
 
                     // Actualizar el DataGridView
                     this.categoriasTableAdapter.Fill(this.proyectoRadDataSet.Categorias);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -193,6 +195,7 @@ namespace Presentacion
             ActualizarDataGridView();
             limpiar();
         }
+
         private void ActualizarDataGridView()
         {
             // Actualizar el DataGridView
@@ -212,5 +215,11 @@ namespace Presentacion
               
             }
         }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

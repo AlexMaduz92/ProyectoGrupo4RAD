@@ -302,7 +302,7 @@
             this.Controls.Add(this.label7);
             this.Name = "PUnidadMedida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.PUnidadMedida_Load_1);
+           // this.Load += new System.EventHandler(this.PUnidadMedida_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet3)).EndInit();
