@@ -64,55 +64,60 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(294, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(341, 37);
+            this.label7.Size = new System.Drawing.Size(294, 31);
             this.label7.TabIndex = 0;
             this.label7.Text = "UNIDAD DE MEDIDA";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 42);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 20);
+            this.label8.Size = new System.Drawing.Size(38, 25);
             this.label8.TabIndex = 1;
             this.label8.Text = "ID:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 87);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 76);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 20);
+            this.label9.Size = new System.Drawing.Size(86, 25);
             this.label9.TabIndex = 2;
             this.label9.Text = "Codigo:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 140);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(10, 125);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 20);
+            this.label10.Size = new System.Drawing.Size(131, 25);
             this.label10.TabIndex = 3;
             this.label10.Text = "Descripción:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 192);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 177);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 20);
+            this.label11.Size = new System.Drawing.Size(85, 25);
             this.label11.TabIndex = 4;
             this.label11.Text = "Estado:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 242);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(15, 231);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(144, 20);
+            this.label12.Size = new System.Drawing.Size(196, 25);
             this.label12.TabIndex = 5;
             this.label12.Text = "Fecha de creación:";
             // 
@@ -121,38 +126,39 @@
             this.TXTIDS.Enabled = false;
             this.TXTIDS.Location = new System.Drawing.Point(185, 42);
             this.TXTIDS.Name = "TXTIDS";
-            this.TXTIDS.Size = new System.Drawing.Size(309, 26);
+            this.TXTIDS.Size = new System.Drawing.Size(309, 20);
             this.TXTIDS.TabIndex = 6;
             // 
             // Txtcodig
             // 
             this.Txtcodig.Location = new System.Drawing.Point(185, 87);
             this.Txtcodig.Name = "Txtcodig";
-            this.Txtcodig.Size = new System.Drawing.Size(309, 26);
+            this.Txtcodig.Size = new System.Drawing.Size(309, 20);
             this.Txtcodig.TabIndex = 7;
             // 
             // TxtDescrip
             // 
             this.TxtDescrip.Location = new System.Drawing.Point(185, 137);
             this.TxtDescrip.Name = "TxtDescrip";
-            this.TxtDescrip.Size = new System.Drawing.Size(309, 26);
+            this.TxtDescrip.Size = new System.Drawing.Size(309, 20);
             this.TxtDescrip.TabIndex = 8;
             // 
             // CBEstados
             // 
             this.CBEstados.AutoSize = true;
-            this.CBEstados.Location = new System.Drawing.Point(185, 192);
+            this.CBEstados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBEstados.Location = new System.Drawing.Point(185, 176);
             this.CBEstados.Name = "CBEstados";
-            this.CBEstados.Size = new System.Drawing.Size(78, 24);
+            this.CBEstados.Size = new System.Drawing.Size(90, 29);
             this.CBEstados.TabIndex = 9;
             this.CBEstados.Text = "Activo";
             this.CBEstados.UseVisualStyleBackColor = true;
             // 
             // DTFcreaciones
             // 
-            this.DTFcreaciones.Location = new System.Drawing.Point(185, 242);
+            this.DTFcreaciones.Location = new System.Drawing.Point(244, 236);
             this.DTFcreaciones.Name = "DTFcreaciones";
-            this.DTFcreaciones.Size = new System.Drawing.Size(346, 26);
+            this.DTFcreaciones.Size = new System.Drawing.Size(346, 20);
             this.DTFcreaciones.TabIndex = 10;
             // 
             // DGVUMedidas
@@ -174,6 +180,7 @@
             this.DGVUMedidas.RowTemplate.Height = 28;
             this.DGVUMedidas.Size = new System.Drawing.Size(864, 150);
             this.DGVUMedidas.TabIndex = 11;
+            this.DGVUMedidas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVUMedidas_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -246,33 +253,37 @@
             // 
             // BtnGuarda
             // 
-            this.BtnGuarda.Location = new System.Drawing.Point(473, 177);
+            this.BtnGuarda.Location = new System.Drawing.Point(534, 151);
             this.BtnGuarda.Name = "BtnGuarda";
-            this.BtnGuarda.Size = new System.Drawing.Size(117, 50);
+            this.BtnGuarda.Size = new System.Drawing.Size(112, 50);
             this.BtnGuarda.TabIndex = 20;
             this.BtnGuarda.Text = "Guardar";
             this.BtnGuarda.UseVisualStyleBackColor = true;
+            this.BtnGuarda.Click += new System.EventHandler(this.BtnGuarda_Click);
             // 
             // BtnModifica
             // 
-            this.BtnModifica.Location = new System.Drawing.Point(610, 177);
+            this.BtnModifica.Location = new System.Drawing.Point(652, 151);
             this.BtnModifica.Name = "BtnModifica";
-            this.BtnModifica.Size = new System.Drawing.Size(117, 50);
+            this.BtnModifica.Size = new System.Drawing.Size(112, 51);
             this.BtnModifica.TabIndex = 21;
             this.BtnModifica.Text = "Modificar";
             this.BtnModifica.UseVisualStyleBackColor = true;
+            this.BtnModifica.Click += new System.EventHandler(this.BtnModifica_Click);
             // 
             // BtnElimina
             // 
-            this.BtnElimina.Location = new System.Drawing.Point(755, 177);
+            this.BtnElimina.Location = new System.Drawing.Point(770, 152);
             this.BtnElimina.Name = "BtnElimina";
-            this.BtnElimina.Size = new System.Drawing.Size(117, 50);
+            this.BtnElimina.Size = new System.Drawing.Size(112, 50);
             this.BtnElimina.TabIndex = 22;
             this.BtnElimina.Text = "Eliminar";
             this.BtnElimina.UseVisualStyleBackColor = true;
+            this.BtnElimina.Click += new System.EventHandler(this.BtnElimina_Click);
             // 
             // PUnidadMedida
             // 
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(891, 464);
             this.Controls.Add(this.BtnElimina);
             this.Controls.Add(this.BtnModifica);
