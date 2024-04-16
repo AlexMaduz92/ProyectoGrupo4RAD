@@ -17,8 +17,9 @@ namespace Datos.Modelo
         public string Apellidos { get; set; }
         public bool Estado { get; set; }
         public DateTime FechaCreacion { get; set; }
-
+        public int GrupoDescuentoId { get; set; }
         public GrupoDescuento GrupoDescuento { get; set; }
+        public int CondicionPagoId { get; set; }
         public CondiccionPago CondicionPago { get; set; }
     }
 }
