@@ -176,7 +176,7 @@ namespace Presentacion
             };
 
             // Guardar el pedido si todas las validaciones son exitosas
-            _pedidosNegocio.GuardarPedido(pedido);
+            _pedidosNegocio.(pedGuardarPedidoido);
             MessageBox.Show("Pedido guardado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ActualizarDataGridView();
         }
