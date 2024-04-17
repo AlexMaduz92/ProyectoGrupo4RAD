@@ -40,7 +40,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -159,6 +161,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet15.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProyectoRadDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -290,6 +297,17 @@
     </None>
     <None Include="ProyectoRadDataSet14.xss">
       <DependentUpon>ProyectoRadDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet15.xsc">
+      <DependentUpon>ProyectoRadDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet15.xss">
+      <DependentUpon>ProyectoRadDataSet15.xsd</DependentUpon>
     </None>
     <None Include="ProyectoRadDataSet2.xsc">
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>

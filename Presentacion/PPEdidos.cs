@@ -298,7 +298,7 @@ namespace Presentacion
 
                         if (pedido != null)
                         {
-                           pedido.Estado = false;
+                            pedido.Estado = false;
 
 
                             unitOfWork.Guardar();
@@ -372,7 +372,5 @@ namespace Presentacion
         {
             this.Close();
         }
-
-    
     }
 }

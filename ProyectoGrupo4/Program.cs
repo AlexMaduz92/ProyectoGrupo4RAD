@@ -17,7 +17,7 @@ namespace ProyectoGrupo4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PClientes());
+            Application.Run(new PDetallePedido());
         }
     }
 }

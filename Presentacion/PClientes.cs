@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,6 +21,8 @@ namespace Presentacion
             InitializeComponent();
             _unitOfWork = new UnitOfWork();
             _cliented = new Cliented();
+            BtnGuardar.Click += BtnGuardar_Click;
+            BtnCerrar.Click += BtnCerrar_Click;
         }
 
         private void PClientes_Load(object sender, EventArgs e)
@@ -39,10 +42,14 @@ namespace Presentacion
             CBXGDescuento.SelectedIndexChanged += CBXGDescuento_SelectedIndexChanged;
 
             CargarDatosEstadoActivo();
-            CargarCombos();
+           
 
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private int ObtenerProximoId()
         {
             int maxId = 0;
@@ -53,18 +60,8 @@ namespace Presentacion
             return maxId + 1;
         }
 
-        private void CargarCombos()
-        {
-            // Cargar datos en CBXCPago
-            CBXCPago.DataSource = _cliented.ObtenerIdCondiconpago();
-            CBXCPago.DisplayMember = "Descripcion";
-            CBXCPago.ValueMember = "CondicionPagoId";
 
-            // Cargar datos en CBXGDescuento
-            CBXGDescuento.DataSource = _cliented.ObtenerIdDescuento();
-            CBXGDescuento.DisplayMember = "Descripcion"; // Establecer la propiedad DisplayMember para mostrar la descripción
-            CBXGDescuento.ValueMember = "GrupoDescuentoId";
-        }
+
 
         private void CBXCPago_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,7 +91,7 @@ namespace Presentacion
 
         private void DGVClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-         /*   if (e.RowIndex >= 0)
+           if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = DGVClientes.Rows[e.RowIndex];
                 TxtID.Text = row.Cells["ClienteIdDataGridViewTextBoxColumn"].Value.ToString();
@@ -103,7 +100,58 @@ namespace Presentacion
                 TxtCodigo.Text = row.Cells["CodigoDataGridViewTextBoxColumn"].Value.ToString();
                 CBEstado.Checked = Convert.ToBoolean(row.Cells["EstadoDataGridViewCheckBoxColumn"].Value);
                 DTFCreacion.Value = Convert.ToDateTime(row.Cells["FechaCreacionDataGridViewTextBoxColumn"].Value);
-            }*/
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            // Obtener los datos del formulario
+            string codigo = TxtCodigo.Text;
+            string apellido = TxtApellido.Text;
+            string nombre = TxtNombre.Text;
+            int condipago = LbIdPago.Text.Length;
+            int Descuen=LbIdDescuento.Text.Length;
+            bool estado = CBEstado.Checked;
+
+            DateTime fechaCreacion = DTFCreacion.Value;
+
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Desea guardar el descuento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(apellido))
+                {
+                    MessageBox.Show("Debe completar todos los campos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Cliente clientess = new Cliente
+                {
+                    Codigo = codigo,
+                    Nombres = nombre,
+                    Estado = estado,
+                    Apellidos = apellido,
+                    CondicionPagoId = condipago,
+                    GrupoDescuentoId = Descuen,
+                    FechaCreacion = fechaCreacion
+                };
+
+                try
+                {
+                    // Guardar el objeto en la base de datos
+                    _unitOfWork.Repository<Cliente>().Agregar(clientess);
+                    _unitOfWork.Guardar();
+
+                    // Actualizar el DataGridView
+                    this.clientesTableAdapter.Fill(this.proyectoRadDataSet2.Clientes);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            ActualizarDataGridView();
+            limpiar();
         }
 
         private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,11 +179,6 @@ namespace Presentacion
             DataView view = new DataView(this.proyectoRadDataSet14.Clientes);
             view.RowFilter = "Estado = false";
             DGVClientes.DataSource = view;
-        }
-
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void ActualizarDataGridView()
