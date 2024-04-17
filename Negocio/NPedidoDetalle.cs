@@ -3,45 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using Datos.Base_de_Dato;
+using Datos.Modelo;
 
 namespace Negocio
 {
-    public class DetallePedido
+    public class NPedidoDetalle
     {
-        public readonly Exaconection _dbContext;
-        public DetallePedido()
+        private readonly Exaconection _dbContext;
+
+        public NPedidoDetalle()
         {
             _dbContext = new Exaconection();
         }
 
-        public void GuardarPedido(DetallePedido DetallePedido)
+        public void GuardarPedidoDetalle(PedidoDetalle pedidoDetalle)
         {
-            _dbContext.Pedidos.Add(DetallePedido);
+            _dbContext.PedidoDetalles.Add(pedidoDetalle);
             _dbContext.SaveChanges();
         }
 
-        public void ModificarPedido(DetallePedido DetallePedido)
+        public void ModificarPedidoDetalle(PedidoDetalle pedidoDetalle)
         {
-            var detallePedidoExistente = _dbContext.DetallePedido.Find(PedidoDetalleId);
-            if (detallePedidoExistente != null)
+            var pedidoDetalleExistente = _dbContext.PedidoDetalles.Find(pedidoDetalle.PedidoDetalleId);
+            if (pedidoDetalleExistente != null)
             {
-                detallePedidoExistente.PedidoId = DetallePedido.PedidoId;
-                detallePedidoExistente.ProductoID = DetallePedido.ProductoId;
-                detallePedidoExistente.Precio = DetallePedido.Precio;
-                detallePedidoExistente.Total = DetallePedido.Total;
-                detallePedidoExistente.Descuento = DetallePedido.Descuento;
-                detallePedidoExistente.FechaCreacion = DetallePedido.FechaCreacion;
+                pedidoDetalleExistente.PedidoId = pedidoDetalle.PedidoId;
+                pedidoDetalleExistente.ProductoId = pedidoDetalle.ProductoId;
+                pedidoDetalleExistente.Precio = pedidoDetalle.Precio;
+                pedidoDetalleExistente.Total = pedidoDetalle.Total;
+                pedidoDetalleExistente.Descuento = pedidoDetalle.Descuento;
+                pedidoDetalleExistente.FechaCreacion = pedidoDetalle.FechaCreacion;
                 _dbContext.SaveChanges();
             }
         }
 
-        public void EliminarDetallePedido(int PedidoDetalleId)
+        public void EliminarPedidoDetalle(int pedidoDetalleId)
         {
-            var detallepedido = _dbContext.DetallePedido.Find(PedidoDetalleId);
-            if (detallepedido != null)
+            var pedidoDetalle = _dbContext.PedidoDetalles.Find(pedidoDetalleId);
+            if (pedidoDetalle != null)
             {
-                _dbContext.Pedidos.Remove(DetallePedido);
+                _dbContext.PedidoDetalles.Remove(pedidoDetalle);
                 _dbContext.SaveChanges();
+            }
+        }
+
+        public List<int> ObtenerIdsPedidos()
+        {
+            using (var dbContext = new Exaconection())
+            {
+                return dbContext.Pedidos.Select(p => p.PedidoId).ToList();
             }
         }
 
@@ -49,46 +61,18 @@ namespace Negocio
         {
             using (var dbContext = new Exaconection())
             {
-                return dbContext.Productos.Select(c => c.ProductoId).ToList();
+                return dbContext.Productos.Select(p => p.ProductoId).ToList();
             }
         }
 
-        public DetallePedido ObtenerDetallePedidoPorId(int PedidoDetalleId)
+
+
+        public PedidoDetalle ObtenerPedidoDetallePorId(int pedidoDetalleId)
         {
             using (var context = new Exaconection())
             {
-                return context.DetallePedido.FirstOrDefault(p => p.PedidoDetalleId == PedidoDetalleId);
+                return context.PedidoDetalles.FirstOrDefault(pd => pd.PedidoDetalleId == pedidoDetalleId);
             }
         }
     }
-
-
-
-
-        public void EliminarDetallePedido(int PedidoDetalleId)
-        {
-            var detallepedido = _dbContext.DetallePedido.Find(PedidoDetalleId);
-            if (detallepedido != null)
-            {
-                _dbContext.Pedidos.Remove(DetallePedido);
-                _dbContext.SaveChanges();
-            }
-        }
-
-        public List<int> ObtenerIdsProductos()
-        {
-            using (var dbContext = new Exaconection())
-            {
-                return dbContext.Productos.Select(c => c.ProductoId).ToList();
-            }
-        }
-
-        public DetallePedido ObtenerDetallePedidoPorId(int PedidoDetalleId)
-        {
-            using (var context = new Exaconection())
-            {
-                return context.DetallePedido.FirstOrDefault(p => p.PedidoDetalleId == PedidoDetalleId);
-            }
-        }
 }
-

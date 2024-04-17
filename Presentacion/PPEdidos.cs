@@ -176,7 +176,7 @@ namespace Presentacion
             };
 
             // Guardar el pedido si todas las validaciones son exitosas
-            _pedidosNegocio.(pedGuardarPedidoido);
+            _pedidosNegocio.GuardarPedido(pedido);
             MessageBox.Show("Pedido guardado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ActualizarDataGridView();
         }
@@ -298,7 +298,7 @@ namespace Presentacion
 
                         if (pedido != null)
                         {
-                           pedido.Estado = false;
+                            pedido.Estado = false;
 
 
                             unitOfWork.Guardar();
@@ -372,7 +372,5 @@ namespace Presentacion
         {
             this.Close();
         }
-
-    
     }
 }
