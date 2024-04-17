@@ -57,7 +57,7 @@ namespace Presentacion
             DGVClientes.DataSource = dv;
             
             CBXCPago.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            CBXGDescuento.DropDownStyle = ComboBoxStyle.DropDownList;
             CargarDatosEstadoActivo();
             CBXFiltro.Items.Add("Activos");
             CBXFiltro.Items.Add("No Activos");
@@ -240,7 +240,7 @@ namespace Presentacion
             {
                 int Condid = (int)CBXCPago.SelectedItem;
                 string codigo = cliented.ObtenerCondicionPorId(Condid);
-                TxtCodigo.Text = codigo;
+                LbIdPago.Text = codigo;
             }
         }
 
@@ -250,7 +250,7 @@ namespace Presentacion
             {
                 int Condid = (int)CBXGDescuento.SelectedItem;
                 string codigo = cliented.ObtenerDescuentoPorId(Condid);
-                TxtCodigo.Text = codigo;
+                LbIdDescuento.Text = codigo;
             }
 
         }

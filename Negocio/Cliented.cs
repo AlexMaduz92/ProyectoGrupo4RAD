@@ -37,13 +37,27 @@ namespace Negocio
         {
             return dclientes.Eliminar(clienteid);
         }
+        public List<int> ObtenerIdCondiconpago()
+        {
+            using (var dbContext = new Exaconection())
+            {
+                return dbContext.CondicionPagos.Select(c => c.CondicionPagoId).ToList();
+            }
+        }
+        public List<int> ObtenerIdDescuento()
+        {
+            using (var dbContext = new Exaconection())
+            {
+                return dbContext.GrupoDescuentos.Select(c => c.GrupoDescuentoId).ToList();
+            }
+        }
         public string ObtenerCondicionPorId(int condid)
         {
-            return _dbContext.CondicionPagos.FirstOrDefault(c => c.CondicionPagoId == condid)?.Codigo;
+            return _dbContext.CondicionPagos.FirstOrDefault(c => c.CondicionPagoId == condid)?.Descripcion;
         }
         public string ObtenerDescuentoPorId(int desc)
         {
-            return _dbContext.GrupoDescuentos.FirstOrDefault(c => c.GrupoDescuentoId == desc)?.Codigo;
+            return _dbContext.GrupoDescuentos.FirstOrDefault(c => c.GrupoDescuentoId == desc)?.Descripcion;
         }
 
 
