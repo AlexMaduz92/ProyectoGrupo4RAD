@@ -67,7 +67,12 @@ namespace Negocio
 
         public string ObtenerNombreClientePorId(int clienteId)
         {
-            return _dbContext.Clientes.FirstOrDefault(c => c.ClienteId == clienteId)?.Nombres;
+            var cliente = _dbContext.Clientes.FirstOrDefault(c => c.ClienteId == clienteId);
+            if (cliente != null)
+            {
+                return $"{cliente.Nombres} {cliente.Apellidos}";
+            }
+            return string.Empty;
         }
 
         public Pedido ObtenerPedidoPorId(int pedidoId)
