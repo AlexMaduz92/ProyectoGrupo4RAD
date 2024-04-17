@@ -65,6 +65,8 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.CBXFiltro = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
+            this.LbIdDescuento = new System.Windows.Forms.Label();
+            this.LbIdPago = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
@@ -426,12 +428,38 @@
             this.label.TabIndex = 71;
             this.label.Text = "Filtro de estado:";
             // 
+            // LbIdDescuento
+            // 
+            this.LbIdDescuento.AutoSize = true;
+            this.LbIdDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbIdDescuento.Location = new System.Drawing.Point(608, 18);
+            this.LbIdDescuento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LbIdDescuento.Name = "LbIdDescuento";
+            this.LbIdDescuento.Size = new System.Drawing.Size(30, 25);
+            this.LbIdDescuento.TabIndex = 72;
+            this.LbIdDescuento.Text = "...";
+            this.LbIdDescuento.Visible = false;
+            // 
+            // LbIdPago
+            // 
+            this.LbIdPago.AutoSize = true;
+            this.LbIdPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbIdPago.Location = new System.Drawing.Point(721, 18);
+            this.LbIdPago.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LbIdPago.Name = "LbIdPago";
+            this.LbIdPago.Size = new System.Drawing.Size(30, 25);
+            this.LbIdPago.TabIndex = 73;
+            this.LbIdPago.Text = "...";
+            this.LbIdPago.Visible = false;
+            // 
             // PClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(871, 350);
+            this.Controls.Add(this.LbIdPago);
+            this.Controls.Add(this.LbIdDescuento);
             this.Controls.Add(this.label);
             this.Controls.Add(this.CBXFiltro);
             this.Controls.Add(this.BtnCerrar);
@@ -509,5 +537,7 @@
         private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.ComboBox CBXFiltro;
         private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label LbIdDescuento;
+        private System.Windows.Forms.Label LbIdPago;
     }
 }
