@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos.Base_de_Dato;
+using Datos.Modelo;
 
 namespace Negocio
 {
-    public class Factura
+    public class FacturaN
     {
 
         private readonly Exaconection _dbContext;
 
-        public Factura()
+        public FacturaN()
         {
             _dbContext = new Exaconection();
         }
 
-        public void GuardarFactura(Factura factura)
+        public void GuardarFactura(Factura Factura)
         {
-            _dbContext.Facturas.Add(factura);
+            _dbContext.Facturas.Add(Factura);
             _dbContext.SaveChanges();
 
         }

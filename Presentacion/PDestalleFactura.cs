@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Datos.Base_de_Dato;
+using Datos.Core;
+using Datos.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +13,9 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class PDestalleFactura : Form
-    {
         public partial class PDestalleFactura : Form
         {
+            private readonly UnitOfWork unitOfWork;
             public PDestalleFactura()
             {
                 InitializeComponent();
@@ -23,21 +25,21 @@ namespace Presentacion
                 BtnEliminar.Click += BtnEliminar_Click;
             }
 
-            private int ObtenerProximoId()
+        private int ObtenerProximoId()
+        {
+            int maxId = 0;
+            using (var context = new Exaconection())
             {
-                int maxId = 0;
-                using (var context = new Exaconection())
-                {
-                    maxId = context.Set<FacturaDetalle>().Max(g => g.FacturaId);
-                }
-                return maxId + 1;
+                maxId = context.Set<FacturaDetalle>().Max(g => g.FacturaId);
             }
+            return maxId + 1;
+        }
 
-            private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
                 if (e.RowIndex >= 0)
                 {
-                    DataGridViewRow row = DGVFacturaDetalle.Rows[e.RowIndex];
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                     TxtID.Text = row.Cells["FacturaDetalleIdDataGridViewTextBoxColumn"].Value.ToString();
                     DTFCreacion.Value = Convert.ToDateTime(row.Cells["FechaCreacionDataGridViewTextBoxColumn"].Value);
                     TxtTotal.Text = row.Cells["TotalDataGridViewTextBoxColumn"].Value.ToString();
@@ -83,7 +85,7 @@ namespace Presentacion
                         MessageBox.Show("Debe completar todos los campos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    FacturaDetalle facturaDetalless = new FacturaDetalle
+                    FacturaDetalle facturaDetalles = new FacturaDetalle
                     {
                         SubTotal = decimal.Parse(subtotal),
                         Descuento = decimal.Parse(descuento),
@@ -96,9 +98,9 @@ namespace Presentacion
 
                     try
                     {
-                        //Guardar en la db
-                        UnitOfWork.Repository<Factura>().Agregar(facturaDetalless);
-                        UnitOfWork.Guardar();
+                    //Guardar en la db
+                    unitOfWork.Repository<FacturaDetalle>().Agregar(facturaDetalles);
+                    unitOfWork.Guardar();
 
                         // Actualizar el datadiv
                         this.facturaDetallesTableAdapter.Fill(this.proyectoRadDataSet11.FacturaDetalles);
@@ -125,14 +127,14 @@ namespace Presentacion
                 this.facturaDetallesTableAdapter.Fill(this.proyectoRadDataSet11.FacturaDetalles);
 
                 // Asignar el evento CellDoubleClick al DataGridView
-                DGVFacturaDetalle.CellContentDoubleClick += DGVFacturaDetalle_CellContentDoubleClick;
+                dataGridView1.CellContentDoubleClick += DGVFacturaDetalle_CellContentDoubleClick;
 
                 // Crear un DataView y aplicar un filtro para mostrar solo los registros con Estado en true
                 DataView dv = new DataView(this.proyectoRadDataSet11.FacturaDetalles);
                 dv.RowFilter = "Estado = true";
 
                 // Asignar el DataView filtrado al DataGridView
-                DGVFacturaDetalle.DataSource = dv;
+                 dataGridView1.DataSource = dv;
 
             }
 
@@ -151,12 +153,12 @@ namespace Presentacion
                     try
                     {
                         // Actualizar el Estado del descuento a 0
-                        FacturaDetalle facturass = UnitOfWork.Repository<Factura>().ObtenerPorId(id);
-                        facturass.Estado = false; // 0 representa falso
+                        FacturaDetalle facturaDetalle= unitOfWork.Repository<FacturaDetalle>().ObtenerPorId(id);
+                        facturaDetalle.Estado = 0;
 
-                        //Guardar los cambios en la base de datos
-                        UnitOfWork.Repository<FacturaDetalle>().Editar(facturaDetalless);
-                        UnitOfWork.Guardar();
+                    //Guardar los cambios en la base de datos
+                    unitOfWork.Repository<FacturaDetalle>().Editar(facturaDetalle);
+                    unitOfWork.Guardar();
 
                         // Actualizar el DataGridView
                         this.facturaDetallesTableAdapter.Fill(this.proyectoRadDataSet11.FacturaDetalles);
@@ -184,7 +186,7 @@ namespace Presentacion
                 try
                 {
                     // Obtener el GrupoDescuento existente desde el contexto
-                    FacturaDetalle facturaDetalless = UnitOfWork.Repository<FacturaDetalle>().ObtenerPorId(id);
+                    FacturaDetalle facturaDetalless = unitOfWork.Repository<FacturaDetalle>().ObtenerPorId(id);
 
                     // Modificar las propiedades del objeto existente
                     facturaDetalless.SubTotal = subtotal;
@@ -200,7 +202,7 @@ namespace Presentacion
                     if (result == DialogResult.Yes)
                     {
                         // Guardar los cambios en la base de datos
-                        UnitOfWork.Guardar();
+                        unitOfWork.Guardar();
 
                         // Actualizar el datadiv
                         this.facturaDetallesTableAdapter.Fill(this.proyectoRadDataSet11.FacturaDetalles);
@@ -235,5 +237,4 @@ namespace Presentacion
 
 
         }
-    }
 }

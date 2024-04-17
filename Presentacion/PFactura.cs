@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Datos.Base_de_Dato;
+using Datos.Core;
+using Datos.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,34 +10,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Presentacion.PFactura;
+
 
 namespace Presentacion
 {
-    public partial class PFactura : Form
-    {
         public partial class PFactura : Form
         {
-            public PFactura()
+        private readonly UnitOfWork unitOfWork;
+        public PFactura()
             {
                 InitializeComponent();
-                UnitOfWork unitOfWork = new UnitOfWork();
-                BtnGuardar.Click += BtnGuardar_Click;
-                BtnModificar.Click += BtnModificar_Click;
-                BtnEliminar.Click += BtnEliminar_Click;
+                 unitOfWork = new UnitOfWork();
+                 BtnGuardar.Click += BtnGuardar_Click;
+                 BtnModificar.Click += BtnModificar_Click;
+                 BtnEliminar.Click += BtnEliminar_Click;
             }
 
-            private int ObtenerProximoId()
+        private void PFactura_Load(object sender, EventArgs e)
+        {
+            // Obtener el próximo ID al guardar
+            int proximoId = ObtenerProximoId();
+
+            // Mostrar el próximo ID en el TxtID
+            TXTID.Text = proximoId.ToString();
+
+            // Cargar datos al datadiv
+            this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
+
+            // Asignar el evento CellDoubleClick al DataGridView
+            DGVFactura.CellDoubleClick += dgvFactura_CellContentDoubleClick;
+
+            // Crear un DataView y aplicar un filtro para mostrar solo los registros con Estado en true
+            DataView dv = new DataView(this.proyectoRadDataSet6.Facturas);
+            dv.RowFilter = "Estado = true";
+
+            // Asignar el DataView filtrado al DataGridView
+            DGVFactura.DataSource = dv;
+        }
+
+        private int ObtenerProximoId()
+        {
+            int maxId = 0;
+            using (var context = new Exaconection())
             {
-                int maxId = 0;
-                using (var context = new Exaconection())
-                {
-                    maxId = context.Set<Factura>().Max(g => g.FacturaId);
-                }
-                return maxId + 1;
+                maxId = context.Set<Factura>().Max(g => g.FacturaId);
             }
+            return maxId + 1;
+        }
 
-            private void dgvFactura_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvFactura_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
                 if (e.RowIndex >= 0)
                 {
@@ -58,20 +82,16 @@ namespace Presentacion
                 CBEstado.Checked = false;
             }
 
-            private void ActualizarDataGridView()
-            {
-                // Actualizar el datadiv
-                this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
-            }
             private void BtnGuardar_Click(object sender, EventArgs e)
             {
                 // Obtener los datos del formulario
                 string subtotal = TxtSubTotal.Text;
                 string descuento = TxtDescuento.Text;
                 string total = TxtTotal.Text;
-                bool estado = CBEstado.Checked;
+                int estado = CBEstado.Checked ? 1 : 0;
 
-                DateTime fechaCreacion = DTFechaCreación.Value;
+
+            DateTime fechaCreacion = DTFechaCreación.Value;
                 DateTime fechaFactura = DTFechaFactura.Value;
 
                 // mensaje de confirmacion
@@ -100,9 +120,9 @@ namespace Presentacion
 
                     try
                     {
-                        //Guardar en la db
-                        UnitOfWork.Repository<Factura>().Agregar(facturass);
-                        UnitOfWork.Guardar();
+                    //Guardar en la db
+                        unitOfWork.Repository<Factura>().Agregar(facturass);
+                        unitOfWork.Guardar();
 
                         // Actualizar el datadiv
                         this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
@@ -118,27 +138,7 @@ namespace Presentacion
 
 
 
-            private void PFactura_Load(object sender, EventArgs e)
-            {
-                // Obtener el próximo ID al guardar
-                int proximoId = ObtenerProximoId();
-
-                // Mostrar el próximo ID en el TxtID
-                TXTID.Text = proximoId.ToString();
-
-                // Cargar datos al datadiv
-                this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
-
-                // Asignar el evento CellDoubleClick al DataGridView
-                DGVFactura.CellDoubleClick += dgvFactura_CellContentDoubleClick;
-
-                // Crear un DataView y aplicar un filtro para mostrar solo los registros con Estado en true
-                DataView dv = new DataView(this.proyectoRadDataSet6.Facturas);
-                dv.RowFilter = "Estado = true";
-
-                // Asignar el DataView filtrado al DataGridView
-                DGVFactura.DataSource = dv;
-            }
+          
 
             private void ActualizarDataGridView()
             {
@@ -160,13 +160,13 @@ namespace Presentacion
                 {
                     try
                     {
-                        // Actualizar el Estado del descuento a 0
-                        Factura facturass = UnitOfWork.Repository<Factura>().ObtenerPorId(id);
-                        facturass.Estado = false; // 0 representa falso
+                        
+                        Factura facturass = unitOfWork.Repository<Factura>().ObtenerPorId(id);
+                        facturass.Estado = 0; 
 
                         //Guardar los cambios en la base de datos
-                        UnitOfWork.Repository<Factura>().Editar(facturass);
-                        UnitOfWork.Guardar();
+                        unitOfWork.Repository<Factura>().Editar(facturass);
+                        unitOfWork.Guardar();
 
                         // Actualizar el DataGridView
                         this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
@@ -187,14 +187,15 @@ namespace Presentacion
                 decimal subtotal = decimal.Parse(TxtSubTotal.Text);
                 decimal descuento = decimal.Parse(TxtDescuento.Text);
                 decimal total = decimal.Parse(TxtTotal.Text);
-                bool estado = CBEstado.Checked;
+                int estado = CBEstado.Checked ? 1 : 0;
 
-                DateTime fechaCreacion = DTFechaCreación.Value;
+
+            DateTime fechaCreacion = DTFechaCreación.Value;
 
                 try
                 {
                     // Obtener el GrupoDescuento existente desde el contexto
-                    Factura facturass = UnitOfWork.Repository<Factura>().ObtenerPorId(id);
+                    Factura facturass = unitOfWork.Repository<Factura>().ObtenerPorId(id);
 
                     // Modificar las propiedades del objeto existente
                     facturass.Subtotal = subtotal;
@@ -210,7 +211,7 @@ namespace Presentacion
                     if (result == DialogResult.Yes)
                     {
                         // Guardar los cambios en la base de datos
-                        UnitOfWork.Guardar();
+                        unitOfWork.Guardar();
 
                         // Actualizar el datadiv
                         this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);
@@ -222,8 +223,5 @@ namespace Presentacion
                 }
                 limpiar();
             }
-
-
-        }
     }
 }
