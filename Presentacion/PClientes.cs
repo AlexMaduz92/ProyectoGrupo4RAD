@@ -19,6 +19,9 @@ namespace Presentacion
     {
         private readonly UnitOfWork unitOfWork;
         private Cliented cliented;
+        Dclientes dclientes;
+        Dcondiconpago dcondiconpago;
+        DGrupoDescuento dgrupoDescuento;
       
         public PClientes()
         {
@@ -27,8 +30,8 @@ namespace Presentacion
             BtnGuardar.Click += BtnGuardar_Click;
             BtnModificar.Click += BtnModificar_Click;
             BtnEliminar.Click += BtnEliminar_Click;
-            CBXCPago.SelectedIndexChanged += CBXCPago_SelectedIndexChanged;
-            CBXGDescuento.SelectedIndexChanged += CBXGDescuento_SelectedIndexChanged;
+            //CBXCPago.SelectedIndexChanged += CBXCPago_SelectedIndexChanged;
+            //CBXGDescuento.SelectedIndexChanged += CBXGDescuento_SelectedIndexChanged;
 
         }
         
@@ -36,6 +39,8 @@ namespace Presentacion
 
     private void PClientes_Load(object sender, EventArgs e)
         {
+            //obtiene los datos de los combo
+            cargaCombos();
 
             // Obtener el próximo ID que se generará al guardar
             int proximoId = ObtenerProximoId();
@@ -236,22 +241,12 @@ namespace Presentacion
         private void CBXCPago_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (CBXCPago.SelectedItem != null)
-            {
-                int Condid = (int)CBXCPago.SelectedItem;
-                string codigo = cliented.ObtenerCondicionPorId(Condid);
-                LbIdPago.Text = codigo;
-            }
+           
         }
 
         private void CBXGDescuento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CBXGDescuento.SelectedItem != null)
-            {
-                int Condid = (int)CBXGDescuento.SelectedItem;
-                string codigo = cliented.ObtenerDescuentoPorId(Condid);
-                LbIdDescuento.Text = codigo;
-            }
+
 
         }
 
@@ -288,6 +283,26 @@ namespace Presentacion
             {
                 CargarDatosEstadoNoActivo();
             }
+        }
+        private void cargaCombos()
+        {
+            DGVClientes.DataSource = dcondiconpago.TodasLasClasificaciones()
+                                                               .Where(c => c.Estado == true).Select(c => new { c.CondicionPagoId, c.Descripcion })
+                                                               .ToList();
+            CBXCPago.DisplayMember = "Descripcion";
+            CBXCPago.ValueMember = "CondicionesPagoId";
+            CBXFiltro.DataSource = dcondiconpago.TodasLasClasificaciones()
+                                                               .Where(c => c.Estado == true).Select(c => new { c.CondicionPagoId, c.Descripcion })
+                                                               .ToList();
+            CBXFiltro.DisplayMember = "Descripcion";
+            CBXFiltro.ValueMember = "CondicionesPagoId";
+
+            DGVClientes.DataSource = dgrupoDescuento.Todaslosgruposdescuento()
+                                               .Where(c => c.Estado == true)
+                                               .Select(c => new { c.GrupoDescuentoId, c.Descripcion })
+                                               .ToList();
+            CBXGDescuento.DisplayMember = "Descripcion";
+            CBXGDescuento.ValueMember = "GrupoDescuentoId";
         }
     }
 }

@@ -64,6 +64,8 @@
     <Compile Include="Core\UnitOfWork.cs" />
     <Compile Include="Dcategorial.cs" />
     <Compile Include="Dclientes.cs" />
+    <Compile Include="Dcondiconpago.cs" />
+    <Compile Include="DGrupoDescuento.cs" />
     <Compile Include="Migrations\202403200501285_AdicionesTablas.cs" />
     <Compile Include="Migrations\202403200501285_AdicionesTablas.designer.cs">
       <DependentUpon>202403200501285_AdicionesTablas.cs</DependentUpon>

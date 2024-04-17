@@ -13,5 +13,6 @@ namespace Datos.Core
         void Agregar(T entidad);
         void Editar(T entidad);
         void Eliminar(T entidad);
+        IQueryable<T> Consulta();
     }
 }

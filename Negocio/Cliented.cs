@@ -61,6 +61,10 @@ namespace Negocio
         }
 
 
+        public List<Cliente> obtenerIDCONDICIONPAGO()
+        {
+            return dclientes.Todaslascondicionespago();
+        }
 
 
 
