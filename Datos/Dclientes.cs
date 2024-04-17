@@ -63,9 +63,9 @@ namespace Datos
             return 0; 
         }
 
-        public List<Cliente> TodasLosClientes()
+        public List<Cliente> Todaslascondicionespago()
         {
-            return repository.Consulta().Include(c => c.ClienteId).ToList();
+            return repository.Consulta().Include(c => c.CondicionPagoId).ToList();
         }
     }
 }
