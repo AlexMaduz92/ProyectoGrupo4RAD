@@ -1,71 +1,71 @@
-﻿using System;
+﻿using Datos;
+using Datos.Base_de_Dato;
+using Datos.Modelo;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using Datos;
-using Datos.Modelo;
-using System.Data.Entity;
-using Datos.Base_de_Dato;
 
 namespace Negocio
 {
     public class Cliented
-    
     {
-        public readonly Exaconection _dbContext;
-        Dclientes dclientes;
+        private readonly Exaconection _dbContext;
+        private readonly Dclientes _dclientes;
+
         public Cliented()
         {
-            dclientes= new Dclientes();
-
+            _dbContext = new Exaconection();
+            _dclientes = new Dclientes();
         }
-        public int Guardar (Cliente cliente)
+
+        public int Guardar(Cliente cliente)
         {
             if (cliente.ClienteId == 0)
             {
-                return dclientes.Agregar(cliente);
+                return _dclientes.Agregar(cliente);
             }
             else
             {
-                return dclientes.Editar(cliente);
+                Modificar(cliente);
+                return cliente.ClienteId;
             }
         }
 
-        public int eliminar (int clienteid)
+        public int Eliminar(int clienteId)
         {
-            return dclientes.Eliminar(clienteid);
+            return _dclientes.Eliminar(clienteId);
         }
-        public List<int> ObtenerIdCondiconpago()
+
+        public void Modificar(Cliente cliente)
+        {
+            var clienteExistente = _dbContext.Clientes.Find(cliente.ClienteId);
+            if (clienteExistente != null)
+            {
+                clienteExistente.Codigo = cliente.Codigo;
+                clienteExistente.Nombres = cliente.Nombres;
+                clienteExistente.Apellidos = cliente.Apellidos;
+                clienteExistente.Estado = cliente.Estado;
+                clienteExistente.FechaCreacion = cliente.FechaCreacion;
+                clienteExistente.GrupoDescuentoId = cliente.GrupoDescuentoId;
+                clienteExistente.CondicionPagoId = cliente.CondicionPagoId;
+                _dbContext.SaveChanges();
+            }
+        }
+
+        public IEnumerable<CondiccionPago> ObtenerIdCondiconpago()
         {
             using (var dbContext = new Exaconection())
             {
-                return dbContext.CondicionPagos.Select(c => c.CondicionPagoId).ToList();
+                return dbContext.CondicionPagos.ToList();
             }
         }
-        public List<int> ObtenerIdDescuento()
+
+        public IEnumerable<GrupoDescuento> ObtenerIdDescuento()
         {
             using (var dbContext = new Exaconection())
             {
-                return dbContext.GrupoDescuentos.Select(c => c.GrupoDescuentoId).ToList();
+                return dbContext.GrupoDescuentos.ToList();
             }
         }
-        public string ObtenerCondicionPorId(int condid)
-        {
-            return _dbContext.CondicionPagos.FirstOrDefault(c => c.CondicionPagoId == condid)?.Descripcion;
-        }
-        public string ObtenerDescuentoPorId(int desc)
-        {
-            return _dbContext.GrupoDescuentos.FirstOrDefault(c => c.GrupoDescuentoId == desc)?.Descripcion;
-        }
-
-
-        public List<Cliente> obtenerIDCONDICIONPAGO()
-        {
-            return dclientes.Todaslascondicionespago();
-        }
-
 
 
     }

@@ -52,8 +52,6 @@
             this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet2 = new Presentacion.ProyectoRadDataSet2();
@@ -67,10 +65,15 @@
             this.label = new System.Windows.Forms.Label();
             this.LbIdDescuento = new System.Windows.Forms.Label();
             this.LbIdPago = new System.Windows.Forms.Label();
+            this.proyectoRadDataSet14 = new Presentacion.ProyectoRadDataSet14();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter1 = new Presentacion.ProyectoRadDataSet14TableAdapters.ClientesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -233,7 +236,6 @@
             this.CBXGDescuento.Name = "CBXGDescuento";
             this.CBXGDescuento.Size = new System.Drawing.Size(199, 21);
             this.CBXGDescuento.TabIndex = 17;
-            this.CBXGDescuento.SelectedIndexChanged += new System.EventHandler(this.CBXGDescuento_SelectedIndexChanged);
             // 
             // CBXCPago
             // 
@@ -243,7 +245,6 @@
             this.CBXCPago.Name = "CBXCPago";
             this.CBXCPago.Size = new System.Drawing.Size(199, 21);
             this.CBXCPago.TabIndex = 18;
-            this.CBXCPago.SelectedIndexChanged += new System.EventHandler(this.CBXCPago_SelectedIndexChanged);
             // 
             // DGVClientes
             // 
@@ -256,10 +257,8 @@
             this.apellidosDataGridViewTextBoxColumn,
             this.estadoDataGridViewCheckBoxColumn,
             this.fechaCreacionDataGridViewTextBoxColumn,
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn,
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn,
             this.codigoDataGridViewTextBoxColumn});
-            this.DGVClientes.DataSource = this.clientesBindingSource;
+            this.DGVClientes.DataSource = this.clientesBindingSource1;
             this.DGVClientes.Location = new System.Drawing.Point(11, 228);
             this.DGVClientes.Margin = new System.Windows.Forms.Padding(2);
             this.DGVClientes.Name = "DGVClientes";
@@ -268,7 +267,6 @@
             this.DGVClientes.RowTemplate.Height = 28;
             this.DGVClientes.Size = new System.Drawing.Size(855, 98);
             this.DGVClientes.TabIndex = 19;
-            this.DGVClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVClientes_CellContentDoubleClick);
             // 
             // clienteIdDataGridViewTextBoxColumn
             // 
@@ -315,24 +313,6 @@
             this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaCreacionDataGridViewTextBoxColumn.Width = 150;
             // 
-            // condicionPagoCondicionPagoIdDataGridViewTextBoxColumn
-            // 
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.DataPropertyName = "CondicionPago_CondicionPagoId";
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.HeaderText = "CondicionPago_CondicionPagoId";
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.Name = "condicionPagoCondicionPagoIdDataGridViewTextBoxColumn";
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.condicionPagoCondicionPagoIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn
-            // 
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.DataPropertyName = "GrupoDescuento_GrupoDescuentoId";
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.HeaderText = "GrupoDescuento_GrupoDescuentoId";
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.Name = "grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn";
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn.Width = 150;
-            // 
             // codigoDataGridViewTextBoxColumn
             // 
             this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
@@ -365,7 +345,6 @@
             this.BtnEliminar.TabIndex = 22;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -376,7 +355,6 @@
             this.BtnModificar.TabIndex = 21;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnGuardar
             // 
@@ -387,7 +365,6 @@
             this.BtnGuardar.TabIndex = 20;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // errorProvider1
             // 
@@ -404,7 +381,6 @@
             this.BtnCerrar.TabIndex = 69;
             this.BtnCerrar.Text = "X";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // CBXFiltro
             // 
@@ -438,7 +414,6 @@
             this.LbIdDescuento.Size = new System.Drawing.Size(30, 25);
             this.LbIdDescuento.TabIndex = 72;
             this.LbIdDescuento.Text = "...";
-            this.LbIdDescuento.Visible = false;
             // 
             // LbIdPago
             // 
@@ -450,7 +425,20 @@
             this.LbIdPago.Size = new System.Drawing.Size(30, 25);
             this.LbIdPago.TabIndex = 73;
             this.LbIdPago.Text = "...";
-            this.LbIdPago.Visible = false;
+            // 
+            // proyectoRadDataSet14
+            // 
+            this.proyectoRadDataSet14.DataSetName = "ProyectoRadDataSet14";
+            this.proyectoRadDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientesBindingSource1
+            // 
+            this.clientesBindingSource1.DataMember = "Clientes";
+            this.clientesBindingSource1.DataSource = this.proyectoRadDataSet14;
+            // 
+            // clientesTableAdapter1
+            // 
+            this.clientesTableAdapter1.ClearBeforeFill = true;
             // 
             // PClientes
             // 
@@ -494,6 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,8 +517,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn condicionPagoCondicionPagoIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grupoDescuentoGrupoDescuentoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnModificar;
@@ -539,5 +527,8 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label LbIdDescuento;
         private System.Windows.Forms.Label LbIdPago;
+        private ProyectoRadDataSet14 proyectoRadDataSet14;
+        private System.Windows.Forms.BindingSource clientesBindingSource1;
+        private ProyectoRadDataSet14TableAdapters.ClientesTableAdapter clientesTableAdapter1;
     }
 }
