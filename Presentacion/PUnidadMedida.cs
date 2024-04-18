@@ -16,6 +16,7 @@ namespace Negocio
     public partial class PUnidadMedidA : Form
     {
         private readonly UnitOfWork unitOfWork;
+
         public PUnidadMedidA()
         {
             InitializeComponent();
@@ -24,8 +25,8 @@ namespace Negocio
             BtnModifica.Click += BtnModifica_Click;
             BtnElimina.Click += BtnElimina_Click;
             BtnCerrar.Click += BtnCerrar_Click;
+            DGVUMedidas.CellDoubleClick += DGVUMedidas_CellDoubleClick;
         }
-
 
         private void PUnidadMedida_Load(object sender, EventArgs e)
         {
@@ -33,13 +34,11 @@ namespace Negocio
             this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
             // Obtener el próximo ID que se generará al guardar
             int proximoId = ObtenerProximoId();
-
             // Mostrar el próximo ID en el TxtID
             TXTIDS.Text = proximoId.ToString();
-
             // Asignar el DataTable directamente al BindingSource y al DataGridView
             BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = this.proyectoRadDataSet16.UnidadMedidas;
+            bindingSource.DataSource = this.proyectoRadDataSet18.UnidadMedidas;
             DGVUMedidas.DataSource = bindingSource;
             CBXFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             CargarDatosEstadoActivo();
@@ -48,12 +47,33 @@ namespace Negocio
             CBXFiltro.SelectedIndex = 0;
             CBXFiltro.SelectedIndexChanged += CBXFiltro_SelectedIndexChanged;
             CargarDatosEstadoActivo();
-
         }
+
+        private void DGVUMedidas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DGVUMedidas.Rows[e.RowIndex];
+                int id = (int)row.Cells["UnidadMedidaId"].Value;
+
+                // Load the data for the selected row into the form fields
+                using (UnitOfWork unitOfWork = new UnitOfWork())
+                {
+                    UnidadMedida unidad = unitOfWork.Repository<UnidadMedida>().ObtenerPorId(id);
+                    if (unidad != null)
+                    {
+                        TxtCodi.Text = unidad.Codigo;
+                        TxtDescrip.Text = unidad.Descripcion;
+                        CBEstado.Checked = unidad.Estado;
+                        DTFCreacion.Value = unidad.FechaCreacion;
+                    }
+                }
+            }
+        }
+
 
         private void BtnGuarda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Si la tecla presionada es Enter, desvincular el evento Click y llamar a BtnGuarda_Click
             if (e.KeyChar == (char)Keys.Enter)
             {
                 BtnGuarda.Click -= BtnGuarda_Click;
@@ -78,23 +98,18 @@ namespace Negocio
 
         private void ActualizarDataGridView()
         {
-            // Obtener el BindingSource del DataGridView
-            this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
-
-
+            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+            bindingSource.ResetBindings(false);
         }
-
 
         private void BtnGuarda_Click(object sender, EventArgs e)
         {
-            // Obtener los datos del formulario
-            string codigo = Txtcodig.Text;
+            string codigo = TxtCodi.Text;
             string descripcion = TxtDescrip.Text;
             bool estado = CBEstados.Checked;
             DateTime fechaCreacion = DTFcreaciones.Value;
 
-            // Mensaje de confirmación
-            DialogResult result = MessageBox.Show("¿Desea guardar la categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Desea guardar la categoría?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -113,57 +128,46 @@ namespace Negocio
 
                 try
                 {
-                    // Guardar el objeto en la base de datos
                     unitOfWork.Repository<UnidadMedida>().Agregar(unidad);
                     unitOfWork.Guardar();
-
                     ActualizarDataGridView();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al guardar la Categoria: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error al guardar la Categoría: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             ActualizarDataGridView();
             limpiar();
         }
 
-
-
         private void BtnModifica_Click(object sender, EventArgs e)
         {
-            // Obtener los datos del formulario
             int id = int.Parse(TxtID.Text);
             string codigo = TxtCodigo.Text;
             string descripcion = TxtDescripcion.Text;
             bool estado = CBEstado.Checked;
-
             DateTime fechaCreacion = DTFCreacion.Value;
+
             try
             {
-                // Obtener el GrupoDescuento existente desde el contexto
                 UnidadMedida unidad = unitOfWork.Repository<UnidadMedida>().ObtenerPorId(id);
-
-                // Modificar las propiedades del objeto existente
                 unidad.Codigo = codigo;
                 unidad.Descripcion = descripcion;
                 unidad.Estado = estado;
                 unidad.FechaCreacion = fechaCreacion;
 
-                // Mensaje de confirmación
-                DialogResult result = MessageBox.Show("¿Desea modificar la Categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Desea modificar la Categoría?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    // Guardar los cambios en la base de datos
                     unitOfWork.Guardar();
-
-                     ActualizarDataGridView();
+                    ActualizarDataGridView();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al modificar al modificar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al modificar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             limpiar();
         }
@@ -172,24 +176,18 @@ namespace Negocio
         {
             BtnModificar.Enabled = false;
             BtnGuardar.Enabled = false;
-            // Obtener el ID del cliente a eliminar
             int id = int.Parse(TxtID.Text);
 
-            // Mensaje de confirmación
-            DialogResult result = MessageBox.Show("¿Desea eliminar la Categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Desea eliminar la Categoría?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    // Actualizar el Estado del descuento a 0
                     UnidadMedida unidad = unitOfWork.Repository<UnidadMedida>().ObtenerPorId(id);
-                    unidad.Estado = false; // 0 representa falso
-
-                    // Guardar los cambios en la base de datos
+                    unidad.Estado = false;
                     unitOfWork.Repository<UnidadMedida>().Editar(unidad);
                     unitOfWork.Guardar();
-
                     ActualizarDataGridView();
                 }
                 catch (Exception ex)
@@ -199,21 +197,18 @@ namespace Negocio
             }
             ActualizarDataGridView();
             limpiar();
-
         }
 
         void limpiar()
         {
             TXTIDS.Text = "";
-            Txtcodig.Text = "";
+            TxtCodigo.Text = "";
             TxtDescrip.Text = "";
             CBEstados.Checked = false;
         }
 
-
         private void CargarDatosEstadoActivo()
         {
-            // Crear una nueva vista de datos filtrada por Estado = true
             DataView view = new DataView(this.proyectoRadDataSet18.UnidadMedidas);
             view.RowFilter = "Estado = true";
             DGVUMedidas.DataSource = view;
@@ -221,34 +216,25 @@ namespace Negocio
 
         private void CargarDatosEstadoNoActivo()
         {
-            // Crear una nueva vista de datos filtrada por Estado = false
             DataView view = new DataView(this.proyectoRadDataSet18.UnidadMedidas);
             view.RowFilter = "Estado = false";
             DGVUMedidas.DataSource = view;
         }
 
-
         private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Obtener el filtro seleccionado
             string filtro = CBXFiltro.SelectedItem.ToString();
+            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+            bindingSource.RemoveFilter();
 
-            // Obtener el BindingSource del DataGridView
-            this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
-
-            // Actualizar el DataGridView según el filtro seleccionado
             if (filtro == "Activos")
             {
-                CargarDatosEstadoActivo();
+                bindingSource.Filter = "Estado = true";
             }
             else if (filtro == "No Activos")
             {
-                CargarDatosEstadoNoActivo();
+                bindingSource.Filter = "Estado = false";
             }
         }
-
-
-
-
     }
 }
