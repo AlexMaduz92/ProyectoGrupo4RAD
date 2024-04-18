@@ -63,6 +63,7 @@
     <Compile Include="DetalleFactura.cs" />
     <Compile Include="FacturaN.cs" />
     <Compile Include="NPedidoDetalle.cs" />
+    <Compile Include="NUMedidas.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Productod.cs" />
     <Compile Include="Program.cs" />

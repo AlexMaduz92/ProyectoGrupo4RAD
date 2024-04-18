@@ -13,16 +13,17 @@ using System.Windows.Forms;
 
 namespace Negocio
 {
-    public partial class PUnidadMedida : Form
+    public partial class PUnidadMedidA : Form
     {
         private readonly UnitOfWork unitOfWork;
-        public PUnidadMedida()
+        public PUnidadMedidA()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
             BtnGuarda.Click += BtnGuarda_Click;
             BtnModifica.Click += BtnModifica_Click;
             BtnElimina.Click += BtnElimina_Click;
+            BtnCerrar.Click += BtnCerrar_Click;
         }
 
 
@@ -32,22 +33,41 @@ namespace Negocio
             int proximoId = ObtenerProximoId();
 
             // Mostrar el próximo ID en el TxtID
-            TxtID.Text = proximoId.ToString();
+            TXTIDS.Text = proximoId.ToString();
 
-            // Cargar datos en el DataGridView
-            this.unidadMedidasTableAdapter.Fill(this.proyectoRadDataSet3.UnidadMedidas);
+            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet16.UnidadMedidas' Puede moverla o quitarla según sea necesario.
+            this.unidadMedidasTableAdapter1.Fill(this.proyectoRadDataSet16.UnidadMedidas);
+            BtnGuarda.KeyPress += BtnGuarda_KeyPress;
 
-            // Asignar el evento CellDoubleClick al DataGridView
-            DGVMedida.CellDoubleClick += DGVUMedidas_CellContentDoubleClick;
+            // Asignar el DataTable directamente al BindingSource y al DataGridView
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = this.proyectoRadDataSet16.UnidadMedidas;
+            DGVUMedidas.DataSource = bindingSource;
 
-            // Crear un DataView y aplicar un filtro para mostrar solo los registros con Estado en true
-            DataView dv = new DataView(this.proyectoRadDataSet3.UnidadMedidas);
-            dv.RowFilter = "Estado = true";
-
-            // Asignar el DataView filtrado al DataGridView
-            DGVMedida.DataSource = dv;
+            CargarDatosEstadoActivo();
+            CBXFiltro.Items.Add("Activos");
+            CBXFiltro.Items.Add("No Activos");
+            CBXFiltro.SelectedIndex = 0;
+            CBXFiltro.SelectedIndexChanged += CBXFiltro_SelectedIndexChanged;
+            CargarDatosEstadoActivo();
 
         }
+
+        private void BtnGuarda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Si la tecla presionada es Enter, desvincular el evento Click y llamar a BtnGuarda_Click
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnGuarda.Click -= BtnGuarda_Click;
+                BtnGuarda_Click(sender, e);
+            }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private int ObtenerProximoId()
         {
             int maxId = 0;
@@ -57,19 +77,24 @@ namespace Negocio
             }
             return maxId + 1;
         }
+
         private void ActualizarDataGridView()
         {
-            // Actualizar el DataGridView
-            this.unidadMedidasTableAdapter.Fill(this.proyectoRadDataSet3.UnidadMedidas);
+            // Obtener el BindingSource del DataGridView
+            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+
+            // Actualizar los datos del BindingSource
+            bindingSource.ResetBindings(false);
         }
+
 
         private void BtnGuarda_Click(object sender, EventArgs e)
         {
             // Obtener los datos del formulario
-            string codigo = TxtCodigo.Text;
-            string descripcion = TxtDescripcion.Text;
-            bool estado = CBEstado.Checked;
-            DateTime fechaCreacion = DTFCreacion.Value;
+            string codigo = Txtcodig.Text;
+            string descripcion = TxtDescrip.Text;
+            bool estado = CBEstados.Checked;
+            DateTime fechaCreacion = DTFcreaciones.Value;
 
             // Mensaje de confirmación
             DialogResult result = MessageBox.Show("¿Desea guardar la categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -95,8 +120,7 @@ namespace Negocio
                     unitOfWork.Repository<UnidadMedida>().Agregar(unidad);
                     unitOfWork.Guardar();
 
-                    // Actualizar el DataGridView
-                    this.unidadMedidasTableAdapter.Fill(this.proyectoRadDataSet3.UnidadMedidas);
+                    ActualizarDataGridView();
                 }
                 catch (Exception ex)
                 {
@@ -106,6 +130,8 @@ namespace Negocio
             ActualizarDataGridView();
             limpiar();
         }
+
+
 
         private void BtnModifica_Click(object sender, EventArgs e)
         {
@@ -135,8 +161,7 @@ namespace Negocio
                     // Guardar los cambios en la base de datos
                     unitOfWork.Guardar();
 
-                    // Actualizar el DataGridView
-                    this.unidadMedidasTableAdapter.Fill(this.proyectoRadDataSet3.UnidadMedidas);
+                     ActualizarDataGridView();
                 }
             }
             catch (Exception ex)
@@ -168,8 +193,7 @@ namespace Negocio
                     unitOfWork.Repository<UnidadMedida>().Editar(unidad);
                     unitOfWork.Guardar();
 
-                    // Actualizar el DataGridView
-                    this.unidadMedidasTableAdapter.Fill(this.proyectoRadDataSet3.UnidadMedidas);
+                    ActualizarDataGridView();
                 }
                 catch (Exception ex)
                 {
@@ -183,17 +207,53 @@ namespace Negocio
 
         void limpiar()
         {
-            TxtID.Text = "";
-            TxtCodigo.Text = "";
-            TxtDescripcion.Text = "";
-            CBEstado.Checked = false;
+            TXTIDS.Text = "";
+            Txtcodig.Text = "";
+            TxtDescrip.Text = "";
+            CBEstados.Checked = false;
         }
 
-        private void DGVUMedidas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void CargarDatosEstadoActivo()
         {
-
+            // Crear una nueva vista de datos filtrada por Estado = true
+            DataView view = new DataView(this.proyectoRadDataSet16.UnidadMedidas);
+            view.RowFilter = "Estado = true";
+            DGVUMedidas.DataSource = view;
         }
 
-  
+        private void CargarDatosEstadoNoActivo()
+        {
+            // Crear una nueva vista de datos filtrada por Estado = false
+            DataView view = new DataView(this.proyectoRadDataSet16.UnidadMedidas);
+            view.RowFilter = "Estado = false";
+            DGVUMedidas.DataSource = view;
+        }
+
+        private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el filtro seleccionado
+            string filtro = CBXFiltro.SelectedItem.ToString();
+
+            // Obtener el BindingSource del DataGridView
+            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+
+            // Eliminar cualquier filtro existente
+            bindingSource.RemoveFilter();
+
+            // Aplicar el nuevo filtro
+            if (filtro == "Activos")
+            {
+                bindingSource.Filter = "Estado = true";
+            }
+            else if (filtro == "No Activos")
+            {
+                bindingSource.Filter = "Estado = false";
+            }
+        }
+
+
+
+
     }
 }

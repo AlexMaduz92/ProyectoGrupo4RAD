@@ -1,6 +1,6 @@
 ﻿namespace Negocio
 {
-    partial class PUnidadMedida
+    partial class PUnidadMedidA
     {
         /// <summary>
         /// Required designer variable.
@@ -46,6 +46,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet16 = new Presentacion.ProyectoRadDataSet16();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet3 = new Presentacion.ProyectoRadDataSet3();
             this.proyectoRadDataSet2 = new Presentacion.ProyectoRadDataSet2();
@@ -54,7 +56,13 @@
             this.BtnGuarda = new System.Windows.Forms.Button();
             this.BtnModifica = new System.Windows.Forms.Button();
             this.BtnElimina = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.unidadMedidasTableAdapter1 = new Presentacion.ProyectoRadDataSet16TableAdapters.UnidadMedidasTableAdapter();
+            this.label = new System.Windows.Forms.Label();
+            this.CBXFiltro = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
@@ -115,7 +123,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(15, 231);
+            this.label12.Location = new System.Drawing.Point(544, 53);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(196, 25);
             this.label12.TabIndex = 5;
@@ -156,7 +164,7 @@
             // 
             // DTFcreaciones
             // 
-            this.DTFcreaciones.Location = new System.Drawing.Point(244, 236);
+            this.DTFcreaciones.Location = new System.Drawing.Point(549, 81);
             this.DTFcreaciones.Name = "DTFcreaciones";
             this.DTFcreaciones.Size = new System.Drawing.Size(346, 20);
             this.DTFcreaciones.TabIndex = 10;
@@ -172,7 +180,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn4});
-            this.DGVUMedidas.DataSource = this.bindingSource1;
+            this.DGVUMedidas.DataSource = this.bindingSource2;
             this.DGVUMedidas.Location = new System.Drawing.Point(16, 274);
             this.DGVUMedidas.Name = "DGVUMedidas";
             this.DGVUMedidas.ReadOnly = true;
@@ -180,7 +188,6 @@
             this.DGVUMedidas.RowTemplate.Height = 28;
             this.DGVUMedidas.Size = new System.Drawing.Size(864, 150);
             this.DGVUMedidas.TabIndex = 11;
-            this.DGVUMedidas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVUMedidas_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -226,6 +233,16 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // bindingSource2
+            // 
+            this.bindingSource2.DataMember = "UnidadMedidas";
+            this.bindingSource2.DataSource = this.proyectoRadDataSet16;
+            // 
+            // proyectoRadDataSet16
+            // 
+            this.proyectoRadDataSet16.DataSetName = "ProyectoRadDataSet16";
+            this.proyectoRadDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingSource1
             // 
@@ -281,10 +298,51 @@
             this.BtnElimina.UseVisualStyleBackColor = true;
             this.BtnElimina.Click += new System.EventHandler(this.BtnElimina_Click);
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrar.Location = new System.Drawing.Point(898, 1);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
+            this.BtnCerrar.TabIndex = 70;
+            this.BtnCerrar.Text = "X";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            // 
+            // unidadMedidasTableAdapter1
+            // 
+            this.unidadMedidasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(7, 226);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(167, 26);
+            this.label.TabIndex = 72;
+            this.label.Text = "Filtro de estado:";
+            // 
+            // CBXFiltro
+            // 
+            this.CBXFiltro.FormattingEnabled = true;
+            this.CBXFiltro.Location = new System.Drawing.Point(185, 232);
+            this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.CBXFiltro.Name = "CBXFiltro";
+            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
+            this.CBXFiltro.TabIndex = 71;
+            // 
             // PUnidadMedida
             // 
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(891, 464);
+            this.ClientSize = new System.Drawing.Size(924, 464);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.CBXFiltro);
+            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnElimina);
             this.Controls.Add(this.BtnModifica);
             this.Controls.Add(this.BtnGuarda);
@@ -300,10 +358,12 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PUnidadMedida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-           // this.Load += new System.EventHandler(this.PUnidadMedida_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).EndInit();
@@ -361,5 +421,11 @@
         private System.Windows.Forms.Button BtnGuarda;
         private System.Windows.Forms.Button BtnModifica;
         private System.Windows.Forms.Button BtnElimina;
+        private System.Windows.Forms.Button BtnCerrar;
+        private Presentacion.ProyectoRadDataSet16 proyectoRadDataSet16;
+        private System.Windows.Forms.BindingSource bindingSource2;
+        private Presentacion.ProyectoRadDataSet16TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter1;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.ComboBox CBXFiltro;
     }
 }

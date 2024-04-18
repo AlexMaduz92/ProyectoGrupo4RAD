@@ -53,6 +53,8 @@
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoRadDataSet14 = new Presentacion.ProyectoRadDataSet14();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet2 = new Presentacion.ProyectoRadDataSet2();
             this.clientesTableAdapter = new Presentacion.ProyectoRadDataSet2TableAdapters.ClientesTableAdapter();
@@ -65,15 +67,13 @@
             this.label = new System.Windows.Forms.Label();
             this.LbIdDescuento = new System.Windows.Forms.Label();
             this.LbIdPago = new System.Windows.Forms.Label();
-            this.proyectoRadDataSet14 = new Presentacion.ProyectoRadDataSet14();
-            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter1 = new Presentacion.ProyectoRadDataSet14TableAdapters.ClientesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -322,6 +322,16 @@
             this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             this.codigoDataGridViewTextBoxColumn.Width = 150;
             // 
+            // clientesBindingSource1
+            // 
+            this.clientesBindingSource1.DataMember = "Clientes";
+            this.clientesBindingSource1.DataSource = this.proyectoRadDataSet14;
+            // 
+            // proyectoRadDataSet14
+            // 
+            this.proyectoRadDataSet14.DataSetName = "ProyectoRadDataSet14";
+            this.proyectoRadDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // clientesBindingSource
             // 
             this.clientesBindingSource.DataMember = "Clientes";
@@ -407,6 +417,7 @@
             // LbIdDescuento
             // 
             this.LbIdDescuento.AutoSize = true;
+            this.LbIdDescuento.Enabled = false;
             this.LbIdDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbIdDescuento.Location = new System.Drawing.Point(608, 18);
             this.LbIdDescuento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -418,6 +429,7 @@
             // LbIdPago
             // 
             this.LbIdPago.AutoSize = true;
+            this.LbIdPago.Enabled = false;
             this.LbIdPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbIdPago.Location = new System.Drawing.Point(721, 18);
             this.LbIdPago.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -425,16 +437,6 @@
             this.LbIdPago.Size = new System.Drawing.Size(30, 25);
             this.LbIdPago.TabIndex = 73;
             this.LbIdPago.Text = "...";
-            // 
-            // proyectoRadDataSet14
-            // 
-            this.proyectoRadDataSet14.DataSetName = "ProyectoRadDataSet14";
-            this.proyectoRadDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesBindingSource1
-            // 
-            this.clientesBindingSource1.DataMember = "Clientes";
-            this.clientesBindingSource1.DataSource = this.proyectoRadDataSet14;
             // 
             // clientesTableAdapter1
             // 
@@ -479,11 +481,11 @@
             this.Text = "PClientes";
             this.Load += new System.EventHandler(this.PClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
