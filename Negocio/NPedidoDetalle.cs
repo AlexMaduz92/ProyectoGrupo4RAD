@@ -64,7 +64,52 @@ namespace Negocio
                 return dbContext.Productos.Select(p => p.ProductoId).ToList();
             }
         }
+        public string ObtenerPedidoPorId(int clienteId)
+        {
+            var pedido = _dbContext.Pedidos.FirstOrDefault(c => c.PedidoId == clienteId);
+            if (pedido != null)
+            {
+                return $"{pedido.ClienteId}";
+            }
+            return string.Empty;
+        }
+        public string ObtenerPedidoDescuentoPorId(int clienteId)
+        {
+            var pedido = _dbContext.Pedidos.FirstOrDefault(c => c.PedidoId == clienteId);
+            if (pedido != null)
+            {
+                return $"{pedido.Descuento}";
+            }
+            return string.Empty;
+        }
+        public string ObtenerTotalPorId(int clienteId)
+        {
+            var pedido = _dbContext.Pedidos.FirstOrDefault(c => c.PedidoId == clienteId);
+            if (pedido != null)
+            {
+                return $"{pedido.Total}";
+            }
+            return string.Empty;
+        }
 
+        public string ObtenerCodigoProductoPorId(int clienteId)
+        {
+            var producto = _dbContext.Productos.FirstOrDefault(c => c.ProductoId == clienteId);
+            if (producto != null)
+            {
+                return $"{producto.CategoriaId}";
+            }
+            return string.Empty;
+        }
+        public string ObtenerCodigoProductoPrecioPorId(int clienteId)
+        {
+            var producto = _dbContext.Productos.FirstOrDefault(c => c.ProductoId == clienteId);
+            if (producto != null)
+            {
+                return $"{producto.PrecioCompra}";
+            }
+            return string.Empty;
+        }
 
 
         public PedidoDetalle ObtenerPedidoDetallePorId(int pedidoDetalleId)
