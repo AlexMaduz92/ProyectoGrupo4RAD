@@ -35,12 +35,6 @@
             this.BtnElimina = new System.Windows.Forms.Button();
             this.BtnModifica = new System.Windows.Forms.Button();
             this.BtnGuarda = new System.Windows.Forms.Button();
-            this.DGVUMedidas = new System.Windows.Forms.DataGridView();
-            this.unidadMedidaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadMedidasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet17 = new Presentacion.ProyectoRadDataSet17();
             this.DTFcreaciones = new System.Windows.Forms.DateTimePicker();
@@ -55,9 +49,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.unidadMedidasTableAdapter = new Presentacion.ProyectoRadDataSet17TableAdapters.UnidadMedidasTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).BeginInit();
+            this.DGVMEDIDA = new System.Windows.Forms.DataGridView();
+            this.proyectoRadDataSet19 = new Presentacion.ProyectoRadDataSet19();
+            this.unidadMedidasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.unidadMedidasTableAdapter1 = new Presentacion.ProyectoRadDataSet19TableAdapters.UnidadMedidasTableAdapter();
+            this.unidadMedidaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMEDIDA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label
@@ -86,7 +91,7 @@
             // 
             this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(699, -1);
+            this.BtnCerrar.Location = new System.Drawing.Point(555, -2);
             this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
@@ -96,85 +101,30 @@
             // 
             // BtnElimina
             // 
-            this.BtnElimina.Location = new System.Drawing.Point(581, 180);
+            this.BtnElimina.Location = new System.Drawing.Point(492, 193);
             this.BtnElimina.Name = "BtnElimina";
-            this.BtnElimina.Size = new System.Drawing.Size(112, 50);
+            this.BtnElimina.Size = new System.Drawing.Size(69, 37);
             this.BtnElimina.TabIndex = 87;
             this.BtnElimina.Text = "Eliminar";
             this.BtnElimina.UseVisualStyleBackColor = true;
             // 
             // BtnModifica
             // 
-            this.BtnModifica.Location = new System.Drawing.Point(463, 179);
+            this.BtnModifica.Location = new System.Drawing.Point(412, 193);
             this.BtnModifica.Name = "BtnModifica";
-            this.BtnModifica.Size = new System.Drawing.Size(112, 51);
+            this.BtnModifica.Size = new System.Drawing.Size(74, 38);
             this.BtnModifica.TabIndex = 86;
             this.BtnModifica.Text = "Modificar";
             this.BtnModifica.UseVisualStyleBackColor = true;
             // 
             // BtnGuarda
             // 
-            this.BtnGuarda.Location = new System.Drawing.Point(345, 179);
+            this.BtnGuarda.Location = new System.Drawing.Point(323, 193);
             this.BtnGuarda.Name = "BtnGuarda";
-            this.BtnGuarda.Size = new System.Drawing.Size(112, 50);
+            this.BtnGuarda.Size = new System.Drawing.Size(74, 37);
             this.BtnGuarda.TabIndex = 85;
             this.BtnGuarda.Text = "Guardar";
             this.BtnGuarda.UseVisualStyleBackColor = true;
-            // 
-            // DGVUMedidas
-            // 
-            this.DGVUMedidas.AllowUserToDeleteRows = false;
-            this.DGVUMedidas.AutoGenerateColumns = false;
-            this.DGVUMedidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVUMedidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.unidadMedidaIdDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
-            this.estadoDataGridViewCheckBoxColumn,
-            this.fechaCreacionDataGridViewTextBoxColumn});
-            this.DGVUMedidas.DataSource = this.unidadMedidasBindingSource;
-            this.DGVUMedidas.Location = new System.Drawing.Point(6, 236);
-            this.DGVUMedidas.Name = "DGVUMedidas";
-            this.DGVUMedidas.ReadOnly = true;
-            this.DGVUMedidas.RowHeadersWidth = 62;
-            this.DGVUMedidas.RowTemplate.Height = 28;
-            this.DGVUMedidas.Size = new System.Drawing.Size(705, 150);
-            this.DGVUMedidas.TabIndex = 84;
-            // 
-            // unidadMedidaIdDataGridViewTextBoxColumn
-            // 
-            this.unidadMedidaIdDataGridViewTextBoxColumn.DataPropertyName = "UnidadMedidaId";
-            this.unidadMedidaIdDataGridViewTextBoxColumn.HeaderText = "UnidadMedidaId";
-            this.unidadMedidaIdDataGridViewTextBoxColumn.Name = "unidadMedidaIdDataGridViewTextBoxColumn";
-            this.unidadMedidaIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // estadoDataGridViewCheckBoxColumn
-            // 
-            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
-            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // fechaCreacionDataGridViewTextBoxColumn
-            // 
-            this.fechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion";
-            this.fechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion";
-            this.fechaCreacionDataGridViewTextBoxColumn.Name = "fechaCreacionDataGridViewTextBoxColumn";
-            this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // unidadMedidasBindingSource
             // 
@@ -208,7 +158,7 @@
             // 
             this.TxtDescrip.Location = new System.Drawing.Point(469, 86);
             this.TxtDescrip.Name = "TxtDescrip";
-            this.TxtDescrip.Size = new System.Drawing.Size(224, 20);
+            this.TxtDescrip.Size = new System.Drawing.Size(92, 20);
             this.TxtDescrip.TabIndex = 81;
             // 
             // Txtcodig
@@ -280,7 +230,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(220, 9);
+            this.label7.Location = new System.Drawing.Point(147, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(294, 31);
             this.label7.TabIndex = 73;
@@ -290,19 +240,86 @@
             // 
             this.unidadMedidasTableAdapter.ClearBeforeFill = true;
             // 
+            // DGVMEDIDA
+            // 
+            this.DGVMEDIDA.AllowUserToDeleteRows = false;
+            this.DGVMEDIDA.AutoGenerateColumns = false;
+            this.DGVMEDIDA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVMEDIDA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.unidadMedidaIdDataGridViewTextBoxColumn,
+            this.codigoDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn,
+            this.fechaCreacionDataGridViewTextBoxColumn});
+            this.DGVMEDIDA.DataSource = this.unidadMedidasBindingSource1;
+            this.DGVMEDIDA.Location = new System.Drawing.Point(18, 243);
+            this.DGVMEDIDA.Name = "DGVMEDIDA";
+            this.DGVMEDIDA.ReadOnly = true;
+            this.DGVMEDIDA.Size = new System.Drawing.Size(551, 150);
+            this.DGVMEDIDA.TabIndex = 91;
+            // 
+            // proyectoRadDataSet19
+            // 
+            this.proyectoRadDataSet19.DataSetName = "ProyectoRadDataSet19";
+            this.proyectoRadDataSet19.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // unidadMedidasBindingSource1
+            // 
+            this.unidadMedidasBindingSource1.DataMember = "UnidadMedidas";
+            this.unidadMedidasBindingSource1.DataSource = this.proyectoRadDataSet19;
+            // 
+            // unidadMedidasTableAdapter1
+            // 
+            this.unidadMedidasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // unidadMedidaIdDataGridViewTextBoxColumn
+            // 
+            this.unidadMedidaIdDataGridViewTextBoxColumn.DataPropertyName = "UnidadMedidaId";
+            this.unidadMedidaIdDataGridViewTextBoxColumn.HeaderText = "UnidadMedidaId";
+            this.unidadMedidaIdDataGridViewTextBoxColumn.Name = "unidadMedidaIdDataGridViewTextBoxColumn";
+            this.unidadMedidaIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewCheckBoxColumn
+            // 
+            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // fechaCreacionDataGridViewTextBoxColumn
+            // 
+            this.fechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion";
+            this.fechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion";
+            this.fechaCreacionDataGridViewTextBoxColumn.Name = "fechaCreacionDataGridViewTextBoxColumn";
+            this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // PUMediDas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(723, 405);
+            this.ClientSize = new System.Drawing.Size(581, 405);
+            this.Controls.Add(this.DGVMEDIDA);
             this.Controls.Add(this.label);
             this.Controls.Add(this.CBXFiltro);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnElimina);
             this.Controls.Add(this.BtnModifica);
             this.Controls.Add(this.BtnGuarda);
-            this.Controls.Add(this.DGVUMedidas);
             this.Controls.Add(this.DTFcreaciones);
             this.Controls.Add(this.CBEstados);
             this.Controls.Add(this.TxtDescrip);
@@ -318,9 +335,11 @@
             this.Name = "PUMediDas";
             this.Text = "PUMediDas";
             this.Load += new System.EventHandler(this.PUMediDas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unidadMedidasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMEDIDA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unidadMedidasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,7 +353,6 @@
         private System.Windows.Forms.Button BtnElimina;
         private System.Windows.Forms.Button BtnModifica;
         private System.Windows.Forms.Button BtnGuarda;
-        private System.Windows.Forms.DataGridView DGVUMedidas;
         private System.Windows.Forms.DateTimePicker DTFcreaciones;
         private System.Windows.Forms.CheckBox CBEstados;
         private System.Windows.Forms.TextBox TxtDescrip;
@@ -349,6 +367,10 @@
         private ProyectoRadDataSet17 proyectoRadDataSet17;
         private System.Windows.Forms.BindingSource unidadMedidasBindingSource;
         private ProyectoRadDataSet17TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter;
+        private System.Windows.Forms.DataGridView DGVMEDIDA;
+        private ProyectoRadDataSet19 proyectoRadDataSet19;
+        private System.Windows.Forms.BindingSource unidadMedidasBindingSource1;
+        private ProyectoRadDataSet19TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadMedidaIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;

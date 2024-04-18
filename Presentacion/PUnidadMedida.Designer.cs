@@ -36,7 +36,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.TXTIDS = new System.Windows.Forms.TextBox();
-            this.Txtcodig = new System.Windows.Forms.TextBox();
+            this.TxtCodi = new System.Windows.Forms.TextBox();
             this.TxtDescrip = new System.Windows.Forms.TextBox();
             this.CBEstados = new System.Windows.Forms.CheckBox();
             this.DTFcreaciones = new System.Windows.Forms.DateTimePicker();
@@ -142,12 +142,12 @@
             this.TXTIDS.Size = new System.Drawing.Size(216, 20);
             this.TXTIDS.TabIndex = 6;
             // 
-            // Txtcodig
+            // TxtCodi
             // 
-            this.Txtcodig.Location = new System.Drawing.Point(185, 87);
-            this.Txtcodig.Name = "Txtcodig";
-            this.Txtcodig.Size = new System.Drawing.Size(216, 20);
-            this.Txtcodig.TabIndex = 7;
+            this.TxtCodi.Location = new System.Drawing.Point(185, 87);
+            this.TxtCodi.Name = "TxtCodi";
+            this.TxtCodi.Size = new System.Drawing.Size(216, 20);
+            this.TxtCodi.TabIndex = 7;
             // 
             // TxtDescrip
             // 
@@ -351,7 +351,7 @@
             this.Controls.Add(this.DTFcreaciones);
             this.Controls.Add(this.CBEstados);
             this.Controls.Add(this.TxtDescrip);
-            this.Controls.Add(this.Txtcodig);
+            this.Controls.Add(this.TxtCodi);
             this.Controls.Add(this.TXTIDS);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -407,7 +407,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TXTIDS;
-        private System.Windows.Forms.TextBox Txtcodig;
+        private System.Windows.Forms.TextBox TxtCodi;
         private System.Windows.Forms.TextBox TxtDescrip;
         private System.Windows.Forms.CheckBox CBEstados;
         private System.Windows.Forms.DateTimePicker DTFcreaciones;
