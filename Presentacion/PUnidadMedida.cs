@@ -29,21 +29,19 @@ namespace Negocio
 
         private void PUnidadMedida_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet18.UnidadMedidas' Puede moverla o quitarla según sea necesario.
+            this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
             // Obtener el próximo ID que se generará al guardar
             int proximoId = ObtenerProximoId();
 
             // Mostrar el próximo ID en el TxtID
             TXTIDS.Text = proximoId.ToString();
 
-            // TODO: esta línea de código carga datos en la tabla 'proyectoRadDataSet16.UnidadMedidas' Puede moverla o quitarla según sea necesario.
-            this.unidadMedidasTableAdapter1.Fill(this.proyectoRadDataSet16.UnidadMedidas);
-            BtnGuarda.KeyPress += BtnGuarda_KeyPress;
-
             // Asignar el DataTable directamente al BindingSource y al DataGridView
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = this.proyectoRadDataSet16.UnidadMedidas;
             DGVUMedidas.DataSource = bindingSource;
-
+            CBXFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             CargarDatosEstadoActivo();
             CBXFiltro.Items.Add("Activos");
             CBXFiltro.Items.Add("No Activos");
@@ -81,10 +79,9 @@ namespace Negocio
         private void ActualizarDataGridView()
         {
             // Obtener el BindingSource del DataGridView
-            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+            this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
 
-            // Actualizar los datos del BindingSource
-            bindingSource.ResetBindings(false);
+
         }
 
 
@@ -217,7 +214,7 @@ namespace Negocio
         private void CargarDatosEstadoActivo()
         {
             // Crear una nueva vista de datos filtrada por Estado = true
-            DataView view = new DataView(this.proyectoRadDataSet16.UnidadMedidas);
+            DataView view = new DataView(this.proyectoRadDataSet18.UnidadMedidas);
             view.RowFilter = "Estado = true";
             DGVUMedidas.DataSource = view;
         }
@@ -225,10 +222,11 @@ namespace Negocio
         private void CargarDatosEstadoNoActivo()
         {
             // Crear una nueva vista de datos filtrada por Estado = false
-            DataView view = new DataView(this.proyectoRadDataSet16.UnidadMedidas);
+            DataView view = new DataView(this.proyectoRadDataSet18.UnidadMedidas);
             view.RowFilter = "Estado = false";
             DGVUMedidas.DataSource = view;
         }
+
 
         private void CBXFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,19 +234,16 @@ namespace Negocio
             string filtro = CBXFiltro.SelectedItem.ToString();
 
             // Obtener el BindingSource del DataGridView
-            BindingSource bindingSource = (BindingSource)DGVUMedidas.DataSource;
+            this.unidadMedidasTableAdapter2.Fill(this.proyectoRadDataSet18.UnidadMedidas);
 
-            // Eliminar cualquier filtro existente
-            bindingSource.RemoveFilter();
-
-            // Aplicar el nuevo filtro
+            // Actualizar el DataGridView según el filtro seleccionado
             if (filtro == "Activos")
             {
-                bindingSource.Filter = "Estado = true";
+                CargarDatosEstadoActivo();
             }
             else if (filtro == "No Activos")
             {
-                bindingSource.Filter = "Estado = false";
+                CargarDatosEstadoNoActivo();
             }
         }
 

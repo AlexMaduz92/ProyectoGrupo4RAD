@@ -40,12 +40,6 @@
             this.TxtDescrip = new System.Windows.Forms.TextBox();
             this.CBEstados = new System.Windows.Forms.CheckBox();
             this.DTFcreaciones = new System.Windows.Forms.DateTimePicker();
-            this.DGVUMedidas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet16 = new Presentacion.ProyectoRadDataSet16();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -60,13 +54,24 @@
             this.unidadMedidasTableAdapter1 = new Presentacion.ProyectoRadDataSet16TableAdapters.UnidadMedidasTableAdapter();
             this.label = new System.Windows.Forms.Label();
             this.CBXFiltro = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).BeginInit();
+            this.DGVUMedidas = new System.Windows.Forms.DataGridView();
+            this.proyectoRadDataSet18 = new Presentacion.ProyectoRadDataSet18();
+            this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.unidadMedidasTableAdapter2 = new Presentacion.ProyectoRadDataSet18TableAdapters.UnidadMedidasTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -123,7 +128,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(544, 53);
+            this.label12.Location = new System.Drawing.Point(457, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(196, 25);
             this.label12.TabIndex = 5;
@@ -134,21 +139,21 @@
             this.TXTIDS.Enabled = false;
             this.TXTIDS.Location = new System.Drawing.Point(185, 42);
             this.TXTIDS.Name = "TXTIDS";
-            this.TXTIDS.Size = new System.Drawing.Size(309, 20);
+            this.TXTIDS.Size = new System.Drawing.Size(216, 20);
             this.TXTIDS.TabIndex = 6;
             // 
             // Txtcodig
             // 
             this.Txtcodig.Location = new System.Drawing.Point(185, 87);
             this.Txtcodig.Name = "Txtcodig";
-            this.Txtcodig.Size = new System.Drawing.Size(309, 20);
+            this.Txtcodig.Size = new System.Drawing.Size(216, 20);
             this.Txtcodig.TabIndex = 7;
             // 
             // TxtDescrip
             // 
             this.TxtDescrip.Location = new System.Drawing.Point(185, 137);
             this.TxtDescrip.Name = "TxtDescrip";
-            this.TxtDescrip.Size = new System.Drawing.Size(309, 20);
+            this.TxtDescrip.Size = new System.Drawing.Size(216, 20);
             this.TxtDescrip.TabIndex = 8;
             // 
             // CBEstados
@@ -164,75 +169,10 @@
             // 
             // DTFcreaciones
             // 
-            this.DTFcreaciones.Location = new System.Drawing.Point(549, 81);
+            this.DTFcreaciones.Location = new System.Drawing.Point(462, 67);
             this.DTFcreaciones.Name = "DTFcreaciones";
             this.DTFcreaciones.Size = new System.Drawing.Size(346, 20);
             this.DTFcreaciones.TabIndex = 10;
-            // 
-            // DGVUMedidas
-            // 
-            this.DGVUMedidas.AllowUserToDeleteRows = false;
-            this.DGVUMedidas.AutoGenerateColumns = false;
-            this.DGVUMedidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVUMedidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn4});
-            this.DGVUMedidas.DataSource = this.bindingSource2;
-            this.DGVUMedidas.Location = new System.Drawing.Point(16, 274);
-            this.DGVUMedidas.Name = "DGVUMedidas";
-            this.DGVUMedidas.ReadOnly = true;
-            this.DGVUMedidas.RowHeadersWidth = 62;
-            this.DGVUMedidas.RowTemplate.Height = 28;
-            this.DGVUMedidas.Size = new System.Drawing.Size(864, 150);
-            this.DGVUMedidas.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "UnidadMedidaId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "UnidadMedidaId";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Codigo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Codigo";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Estado";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Estado";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaCreacion";
-            this.dataGridViewTextBoxColumn4.HeaderText = "FechaCreacion";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // bindingSource2
             // 
@@ -270,7 +210,7 @@
             // 
             // BtnGuarda
             // 
-            this.BtnGuarda.Location = new System.Drawing.Point(534, 151);
+            this.BtnGuarda.Location = new System.Drawing.Point(462, 203);
             this.BtnGuarda.Name = "BtnGuarda";
             this.BtnGuarda.Size = new System.Drawing.Size(112, 50);
             this.BtnGuarda.TabIndex = 20;
@@ -280,7 +220,7 @@
             // 
             // BtnModifica
             // 
-            this.BtnModifica.Location = new System.Drawing.Point(652, 151);
+            this.BtnModifica.Location = new System.Drawing.Point(580, 203);
             this.BtnModifica.Name = "BtnModifica";
             this.BtnModifica.Size = new System.Drawing.Size(112, 51);
             this.BtnModifica.TabIndex = 21;
@@ -290,7 +230,7 @@
             // 
             // BtnElimina
             // 
-            this.BtnElimina.Location = new System.Drawing.Point(770, 152);
+            this.BtnElimina.Location = new System.Drawing.Point(698, 204);
             this.BtnElimina.Name = "BtnElimina";
             this.BtnElimina.Size = new System.Drawing.Size(112, 50);
             this.BtnElimina.TabIndex = 22;
@@ -302,7 +242,7 @@
             // 
             this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(898, 1);
+            this.BtnCerrar.Location = new System.Drawing.Point(802, 2);
             this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
@@ -333,20 +273,81 @@
             this.CBXFiltro.Location = new System.Drawing.Point(185, 232);
             this.CBXFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.CBXFiltro.Name = "CBXFiltro";
-            this.CBXFiltro.Size = new System.Drawing.Size(132, 21);
+            this.CBXFiltro.Size = new System.Drawing.Size(216, 21);
             this.CBXFiltro.TabIndex = 71;
             // 
-            // PUnidadMedida
+            // DGVUMedidas
+            // 
+            this.DGVUMedidas.AutoGenerateColumns = false;
+            this.DGVUMedidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVUMedidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn4});
+            this.DGVUMedidas.DataSource = this.bindingSource3;
+            this.DGVUMedidas.Location = new System.Drawing.Point(20, 273);
+            this.DGVUMedidas.Name = "DGVUMedidas";
+            this.DGVUMedidas.Size = new System.Drawing.Size(796, 150);
+            this.DGVUMedidas.TabIndex = 73;
+            // 
+            // proyectoRadDataSet18
+            // 
+            this.proyectoRadDataSet18.DataSetName = "ProyectoRadDataSet18";
+            this.proyectoRadDataSet18.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingSource3
+            // 
+            this.bindingSource3.DataMember = "UnidadMedidas";
+            this.bindingSource3.DataSource = this.proyectoRadDataSet18;
+            // 
+            // unidadMedidasTableAdapter2
+            // 
+            this.unidadMedidasTableAdapter2.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "UnidadMedidaId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "UnidadMedidaId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Codigo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Estado";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Estado";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaCreacion";
+            this.dataGridViewTextBoxColumn4.HeaderText = "FechaCreacion";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // PUnidadMedidA
             // 
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(924, 464);
+            this.ClientSize = new System.Drawing.Size(828, 464);
+            this.Controls.Add(this.DGVUMedidas);
             this.Controls.Add(this.label);
             this.Controls.Add(this.CBXFiltro);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnElimina);
             this.Controls.Add(this.BtnModifica);
             this.Controls.Add(this.BtnGuarda);
-            this.Controls.Add(this.DGVUMedidas);
             this.Controls.Add(this.DTFcreaciones);
             this.Controls.Add(this.CBEstados);
             this.Controls.Add(this.TxtDescrip);
@@ -359,15 +360,18 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PUnidadMedida";
+            this.Name = "PUnidadMedidA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).EndInit();
+            this.Load += new System.EventHandler(this.PUnidadMedida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVUMedidas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,17 +411,11 @@
         private System.Windows.Forms.TextBox TxtDescrip;
         private System.Windows.Forms.CheckBox CBEstados;
         private System.Windows.Forms.DateTimePicker DTFcreaciones;
-        private System.Windows.Forms.DataGridView DGVUMedidas;
         private Presentacion.ProyectoRadDataSet2 proyectoRadDataSet2;
         private System.Windows.Forms.BindingSource proyectoRadDataSet2BindingSource;
         private Presentacion.ProyectoRadDataSet3 proyectoRadDataSet3;
         private System.Windows.Forms.BindingSource bindingSource1;
         private Presentacion.ProyectoRadDataSet3TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button BtnGuarda;
         private System.Windows.Forms.Button BtnModifica;
         private System.Windows.Forms.Button BtnElimina;
@@ -427,5 +425,14 @@
         private Presentacion.ProyectoRadDataSet16TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter1;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.ComboBox CBXFiltro;
+        private System.Windows.Forms.DataGridView DGVUMedidas;
+        private Presentacion.ProyectoRadDataSet18 proyectoRadDataSet18;
+        private System.Windows.Forms.BindingSource bindingSource3;
+        private Presentacion.ProyectoRadDataSet18TableAdapters.UnidadMedidasTableAdapter unidadMedidasTableAdapter2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
