@@ -167,6 +167,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet15.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoRadDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoRadDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet17.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoRadDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,11 +217,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet9.xsd</DependentUpon>
     </Compile>
-    <Compile Include="PUnidadMedida.cs">
+    <Compile Include="PUMediDas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PUnidadMedida.Designer.cs">
-      <DependentUpon>PUnidadMedida.cs</DependentUpon>
+    <Compile Include="PUMediDas.Designer.cs">
+      <DependentUpon>PUMediDas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PUnidadMedidA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PUnidadMedidA.Designer.cs">
+      <DependentUpon>PUnidadMedidA.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +324,28 @@
     </None>
     <None Include="ProyectoRadDataSet15.xss">
       <DependentUpon>ProyectoRadDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet16.xsc">
+      <DependentUpon>ProyectoRadDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet16.xss">
+      <DependentUpon>ProyectoRadDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet17.xsc">
+      <DependentUpon>ProyectoRadDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet17.xss">
+      <DependentUpon>ProyectoRadDataSet17.xsd</DependentUpon>
     </None>
     <None Include="ProyectoRadDataSet2.xsc">
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
@@ -433,8 +471,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PUnidadMedida.resx">
-      <DependentUpon>PUnidadMedida.cs</DependentUpon>
+    <EmbeddedResource Include="PUMediDas.resx">
+      <DependentUpon>PUMediDas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PUnidadMedidA.resx">
+      <DependentUpon>PUnidadMedidA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

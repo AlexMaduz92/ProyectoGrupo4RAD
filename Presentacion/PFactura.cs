@@ -24,7 +24,8 @@ namespace Presentacion
                  BtnGuardar.Click += BtnGuardar_Click;
                  BtnModificar.Click += BtnModificar_Click;
                  BtnEliminar.Click += BtnEliminar_Click;
-            }
+                 BtnCerrar.Click += BtnCerrar_Click;
+        }
 
         private void PFactura_Load(object sender, EventArgs e)
         {
@@ -136,11 +137,14 @@ namespace Presentacion
                 limpiar();
             }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
 
-          
 
-            private void ActualizarDataGridView()
+        private void ActualizarDataGridView()
             {
                 // Actualizar el DataGridView
                 this.facturasTableAdapter.Fill(this.proyectoRadDataSet6.Facturas);

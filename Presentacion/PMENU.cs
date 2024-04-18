@@ -43,7 +43,7 @@ namespace Presentacion
 
         private void unidadesDeMedidasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PUnidadMedida umedidaForm = new PUnidadMedida();
+            PUnidadMedidA umedidaForm = new PUnidadMedidA();
             umedidaForm.ShowDialog();
         }
 
