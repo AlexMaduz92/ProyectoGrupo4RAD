@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace Presentacion
 {
@@ -86,6 +87,48 @@ namespace Presentacion
         {
             this.Close();
         }
+
+        private void BtnGuarda_Click(object sender, EventArgs e)
+        {
+            string codigo = Txtcodig.Text;
+            string descripcion = TxtDescrip.Text;
+            bool estado = CBEstados.Checked;
+            DateTime fechaCreacion = DTFcreaciones.Value;
+
+            DialogResult result = MessageBox.Show("¿Desea guardar la medida?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (string.IsNullOrWhiteSpace(codigo) || string.IsNullOrWhiteSpace(descripcion))
+                {
+                    MessageBox.Show("Debe completar todos los campos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                UnidadMedida medida = new UnidadMedida
+                {
+                    Codigo = codigo,
+                    Descripcion = descripcion,
+                    Estado = estado,
+                    FechaCreacion = fechaCreacion
+                };
+
+                try
+                {
+                    NUMedidas negocioMedidas = new NUMedidas();
+                    negocioMedidas.GuardarMedida(medida);
+                    MessageBox.Show("Medida guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar la medida: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+             // Limpiar los campos después de guardar
+        }
+
 
     }
 }

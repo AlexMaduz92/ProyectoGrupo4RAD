@@ -18,7 +18,7 @@ namespace ProyectoGrupo4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PUMediDas());
+            Application.Run(new PUnidadMedidA());
         }
     }
 }

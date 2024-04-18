@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    internal class NUMedidas
+    public class NUMedidas
     {
 
         private readonly Exaconection _dbContext;
