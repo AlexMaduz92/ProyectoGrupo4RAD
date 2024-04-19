@@ -9,13 +9,20 @@ using Datos.Modelo;
 
 namespace Negocio
 {
-    public class NPedidoDetalle
+    public class NPedidoDetalle : IDisposable
     {
         private readonly Exaconection _dbContext;
+
 
         public NPedidoDetalle()
         {
             _dbContext = new Exaconection();
+
+        }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
         }
 
         public void GuardarPedidoDetalle(PedidoDetalle pedidoDetalle)
@@ -73,6 +80,7 @@ namespace Negocio
             }
             return string.Empty;
         }
+
         public string ObtenerPedidoDescuentoPorId(int clienteId)
         {
             var pedido = _dbContext.Pedidos.FirstOrDefault(c => c.PedidoId == clienteId);
@@ -89,8 +97,9 @@ namespace Negocio
             {
                 return $"{pedido.Total}";
             }
-            return string.Empty;
+            return "No se encontró el pedido.";
         }
+
 
         public string ObtenerCodigoProductoPorId(int clienteId)
         {
@@ -119,5 +128,7 @@ namespace Negocio
                 return context.PedidoDetalles.FirstOrDefault(pd => pd.PedidoDetalleId == pedidoDetalleId);
             }
         }
+
+
     }
 }

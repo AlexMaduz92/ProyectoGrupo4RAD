@@ -192,6 +192,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoRadDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoRadDataSet20.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoRadDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -389,6 +394,17 @@
     </None>
     <None Include="ProyectoRadDataSet2.xss">
       <DependentUpon>ProyectoRadDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet20.xsc">
+      <DependentUpon>ProyectoRadDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoRadDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoRadDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoRadDataSet20.xss">
+      <DependentUpon>ProyectoRadDataSet20.xsd</DependentUpon>
     </None>
     <None Include="ProyectoRadDataSet3.xsc">
       <DependentUpon>ProyectoRadDataSet3.xsd</DependentUpon>
