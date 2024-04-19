@@ -71,11 +71,7 @@ namespace Presentacion
             productosform.ShowDialog();
         }
 
-        private void detalleDeFacturaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PDestalleFactura detallefacturaform = new PDestalleFactura();
-            detallefacturaform.ShowDialog();
-        }
+
 
         private void detalleDePedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {

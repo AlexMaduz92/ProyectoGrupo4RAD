@@ -46,13 +46,6 @@
             this.DTFCreacion = new System.Windows.Forms.DateTimePicker();
             this.CBXGDescuento = new System.Windows.Forms.ComboBox();
             this.CBXCPago = new System.Windows.Forms.ComboBox();
-            this.DGVClientes = new System.Windows.Forms.DataGridView();
-            this.clienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoRadDataSet14 = new Presentacion.ProyectoRadDataSet14();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -68,12 +61,26 @@
             this.LbIdDescuento = new System.Windows.Forms.Label();
             this.LbIdPago = new System.Windows.Forms.Label();
             this.clientesTableAdapter1 = new Presentacion.ProyectoRadDataSet14TableAdapters.ClientesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
+            this.DGVClientes = new System.Windows.Forms.DataGridView();
+            this.proyectoRadDataSet21 = new Presentacion.ProyectoRadDataSet21();
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter2 = new Presentacion.ProyectoRadDataSet21TableAdapters.ClientesTableAdapter();
+            this.clienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fechaCreacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicionPagoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoDescuentoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -246,82 +253,6 @@
             this.CBXCPago.Size = new System.Drawing.Size(199, 21);
             this.CBXCPago.TabIndex = 18;
             // 
-            // DGVClientes
-            // 
-            this.DGVClientes.AllowUserToDeleteRows = false;
-            this.DGVClientes.AutoGenerateColumns = false;
-            this.DGVClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clienteIdDataGridViewTextBoxColumn,
-            this.nombresDataGridViewTextBoxColumn,
-            this.apellidosDataGridViewTextBoxColumn,
-            this.estadoDataGridViewCheckBoxColumn,
-            this.fechaCreacionDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn});
-            this.DGVClientes.DataSource = this.clientesBindingSource1;
-            this.DGVClientes.Location = new System.Drawing.Point(11, 228);
-            this.DGVClientes.Margin = new System.Windows.Forms.Padding(2);
-            this.DGVClientes.Name = "DGVClientes";
-            this.DGVClientes.ReadOnly = true;
-            this.DGVClientes.RowHeadersWidth = 62;
-            this.DGVClientes.RowTemplate.Height = 28;
-            this.DGVClientes.Size = new System.Drawing.Size(855, 98);
-            this.DGVClientes.TabIndex = 19;
-            // 
-            // clienteIdDataGridViewTextBoxColumn
-            // 
-            this.clienteIdDataGridViewTextBoxColumn.DataPropertyName = "ClienteId";
-            this.clienteIdDataGridViewTextBoxColumn.HeaderText = "ClienteId";
-            this.clienteIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.clienteIdDataGridViewTextBoxColumn.Name = "clienteIdDataGridViewTextBoxColumn";
-            this.clienteIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clienteIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nombresDataGridViewTextBoxColumn
-            // 
-            this.nombresDataGridViewTextBoxColumn.DataPropertyName = "Nombres";
-            this.nombresDataGridViewTextBoxColumn.HeaderText = "Nombres";
-            this.nombresDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nombresDataGridViewTextBoxColumn.Name = "nombresDataGridViewTextBoxColumn";
-            this.nombresDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombresDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // apellidosDataGridViewTextBoxColumn
-            // 
-            this.apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
-            this.apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            this.apellidosDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
-            this.apellidosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.apellidosDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // estadoDataGridViewCheckBoxColumn
-            // 
-            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
-            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // fechaCreacionDataGridViewTextBoxColumn
-            // 
-            this.fechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion";
-            this.fechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion";
-            this.fechaCreacionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fechaCreacionDataGridViewTextBoxColumn.Name = "fechaCreacionDataGridViewTextBoxColumn";
-            this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaCreacionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoDataGridViewTextBoxColumn.Width = 150;
-            // 
             // clientesBindingSource1
             // 
             this.clientesBindingSource1.DataMember = "Clientes";
@@ -384,7 +315,7 @@
             // 
             this.BtnCerrar.BackColor = System.Drawing.Color.DarkCyan;
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(839, 6);
+            this.BtnCerrar.Location = new System.Drawing.Point(849, -3);
             this.BtnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(27, 21);
@@ -425,6 +356,7 @@
             this.LbIdDescuento.Size = new System.Drawing.Size(30, 25);
             this.LbIdDescuento.TabIndex = 72;
             this.LbIdDescuento.Text = "...";
+            this.LbIdDescuento.Visible = false;
             // 
             // LbIdPago
             // 
@@ -437,17 +369,110 @@
             this.LbIdPago.Size = new System.Drawing.Size(30, 25);
             this.LbIdPago.TabIndex = 73;
             this.LbIdPago.Text = "...";
+            this.LbIdPago.Visible = false;
             // 
             // clientesTableAdapter1
             // 
             this.clientesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // DGVClientes
+            // 
+            this.DGVClientes.AllowUserToDeleteRows = false;
+            this.DGVClientes.AutoGenerateColumns = false;
+            this.DGVClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clienteIdDataGridViewTextBoxColumn,
+            this.nombresDataGridViewTextBoxColumn,
+            this.apellidosDataGridViewTextBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn,
+            this.fechaCreacionDataGridViewTextBoxColumn,
+            this.condicionPagoIdDataGridViewTextBoxColumn,
+            this.grupoDescuentoIdDataGridViewTextBoxColumn,
+            this.codigoDataGridViewTextBoxColumn});
+            this.DGVClientes.DataSource = this.clientesBindingSource2;
+            this.DGVClientes.Location = new System.Drawing.Point(11, 252);
+            this.DGVClientes.Name = "DGVClientes";
+            this.DGVClientes.ReadOnly = true;
+            this.DGVClientes.Size = new System.Drawing.Size(855, 166);
+            this.DGVClientes.TabIndex = 74;
+            // 
+            // proyectoRadDataSet21
+            // 
+            this.proyectoRadDataSet21.DataSetName = "ProyectoRadDataSet21";
+            this.proyectoRadDataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientesBindingSource2
+            // 
+            this.clientesBindingSource2.DataMember = "Clientes";
+            this.clientesBindingSource2.DataSource = this.proyectoRadDataSet21;
+            // 
+            // clientesTableAdapter2
+            // 
+            this.clientesTableAdapter2.ClearBeforeFill = true;
+            // 
+            // clienteIdDataGridViewTextBoxColumn
+            // 
+            this.clienteIdDataGridViewTextBoxColumn.DataPropertyName = "ClienteId";
+            this.clienteIdDataGridViewTextBoxColumn.HeaderText = "ClienteId";
+            this.clienteIdDataGridViewTextBoxColumn.Name = "clienteIdDataGridViewTextBoxColumn";
+            this.clienteIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombresDataGridViewTextBoxColumn
+            // 
+            this.nombresDataGridViewTextBoxColumn.DataPropertyName = "Nombres";
+            this.nombresDataGridViewTextBoxColumn.HeaderText = "Nombres";
+            this.nombresDataGridViewTextBoxColumn.Name = "nombresDataGridViewTextBoxColumn";
+            this.nombresDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apellidosDataGridViewTextBoxColumn
+            // 
+            this.apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
+            this.apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            this.apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
+            this.apellidosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewCheckBoxColumn
+            // 
+            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // fechaCreacionDataGridViewTextBoxColumn
+            // 
+            this.fechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion";
+            this.fechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion";
+            this.fechaCreacionDataGridViewTextBoxColumn.Name = "fechaCreacionDataGridViewTextBoxColumn";
+            this.fechaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // condicionPagoIdDataGridViewTextBoxColumn
+            // 
+            this.condicionPagoIdDataGridViewTextBoxColumn.DataPropertyName = "CondicionPagoId";
+            this.condicionPagoIdDataGridViewTextBoxColumn.HeaderText = "CondicionPagoId";
+            this.condicionPagoIdDataGridViewTextBoxColumn.Name = "condicionPagoIdDataGridViewTextBoxColumn";
+            this.condicionPagoIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // grupoDescuentoIdDataGridViewTextBoxColumn
+            // 
+            this.grupoDescuentoIdDataGridViewTextBoxColumn.DataPropertyName = "GrupoDescuentoId";
+            this.grupoDescuentoIdDataGridViewTextBoxColumn.HeaderText = "GrupoDescuentoId";
+            this.grupoDescuentoIdDataGridViewTextBoxColumn.Name = "grupoDescuentoIdDataGridViewTextBoxColumn";
+            this.grupoDescuentoIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // PClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(871, 350);
+            this.ClientSize = new System.Drawing.Size(874, 430);
+            this.Controls.Add(this.DGVClientes);
             this.Controls.Add(this.LbIdPago);
             this.Controls.Add(this.LbIdDescuento);
             this.Controls.Add(this.label);
@@ -456,7 +481,6 @@
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.DGVClientes);
             this.Controls.Add(this.CBXCPago);
             this.Controls.Add(this.CBXGDescuento);
             this.Controls.Add(this.DTFCreacion);
@@ -480,12 +504,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PClientes";
             this.Load += new System.EventHandler(this.PClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoRadDataSet21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,16 +536,9 @@
         private System.Windows.Forms.DateTimePicker DTFCreacion;
         private System.Windows.Forms.ComboBox CBXGDescuento;
         private System.Windows.Forms.ComboBox CBXCPago;
-        private System.Windows.Forms.DataGridView DGVClientes;
         private ProyectoRadDataSet2 proyectoRadDataSet2;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private ProyectoRadDataSet2TableAdapters.ClientesTableAdapter clientesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombresDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnGuardar;
@@ -532,5 +551,17 @@
         private ProyectoRadDataSet14 proyectoRadDataSet14;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private ProyectoRadDataSet14TableAdapters.ClientesTableAdapter clientesTableAdapter1;
+        private System.Windows.Forms.DataGridView DGVClientes;
+        private ProyectoRadDataSet21 proyectoRadDataSet21;
+        private System.Windows.Forms.BindingSource clientesBindingSource2;
+        private ProyectoRadDataSet21TableAdapters.ClientesTableAdapter clientesTableAdapter2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombresDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn condicionPagoIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grupoDescuentoIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
     }
 }

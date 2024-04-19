@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Datos.Base_de_Dato;
+using Datos.Core;
 using Datos.Modelo;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,13 @@ namespace Negocio
             _dbContext = new Exaconection();
             _dclientes = new Dclientes();
         }
-
+        public List<CondiccionPago> ObtenerCondiccionesPago()
+        {
+            using (var unitOfWork = new UnitOfWork())
+            {
+                return unitOfWork.Repository<CondiccionPago>().ObtenerTodos().ToList();
+            }
+        }
         public int Guardar(Cliente cliente)
         {
             if (cliente.ClienteId == 0)
