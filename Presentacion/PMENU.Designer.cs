@@ -140,7 +140,7 @@
             this.detalleDeFacturaToolStripMenuItem.Name = "detalleDeFacturaToolStripMenuItem";
             this.detalleDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.detalleDeFacturaToolStripMenuItem.Text = "Detalle de factura";
-            this.detalleDeFacturaToolStripMenuItem.Click += new System.EventHandler(this.detalleDeFacturaToolStripMenuItem_Click);
+            
             // 
             // productosToolStripMenuItem
             // 
